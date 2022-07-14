@@ -5,7 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: rgb(204, 204, 204) url(http://www.joeweaver.me/codepenassets/freecodecamp/challenges/build-a-javascript-calculator/desk.jpg) no-repeat center center;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#848484', GradientType=1);
+  height: 100vh;
 }
+ 
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
