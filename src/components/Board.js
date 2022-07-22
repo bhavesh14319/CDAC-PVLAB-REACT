@@ -127,8 +127,8 @@ useEffect(()=>{
 },[output])
 
 
-  let splitText = (text) =>{
-    let t = text?.split(' ');
+  let splitText = (text, splitParameter) =>{
+    let t = text?.split(splitParameter);
    return t;
 }
 
@@ -136,7 +136,7 @@ useEffect(()=>{
     console.log(current);
     if(textBox){
     // display
-    let spliitedText = splitText(instruction);
+    let spliitedText = splitText(instruction,' ');
     // console.log(instruction)
     let i=0;
     if(textBox){
@@ -175,16 +175,22 @@ useEffect(()=>{
   function showCalculation(calculation){
 
     let calHtml = 
-   `
-      <h3 className="calcHeading">${calculation.heading}</h3> \n
-      <p className="favText"> ${calculation.favourable}</p> \n
-      <p className="totalText">${calculation.Total}</p> \n
-      <div className="calc"> &there4; <span>P(HEAD) = </span> <div className="fraction"> <p className="row1"> ${calculation.noOfFavourable} </p> <p className="row1"> ${calculation.noOfTotal} </p> </div>  
-    
+   `  <div class='calculationContainer'>
+      <h3 class="calcHeading">${calculation.heading}</h3> \n
+      <p class="favText"> ${calculation.favourable} => Number of favourable outcomes = ${calculation.noOfFavourable} </p> \n
+      <p class="totalText">${calculation.Total} => Total Possible outcomes = ${calculation.noOfTotal} </p> \n
+      <div class="calc"> &there4; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> ${calculation.noOfFavourable} </p> <p class="row2"> ${calculation.noOfTotal} </p> </div> &  
+      <span class='calcLHS'>P(TAIL) = </span>  <div class="fraction"> <p class="row1"> ${calculation.noOfFavourable} </p> <p class="row2"> ${calculation.noOfTotal} </p> </div> 
+      </div>
     `
+
+    let spliitedText = splitText(calHtml,'\n');
+    console.log(spliitedText)
     textBox.innerHTML += calHtml;
 
   }
+
+
 
   // function onNext(){
   //   if(current<inst.length){
@@ -256,8 +262,6 @@ useEffect(()=>{
   //   }
   // },[current]);
 
-
-  
   function onNext(){
 
       // current<inst[length]

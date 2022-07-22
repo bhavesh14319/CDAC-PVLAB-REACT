@@ -108,6 +108,33 @@
 }
 
 /* calculation */
-.textBox .calcHeading{
-    font-size: 25px !important ;
+.calculationContainer{
+   width: 100%;
+   font-size: 20px;
+}
+.calcHeading{
+    font-size: 35px;
+    font-weight: bold;
+} 
+
+.calculationContainer p{
+    font-size: 20px;
+}
+
+.calc{
+    display: flex;
+    align-items: center;
+}
+
+.calcLHS{
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.fraction{
+    margin-right:20px;
+}
+
+.row1{
+    border-bottom: 3px solid;
 }

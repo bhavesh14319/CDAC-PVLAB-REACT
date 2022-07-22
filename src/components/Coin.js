@@ -14,51 +14,51 @@ const Coin = () => {
   let resetBtn;
 
   let inst = [
-    // {
-    //   id: 0,
-        //   type:'general',
-    //   value: "Hello welcome to lab \n let's start ❤ ",
-    // },
-    // {
-    //   id: 1,
-        //   type:'general',
-    //   value: " What do you think? a fair coin toss will give head or tail? 🤔 ",
-    // },
-    // {
-    //   id: 2,
-    //   type: "toss",
-    //   value: "Not sure? Don't worry let's have a toss😥",
-    // },
-    // {
-    //   id: 3,
-        //   type:'general',
-    //   value: `Oh it appeared <head/tail> but how ?😯 Was it predictable? Let's have another toss`,
-    // },
-    // {
-    //   id: 4,
-        //   type:'general',
-    //   value: `Oh it appeared<head/tail> but how ? Is it predictable? 🧐 Let's toss one last time 🙂`,
-    // },
-    // {
-    //   id: 5,
-        //   type:'general',
-    //   value: "Still not sure?😞 don't worry😇",
-    // },
-    // {
-    //   id: 6,
-        //   type:'general',
-    //   value: `Were your guesses correct ❓ \n Let me tell You, all The outcomes are unpredictable !`,
-    // },
-    // {
-    //   id: 7,
-        //   type:'general',
-    //   value: `Here comes the concept of probabilty. \n "The Probability of an event is the value that tells how likely the event is going to happen"`,
-    // },
-    // {
-    //   id: 8,
-    //   type:'general',
-    //   value: `Now questions is : \n How to calculate probability of an event ?`,
-    // },
+    {
+      id:0,
+      type:'general',
+      value: "Hello welcome to lab \n let's start ❤ ",
+    },
+    {
+      id: 1,
+      type:'general',
+      value: " What do you think? a fair coin toss will give head or tail? 🤔 ",
+    },
+    {
+      id: 2,
+      type: "toss",
+      value: "Not sure? Don't worry let's have a toss😥",
+    },
+    {
+      id: 3,
+      type:'general',
+      value: `Oh it appeared <head/tail> but how ?😯 Was it predictable? Let's have another toss`,
+    },
+    {
+      id: 4,
+      type:'general',
+      value: `Oh it appeared<head/tail> but how ? Is it predictable? 🧐 Let's toss one last time 🙂`,
+    },
+    {
+      id: 5,
+      type:'general',
+      value: "Still not sure?😞 don't worry😇",
+    },
+    {
+      id: 6,
+          type:'general',
+      value: `Were your guesses correct ❓ \n Let me tell You, all The outcomes are unpredictable !`,
+    },
+    {
+      id: 7,
+          type:'general',
+      value: `Here comes the concept of probabilty. \n "The Probability of an event is the value that tells how likely the event is going to happen"`,
+    },
+    {
+      id: 8,
+      type:'general',
+      value: `Now questions is : \n How to calculate probability of an event ?`,
+    },
     {
       id: 9,
       type:'general',
@@ -73,7 +73,7 @@ const Coin = () => {
       id:11,
       type:"calculation",
       value: {
-        heading : "Probability of head and tail in single toss",
+        heading : "Probability of head and tail in single toss :",
         favourable : "favourable outcome in one toss : Head or Tail",
         Total : "Total possible outcomes are two : Head and Tail",
         noOfFavourable : 1,
