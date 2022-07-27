@@ -1,0 +1,53 @@
+.popUpContainer{
+    position: absolute;
+    right: -35px;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    background: #e1e0ee;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow:  0px 15px 15px 15px rgba(0,0,0,0.5);
+    font-family: "Walter Turncoat", "cursive";
+    /* visibility:hidden; */
+    display: none;
+}
+
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputContainer label{
+    margin-bottom:5px ;
+}
+
+.inputContainer input{
+    padding: 5px;
+    width: 75%;
+    margin-bottom: 10px;
+}
+
+.closeButton{
+    display: inline;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 10px;
+}
+
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	20% { opacity: 0; }
+	60% { opacity: 1; }
+	100% { opacity: 1; }
+}
+
+.fadeInClass {
+	animation-name: fadeIn;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+}

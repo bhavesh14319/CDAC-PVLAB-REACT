@@ -26,7 +26,7 @@ const Coin = () => {
     },
     {
       id: 2,
-      type: "toss",
+      type: "general",
       value: "Not sure? Don't worry let's have a toss😥",
     },
     {
@@ -46,12 +46,12 @@ const Coin = () => {
     },
     {
       id: 6,
-          type:'general',
+      type:'general',
       value: `Were your guesses correct ❓ \n Let me tell You, all The outcomes are unpredictable !`,
     },
     {
       id: 7,
-          type:'general',
+      type:'general',
       value: `Here comes the concept of probabilty. \n "The Probability of an event is the value that tells how likely the event is going to happen"`,
     },
     {
@@ -82,20 +82,31 @@ const Coin = () => {
     }
   ];
 
+  function showPopUp(){
+    console.log("ii");
+   let cont= document.getElementById('popUpContainer');
+   console.log(cont)
+  cont.style.display="block";
+    let input = document.getElementById('coininput');
+    // updateInstructions();
+  }
+
   //
-  function updateInstructions(output, inst) {
-    inst?.map((item) => {
-      if (
-        item.value?.includes("<HEAD/TAIL>") ||
-        item.value?.includes("HEAD") ||
-        item.value?.includes("TAIL")
-      ) {
-        item.value = item.value?.replace(`<HEAD/TAIL>`, output);
-        item.value = item.value?.replace("HEAD", output);
-        item.value = item.value?.replace("TAIL", output);
-      }
-    });
-    console.log(inst);
+  function updateInstructions(output) {
+    console.log(output);
+    // console.log(input);
+    // inst?.map((item) => {
+    //   if (
+    //     item?.value.includes("<head/tail>") ||
+    //     item?.value.includes("head") ||
+    //     item?.value.includes("tail")
+    //   ) {
+    //     item.value = item.value?.replace(`<head/tail>`, output);
+    //     item.value = item.value?.replace("head", output);
+    //     item.value = item.value?.replace("tail", output);
+    //   }
+    // });
+    // console.log(output);
   }
 
   function getElemets() {
@@ -114,18 +125,21 @@ const Coin = () => {
         setTimeout(function () {
           coin.style.animation = "spin-heads 3s forwards";
         }, 100);
-        updateInstructions("TAIL", inst);
+       
         tails++;
+        
       } else {
         setTimeout(function () {
           coin.style.animation = "spin-tails 3s forwards";
           output = "Head";
         }, 100);
-        updateInstructions("HEAD", inst);
+       
         heads++;
+       
+        
       }
       setTimeout(updateStats, 3000);
-      console.log(output);
+      // console.log(output);
       disableButton();
     }
   };
@@ -142,6 +156,7 @@ const Coin = () => {
   function updateStats() {
     document.querySelector("#heads-count").textContent = `Heads: ${heads}`;
     document.querySelector("#tails-count").textContent = `Tails: ${tails}`;
+    showPopUp();
   }
 
   function disableButton() {

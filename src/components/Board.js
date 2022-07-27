@@ -2,10 +2,11 @@ import React, { useEffect, useReducer, useState } from "react";
 import character from '../character/img.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import probFormula from '../components/images/probability-formula.jpg'
+import Popup from "./Popup";
 
 import '../css/Board.css'
 
-const Board = (props) => {
+const Board = ({updateInst} ) => {
 
   var current = 0;
   // let prevBtn = document.getElementById('prevBtn');
@@ -317,6 +318,9 @@ useEffect(()=>{
     setTextBox(document.getElementById('textBox'));
     setPrevBtn(document.getElementById('prevBtn'));
     setNextBtn(document.getElementById('nextBtn'));
+    if(updateInst){
+      updateInst.current = updateInstructions
+    }
   },[])
 
   
@@ -330,9 +334,9 @@ useEffect(()=>{
       <div className="boardContainer">
       <div className="MainContainer" id="MainContainer">
         {/* <!-- Upper instruction Box --> */}
-        <button className="startBtn" id="startBtn" onClick={onStart}>Start</button>
+        <button className="startBtn" id="startBtn" onClick={onStart} hidden>Start</button>
         <div className="instructionBox" id="instructionBox">
-         
+          <Popup></Popup>
           <div className="textBox" id="textBox">
           </div>
         </div>
