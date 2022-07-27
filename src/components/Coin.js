@@ -155,6 +155,7 @@ const Coin = () => {
 
   function updateStats() {
     document.querySelector("#heads-count").textContent = `Heads: ${heads}`;
+    
     document.querySelector("#tails-count").textContent = `Tails: ${tails}`;
     showPopUp();
   }
