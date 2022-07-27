@@ -6,7 +6,7 @@ import Popup from "./Popup";
 
 import '../css/Board.css'
 
-const Board = ({updateInst} ) => {
+const Board = (props ) => {
 
   var current = 0;
   // let prevBtn = document.getElementById('prevBtn');
@@ -318,9 +318,9 @@ useEffect(()=>{
     setTextBox(document.getElementById('textBox'));
     setPrevBtn(document.getElementById('prevBtn'));
     setNextBtn(document.getElementById('nextBtn'));
-    if(updateInst){
-      updateInst.current = updateInstructions
-    }
+    // if(updateInst){
+    //   updateInst.current = updateInstructions
+    // }
   },[])
 
   
