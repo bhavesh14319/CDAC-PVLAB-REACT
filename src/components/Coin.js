@@ -3,15 +3,20 @@ import "../css/Coin.css";
 import { useEffect } from "react";
 import Board from "./Board";
 import probFormula from '../components/images/probability-formula.jpg'
+import {returnUserInput} from '../components/Popup'
+
 
 const Coin = () => {
-  var output = "";
+  // var output = "";
 
-  let heads;
-  let tails;
+  const[heads,setheads]=useState(0);
+  const[tails,settails]=useState(0);
   let coin;
   let flipBtn;
   let resetBtn;
+  
+  
+  const[output,setOutput]=useState("");
 
   let inst = [
     {
@@ -32,12 +37,12 @@ const Coin = () => {
     {
       id: 3,
       type:'general',
-      value: `Oh it appeared <head/tail> but how ?😯 Was it predictable? Let's have another toss`,
+      value: `Oh it appeared ${output} but how ?😯 Was it predictable? Let's have another toss`,
     },
     {
       id: 4,
       type:'general',
-      value: `Oh it appeared<head/tail> but how ? Is it predictable? 🧐 Let's toss one last time 🙂`,
+      value: `Oh it appeared ${output} but how ? Is it predictable? 🧐 Let's toss one last time 🙂`,
     },
     {
       id: 5,
@@ -86,38 +91,19 @@ const Coin = () => {
     console.log("ii");
    let cont= document.getElementById('popUpContainer');
    console.log(cont)
-  cont.style.display="block";
-    let input = document.getElementById('coininput');
-    // updateInstructions();
+   cont.style.display="block";
   }
 
   //
-  function updateInstructions(output) {
-    console.log(output);
-    // console.log(input);
-    // inst?.map((item) => {
-    //   if (
-    //     item?.value.includes("<head/tail>") ||
-    //     item?.value.includes("head") ||
-    //     item?.value.includes("tail")
-    //   ) {
-    //     item.value = item.value?.replace(`<head/tail>`, output);
-    //     item.value = item.value?.replace("head", output);
-    //     item.value = item.value?.replace("tail", output);
-    //   }
-    // });
-    // console.log(output);
-  }
 
-  function getElemets() {
-    heads = 0;
-    tails = 0;
+
+
+  const flipCoin = () => {
     coin = document.querySelector(".coin");
     flipBtn = document.querySelector("#flip-button");
     resetBtn = document.querySelector("#reset-button");
-  }
-
-  const flipCoin = () => {
+    console.log('hiii');
+    console.log(coin);
     if (coin) {
       let i = Math.floor(Math.random() * 2);
       coin.style.animation = "none";
@@ -125,20 +111,18 @@ const Coin = () => {
         setTimeout(function () {
           coin.style.animation = "spin-heads 3s forwards";
         }, 100);
-       
-        tails++;
+        
+        // setheads(heads+1);
         
       } else {
         setTimeout(function () {
           coin.style.animation = "spin-tails 3s forwards";
-          output = "Head";
         }, 100);
        
-        heads++;
-       
-        
+        // settails(tails+1);
+
       }
-      setTimeout(updateStats, 3000);
+      setTimeout(showPopUp, 3000);
       // console.log(output);
       disableButton();
     }
@@ -149,16 +133,15 @@ const Coin = () => {
       coin.style.animation = "none";
       heads = 0;
       tails = 0;
-      updateStats();
+      // updateStats();
     }
   };
 
-  function updateStats() {
-    document.querySelector("#heads-count").textContent = `Heads: ${heads}`;
+  // function updateStats() {
+  //   document.querySelector("#heads-count").textContent = `Heads: ${heads}`;
+  //   document.querySelector("#tails-count").textContent = `Tails: ${tails}`;
     
-    document.querySelector("#tails-count").textContent = `Tails: ${tails}`;
-    showPopUp();
-  }
+  // }
 
   function disableButton() {
     flipBtn.disabled = true;
@@ -168,12 +151,17 @@ const Coin = () => {
   }
 
   useEffect(() => {
-    getElemets();
-  }, []);
+       document.querySelector("#heads-count").textContent = `Heads: ${heads}`;
+ 
+  }, [heads]);
+  
+  useEffect(()=>{
+       document.querySelector("#tails-count").textContent = `Tails: ${tails}`;
+  },[tails])
 
   return (
     <div>
-      <Board inst={inst} output={output}></Board>
+      <Board inst={inst} setOutput={setOutput} setheads={setheads} settails={settails} heads={heads} tails={tails}></Board>
       <div className="container">
         <div className="coin" id="coin">
           <div className="heads">

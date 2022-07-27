@@ -1,20 +1,28 @@
 import React from "react";
 import "../css/Popup.css";
 
-const Popup = () => {
-  const childFunc = React.useRef(null)
+const Popup = (props) => {
+  // const childFunc = React.useRef(null)
   function closePopUp(){
     let cont = document.querySelector('.popUpContainer');
     cont.style.display="none";
   }
   
-function handleOutput(e){
-  e.preventDefault();
-  const output = document.getElementById("coininput").value;
-  childFunc?.current(output);
-}
-  
 
+  function handleOutput(e){
+    e.preventDefault();
+    const output = document.getElementById("coininput").value;
+    console.log(output);
+    props?.setOutput(output);
+    if(output==='head'){
+      props?.setheads(props?.heads+1);
+    }else{
+      props?.settails(props?.tails+1);
+    }
+    let cont = document.querySelector('.popUpContainer');
+    cont.style.display="none";
+  }
+  
   return (
     <div>
       <div className="popUpContainer fadeInClass " id="popUpContainer">
@@ -38,3 +46,4 @@ function handleOutput(e){
 };
 
 export default Popup;
+

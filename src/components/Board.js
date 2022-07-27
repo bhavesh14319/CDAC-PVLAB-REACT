@@ -8,7 +8,7 @@ import '../css/Board.css'
 
 const Board = (props ) => {
 
-  var current = 0;
+  const[current,setCurrent]=useState(0);
   // let prevBtn = document.getElementById('prevBtn');
   // let nextBtn = document.getElementById('nextBtn');
   const [textBox,setTextBox] = useState(null);
@@ -120,12 +120,7 @@ const Board = (props ) => {
 // }
 
  let inst = props?.inst;
-let output=props?.output;
-// console.log(output);
 
-useEffect(()=>{
-  console.log(output);
-},[output])
 
 
   let splitText = (text, splitParameter) =>{
@@ -134,7 +129,7 @@ useEffect(()=>{
 }
 
   function showInstruction(instruction){
-    console.log(current);
+   
     if(textBox){
     // display
     let spliitedText = splitText(instruction,' ');
@@ -174,7 +169,7 @@ useEffect(()=>{
 
 
   function showCalculation(calculation){
-
+    console.log("calculation")
     let calHtml = 
    `  <div class='calculationContainer'>
       <h3 class="calcHeading">${calculation.heading}</h3> \n
@@ -192,85 +187,23 @@ useEffect(()=>{
   }
 
 
-
-  // function onNext(){
-  //   if(current<inst.length){
-      
-  //     if(current===0){
-  //       if(textBox?.textContent){
-  //         textBox.textContent=""
-  //       }
-  //       showInstruction(inst[current])
-  //       setCurrent(current+1);
-  //     }else{
-  //       setCurrent(current+1);
-  //        // console.log(current);
-  //        if(textBox?.textContent)
-  //         textBox.textContent=""
-  //     // speakInstruction(inst[current].value)
-  //         showInstruction(inst[current]);
-  //     }
-
-  //   }
-
-  //   // if(current >= inst.length){
-  //   //   setCurrent(inst.length)
-  //   //   console.log(current)
-  //   // }
-  // }
-
-  // function onPrev(){
-  //   console.log('print')
-  //   if(current>0){
-  //     setCurrent(current-1);
-  //     // console.log(current);
-  //     if(textBox?.textContent)
-  //     textBox.textContent=""
-  //     // speakInstruction(inst[current].value)
-  //     showInstruction(inst[current])
-  //   }
-  // }
-
-  // function startLab(){
-  //   setTextBox(document.getElementById('textBox'))
-  //   setAudioElement(document.getElementById('audio'))
-  //   let btn = document.getElementById('startBtn')
-  //   btn.style.display='none'
-  //   let index=current;
-  //   setCurrent(index)
-  //   // onNext();
-  //   // speakInstruction(inst[current].value)
-  //   showInstruction(inst[index]);
-  // }
-
-
-  // useEffect(()=>{
-  //   let prevBtn =document.getElementById('prevBtn');
-  //   let nextBtn = document.getElementById('nextBtn')
-  //   console.log(current)
-  //   console.log(inst[current])
-  //   if(current>0){
-  //     prevBtn.disabled=false;
-  //   }else{
-  //     prevBtn.disabled=true;
-  //   }
-
-  //   if(current === inst.length){
-  //     nextBtn.disabled=true;
-  //   }
-  //   if(current < inst.length){
-  //     nextBtn.disabled = false;
-  //   }
-  // },[current]);
-
-  function onNext(){
+   const onNext=()=>{
 
       // current<inst[length]
       // 0 < 4 -> 1 1<4 -> 2 2<4 -> 3 3<4 -> 4 <5 -> 5 
-      if(current<inst.length-1){
-        current = current+1;
+      console.log('length',inst.length)
+      if(current<=inst.length-1){
+        if(current===inst.length-1){
+          setCurrent(current);
+          console.log(current)
+         }else{
+          setCurrent(current+1);
+         }
+       
+        // current = current+1;
+        // console.log(current);
         textBox.textContent=""
-
+        console.log(current)
         if(inst[current].type==='calculation'){
           showCalculation(inst[current].value);
         }
@@ -286,19 +219,27 @@ useEffect(()=>{
         showInstruction(inst[current].value);
         // console.log(current);
       }
-        }
+    }
+ 
 
   }
 
-  function onPrev(){
-    if(current>0){
-      current=current-1;
+  const onPrev=()=>{
+     console.log('outside prev',current);
+    if(current!==0){
+      setCurrent(current-1);
+      console.log('outside prev',current);
+      // current=current-1;
       textBox.textContent="";
       if(inst[current].type==='formula'){
         showFormula(inst[current].image);
-      }else{
+      }
+      if(inst[current].type==='calculation'){
+        showCalculation(inst[current].value);
+      }
+      if(inst[current].type==='general'){
+        // setCurrent(current+1);
         showInstruction(inst[current].value);
-        // console.log(current); 
       }
  
     }
@@ -336,7 +277,7 @@ useEffect(()=>{
         {/* <!-- Upper instruction Box --> */}
         <button className="startBtn" id="startBtn" onClick={onStart} hidden>Start</button>
         <div className="instructionBox" id="instructionBox">
-          <Popup></Popup>
+          <Popup setOutput={props?.setOutput} setheads={props?.setheads} settails={props?.settails} heads={props?.heads} tails={props?.tails} ></Popup>
           <div className="textBox" id="textBox">
           </div>
         </div>
