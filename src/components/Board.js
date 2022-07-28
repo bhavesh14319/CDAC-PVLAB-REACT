@@ -3,7 +3,9 @@ import character from '../character/img.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import probFormula from '../components/images/probability-formula.jpg'
 import Popup from "./Popup";
-import { MathComponent } from "mathjax-react";
+import GeneralInstruction from "./GeneralInstruction";
+import Formula from "./Formula";
+import Calculation from "./Calculation";
 
 import '../css/Board.css'
 
@@ -12,10 +14,35 @@ const Board = (props ) => {
   let[current,setCurrent]=useState(0);
   // let prevBtn = document.getElementById('prevBtn');
   // let nextBtn = document.getElementById('nextBtn');
-  const [textBox,setTextBox] = useState(null);
+
   const [prevBtn,setPrevBtn] = useState(null);
   const [nextBtn,setNextBtn] = useState(null);
   const [audioElement,setAudioElement] = useState(null)
+
+  let [type, setType] = useState(null);
+
+  // const initialState = { idType: 'general' }
+
+  // function reducer(state, action) {
+  //   switch (action.type) {
+  //     case 'general':
+  //       return {
+  //         idType: 'general',
+  //       };
+  //     case 'formula':
+  //       return {
+  //         idType: 'formula',
+  //       };
+  //     case 'calculation':
+  //       return {
+  //         idType: 'calculation',
+  //       };
+  //     default:
+  //       return state;
+  //   }
+  // }
+
+  // const [state, dispatch] = useReducer(reducer, initialState);
 
   // VOICE RSS SDK
 
@@ -124,107 +151,82 @@ const Board = (props ) => {
 
 
 
-  let splitText = (text, splitParameter) =>{
-    let t = text?.split(splitParameter);
-   return t;
-}
+// x
 
-  function showInstruction(instruction){
-   
-    if(textBox){
-    // display
-    let spliitedText = splitText(instruction,' ');
-    // console.log(instruction)
-    let i=0;
-    if(textBox){
-      let display = setInterval(function() {
-        if(textBox&&spliitedText && spliitedText[i]==='\n'){
-          textBox.innerHTML +='<br>'
-        }
-        if(textBox!==null){
-          textBox.innerHTML += `${spliitedText[i]} `;
-        }
-        
-        if (i === (spliitedText.length-1)) {
-            clearInterval(display);
-        }
-        i += 1
-    }, 100);
-  }
-}
-}
+  // function showFormula(formula){
+  //   textBox2.innerHTML = `<div class="boardFormulaContainer"> <img class="formulaImage fadeInClass" id="formulaImage" src=${formula}></div>`;
+  // }
 
-  function showFormula(formula){
-    textBox.innerHTML = `<div class="boardFormulaContainer"> <img class="formulaImage fadeInClass" id="formulaImage" src=${formula}></div>`;
-  }
 
-  function updateFormulaList(inst){
-      if(inst.retain){
-        let formulaContainer = document.getElementById('formulaContainer');
-        console.log(formulaContainer);
-        if(!document.getElementById(inst.id)){
-          let img =  `<img src=${inst.image} className='fadeInClass' id=${inst.id}>`
-          formulaContainer.innerHTML += img;
-        }
-      }
-  }
 
-  function showCalculation(calculation){
-    console.log("calculation")
-  //   let calHtml = 
-  //  `  <div class='calculationContainer'>
-  //     <h3 class="calcHeading">${calculation.heading}</h3> \n
-  //     <p class="favText"> ${calculation.favourable} => Number of favourable outcomes = ${calculation.noOfFavourable} </p> \n
-  //     <p class="totalText">${calculation.Total} => Total Possible outcomes = ${calculation.noOfTotal} </p> \n
-  //     <div class="calc"> &there4; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> ${calculation.noOfFavourable} </p> <p class="row2"> ${calculation.noOfTotal} </p> </div> &  
-  //     <span class='calcLHS'>P(TAIL) = </span>  <div class="fraction"> <p class="row1"> ${calculation.noOfFavourable} </p> <p class="row2"> ${calculation.noOfTotal} </p> </div> 
-  //     </div>
-  //   `
+  // function showCalculation(calculation){
+  //   console.log("calculation")
+  // //   let calHtml = 
+  // //  `  <div class='calculationContainer'>
+  // //     <h3 class="calcHeading">${calculation.heading}</h3> \n
+  // //     <p class="favText"> ${calculation.favourable} => Number of favourable outcomes = ${calculation.noOfFavourable} </p> \n
+  // //     <p class="totalText">${calculation.Total} => Total Possible outcomes = ${calculation.noOfTotal} </p> \n
+  // //     <div class="calc"> &there4; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> ${calculation.noOfFavourable} </p> <p class="row2"> ${calculation.noOfTotal} </p> </div> &  
+  // //     <span class='calcLHS'>P(TAIL) = </span>  <div class="fraction"> <p class="row1"> ${calculation.noOfFavourable} </p> <p class="row2"> ${calculation.noOfTotal} </p> </div> 
+  // //     </div>
+  // //   `
     
-    // let spliitedText = splitText(calHtml,'\n');
-    // console.log(spliitedText)
-    textBox.innerHTML += calculation;
-  }
+  //   // let spliitedText = splitText(calHtml,'\n');
+  //   // console.log(spliitedText)
+  //   textBox3.innerHTML += calculation;
+  // }
 
 
-   const onNext=()=>{
+  //  const onNext=()=>{
 
-      // console.log('length',inst.length)
-        textBox.textContent=""
-        console.log(current)
-        if(inst[current].type==='calculation'){
-          showCalculation(inst[current].calculation);
-        }
+  //     // console.log('length',inst.length)
+        
+  //       // dispatch({type:inst[current].type})
+  //       // setType(type = inst[current].type)
 
-        if(inst[current].type==='formula'){
-          showFormula(inst[current].image);
-          updateFormulaList(inst[current]);
-        }
-        if(inst[current].type==='general'){
-        // setCurrent(current+1);
-        showInstruction(inst[current].value);
-        // console.log(current);
-      } 
-  }
+  //       // console.log(current)
+  //       // if(type=='calculation'){
+  //       //   console.log("calculation")
+  //       //   setTextBox3(document.getElementById('textBox3'));
+  //       //   showCalculation(inst[current].calculation);
+  //       // }
 
-  const onPrev=()=>{
-     console.log('outside prev',current);
-      // setCurrent(current-1);
-      console.log('outside prev',current);
-      // current=current-1;
-      textBox.textContent="";
-      if(inst[current].type==='formula'){
-        showFormula(inst[current].image);
-      }
-      if(inst[current].type==='calculation'){
-        showCalculation(inst[current].calculation);
-      }
-      if(inst[current].type==='general'){
-        // setCurrent(current+1);
-        showInstruction(inst[current].value);
-      }
+  //       // if(type==='formula'){
+  //       //   console.log("formula")
+  //       //   setTextBox2(document.getElementById('textBox2'));
+  //       //   console.log(textBox2)
 
-  }
+  //       //   showFormula(inst[current].image);
+  //         updateFormulaList(inst[current]);
+  //       // }
+  //       // if(type==='general'){
+  //       //   // setCurrent(current+1);
+  //       //   setTextBox1(document.getElementById('textBox1'));
+  //       //   console.log("general")
+  //       //   showInstruction(inst[current].value);
+  //       //   // console.log(current);
+  //       // } 
+      
+  // }
+
+  // const onPrev=()=>{
+  //   //  console.log('outside prev',current);
+  //   //   // setCurrent(current-1);
+  //   //   console.log('outside prev',current);
+  //   //   // current=current-1;
+  //   //   // textBox1.textContent="";
+  //   //   if(inst[current].type==='formula'){
+  //   //     showFormula(inst[current].image);
+  //   //   }
+  //   //   if(inst[current].type==='calculation'){
+  //   //     showCalculation(inst[current].calculation);
+  //   //   }
+  //   //   if(inst[current].type==='general'){
+  //   //     // setCurrent(current+1);
+  //   //     showInstruction(inst[current].value);
+  //   //   }
+
+  // }
 
   window.addEventListener('load',()=>{
     if(prevBtn && nextBtn){
@@ -238,15 +240,32 @@ const Board = (props ) => {
       if(btn){
         btn.style.display='none';
       }
-      showInstruction(inst[current].value)
+      setType(type = inst[current].type)
+
       if(nextBtn){
         nextBtn.disabled=false;
       }
   }
 
+  // useEffect(()=>{
+  //   if(type === 'general') {
+  //     setTextBox1(document.getElementById('textBox1'));
+
+  //   } else if(type === 'formula') {
+  //     setTextBox2(document.getElementById('textBox2'));
+
+  //   } else if(type === 'calculation') {
+  //     setTextBox3(document.getElementById('textBox3'));
+
+  //   }
+
+   
+  //   // if(updateInst){
+  //   //   updateInst.current = updateInstructions
+  //   // }
+  // },[type])
 
   useEffect(()=>{
-    setTextBox(document.getElementById('textBox'));
     setPrevBtn(document.getElementById('prevBtn'));
     setNextBtn(document.getElementById('nextBtn'));
 
@@ -277,11 +296,32 @@ const Board = (props ) => {
         nextBtn.disabled=false;
       }
     }
-
-
   },[current])
 
-  
+  function updateFormulaList() {
+    if(inst[current].retain) {
+        let formulaContainer = document.getElementById('formulaContainer');
+        console.log(formulaContainer);
+        if(!document.getElementById(inst[current].id)){
+            let img =  `<img src=${inst[current].image} className='fadeInClass' id=${inst[current].id}>`
+            formulaContainer.innerHTML += img;
+        }
+    }
+  }
+
+  function decisionComponent(type) {
+    if(type==='general') {
+      console.log("general")
+      return <GeneralInstruction instruction={inst[current].value} />
+    } else if(type==='formula') {
+      console.log("formula")
+      updateFormulaList()
+      return <Formula formula={inst[current].image}/>
+    } else if(type==='calculation') {
+      console.log("calculation")
+      return <Calculation calculation={String.raw`\int_0^1 x^2\ dx`} />
+    }
+  }
 
   return (
     <>
@@ -297,24 +337,20 @@ const Board = (props ) => {
         </div>
         <div className="instructionBox" id="instructionBox">
           <Popup setOutput={props?.setOutput} setheads={props?.setheads} settails={props?.settails} heads={props?.heads} tails={props?.tails} ></Popup>
-          <div className="textBox" id="textBox">
-            {/* {inst[current].type==='calculation'?
-               <MathComponent tex={String.raw`\int_0^1 x^2\ dx`}/>:showInstruction
-            } */}
-          </div>
+          {decisionComponent(type)}
         </div>
         <div className="buttonContainer">
             <button className="btn prev-btn" id="prevBtn" onClick={function(){
               if(current>0){
                 setCurrent(current=current-1);
               }
-              onPrev();
+              setType(type = inst[current].type)
             }}>Prev</button>
             <button className="btn next-btn" id="nextBtn" onClick={function(){
               if(current<inst.length-1){
                 setCurrent(current=current+1);
               }
-              onNext();
+              setType(type = inst[current].type)
             }}>Next</button>
         </div>
 
@@ -328,13 +364,13 @@ const Board = (props ) => {
       </>
   );
   
-function equationFunction(){
-  return(
-    <>
+// function equationFunction(){
+//   return(
+//     <>
      
-    </>
-  )
-}
+//     </>
+//   )
+// }
 
   
 };
