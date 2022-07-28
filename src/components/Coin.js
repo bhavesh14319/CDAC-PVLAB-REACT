@@ -25,12 +25,12 @@ const Coin = () => {
     {
       id:0,
       type:'general',
-      value: "Hello welcome to lab \n let's start ❤ ",
+      value: "Hello welcome to lab \n let's start ❤",
     },
     {
       id: 1,
       type:'general',
-      value: " What do you think? a fair coin toss will give head or tail? 🤔 ",
+      value: "What do you think? a fair coin toss will give head or tail? 🤔",
     },
     {
       id: 2,

@@ -311,14 +311,11 @@ const Board = (props ) => {
 
   function decisionComponent(type) {
     if(type==='general') {
-      console.log("general")
       return <GeneralInstruction instruction={inst[current].value} />
     } else if(type==='formula') {
-      console.log("formula")
       updateFormulaList()
       return <Formula formula={inst[current].image}/>
     } else if(type==='calculation') {
-      console.log("calculation")
       return <Calculation calculation={String.raw`\int_0^1 x^2\ dx`} />
     }
   }

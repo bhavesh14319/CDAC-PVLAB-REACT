@@ -3,6 +3,8 @@ import '../css/Board.css'
 
 const GeneralInstruction = ({instruction}) => {
   const [text, setText] = React.useState('')
+  const display = React.useRef(null)
+  let current = ""
 
   React.useEffect(() => {
     let splitText = (text, splitParameter) =>{
@@ -12,26 +14,36 @@ const GeneralInstruction = ({instruction}) => {
 
     function showInstruction() {
       setText("")
+      if(display.current) {
+        clearInterval(display.current);
+      }
+
       let spliitedText = splitText(instruction,' ');
       let i = 0;
-      let display = setInterval(function() {
-        setText((current) => {
-          return current + `${spliitedText[i]} `;
-        });
-  
-        if (i === (spliitedText.length-1)) {
-            clearInterval(display);
+
+      display.current = setInterval(function() {
+        if (i === (spliitedText.length)) {
+          clearInterval(display.current);
+          return
         }
+
+        current += `${spliitedText[i]} `
+        setText(current);
         i += 1
       }, 100);
     }
 
     showInstruction();
-  }, [instruction])
+    return () => {
+      if(display.current) {
+        clearInterval(display.current);
+      }
+    }
+  }, [instruction, current])
 
   return (
     <div>
-        <div className="textBox" id="textBox1">{text}</div>
+        <div className="textBox">{text}</div>
     </div>
   )
 }
