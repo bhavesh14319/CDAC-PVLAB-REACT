@@ -3,12 +3,13 @@ import character from '../character/img.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import probFormula from '../components/images/probability-formula.jpg'
 import Popup from "./Popup";
+import { MathComponent } from "mathjax-react";
 
 import '../css/Board.css'
 
 const Board = (props ) => {
 
-  const[current,setCurrent]=useState(0);
+  let[current,setCurrent]=useState(0);
   // let prevBtn = document.getElementById('prevBtn');
   // let nextBtn = document.getElementById('nextBtn');
   const [textBox,setTextBox] = useState(null);
@@ -151,64 +152,49 @@ const Board = (props ) => {
     }, 100);
   }
 }
-  }
+}
 
   function showFormula(formula){
-    textBox.innerHTML = `<img class="formulaImage fadeInClass" id="formulaImage" src=${formula}>`;
+    textBox.innerHTML = `<div class="boardFormulaContainer"> <img class="formulaImage fadeInClass" id="formulaImage" src=${formula}></div>`;
   }
 
-
   function updateFormulaList(inst){
-      let formulaContainer = document.getElementById('formulaContainer');
-      console.log(formulaContainer);
-      if(!document.getElementById(inst.id)){
-        let img =  `<img src=${inst.image} className='fadeInClass' id=${inst.id}>`
-        formulaContainer.innerHTML += img;
+      if(inst.retain){
+        let formulaContainer = document.getElementById('formulaContainer');
+        console.log(formulaContainer);
+        if(!document.getElementById(inst.id)){
+          let img =  `<img src=${inst.image} className='fadeInClass' id=${inst.id}>`
+          formulaContainer.innerHTML += img;
+        }
       }
   }
 
-
   function showCalculation(calculation){
     console.log("calculation")
-    let calHtml = 
-   `  <div class='calculationContainer'>
-      <h3 class="calcHeading">${calculation.heading}</h3> \n
-      <p class="favText"> ${calculation.favourable} => Number of favourable outcomes = ${calculation.noOfFavourable} </p> \n
-      <p class="totalText">${calculation.Total} => Total Possible outcomes = ${calculation.noOfTotal} </p> \n
-      <div class="calc"> &there4; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> ${calculation.noOfFavourable} </p> <p class="row2"> ${calculation.noOfTotal} </p> </div> &  
-      <span class='calcLHS'>P(TAIL) = </span>  <div class="fraction"> <p class="row1"> ${calculation.noOfFavourable} </p> <p class="row2"> ${calculation.noOfTotal} </p> </div> 
-      </div>
-    `
-
-    let spliitedText = splitText(calHtml,'\n');
-    console.log(spliitedText)
-    textBox.innerHTML += calHtml;
-
+  //   let calHtml = 
+  //  `  <div class='calculationContainer'>
+  //     <h3 class="calcHeading">${calculation.heading}</h3> \n
+  //     <p class="favText"> ${calculation.favourable} => Number of favourable outcomes = ${calculation.noOfFavourable} </p> \n
+  //     <p class="totalText">${calculation.Total} => Total Possible outcomes = ${calculation.noOfTotal} </p> \n
+  //     <div class="calc"> &there4; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> ${calculation.noOfFavourable} </p> <p class="row2"> ${calculation.noOfTotal} </p> </div> &  
+  //     <span class='calcLHS'>P(TAIL) = </span>  <div class="fraction"> <p class="row1"> ${calculation.noOfFavourable} </p> <p class="row2"> ${calculation.noOfTotal} </p> </div> 
+  //     </div>
+  //   `
+    
+    // let spliitedText = splitText(calHtml,'\n');
+    // console.log(spliitedText)
+    textBox.innerHTML += calculation;
   }
 
 
    const onNext=()=>{
 
-      // current<inst[length]
-      // 0 < 4 -> 1 1<4 -> 2 2<4 -> 3 3<4 -> 4 <5 -> 5 
-      console.log('length',inst.length)
-      if(current<=inst.length-1){
-        if(current===inst.length-1){
-          setCurrent(current);
-          console.log(current)
-         }else{
-          setCurrent(current+1);
-         }
-       
-        // current = current+1;
-        // console.log(current);
+      // console.log('length',inst.length)
         textBox.textContent=""
         console.log(current)
         if(inst[current].type==='calculation'){
-          showCalculation(inst[current].value);
+          showCalculation(inst[current].calculation);
         }
-
-
 
         if(inst[current].type==='formula'){
           showFormula(inst[current].image);
@@ -218,16 +204,12 @@ const Board = (props ) => {
         // setCurrent(current+1);
         showInstruction(inst[current].value);
         // console.log(current);
-      }
-    }
- 
-
+      } 
   }
 
   const onPrev=()=>{
      console.log('outside prev',current);
-    if(current!==0){
-      setCurrent(current-1);
+      // setCurrent(current-1);
       console.log('outside prev',current);
       // current=current-1;
       textBox.textContent="";
@@ -235,23 +217,31 @@ const Board = (props ) => {
         showFormula(inst[current].image);
       }
       if(inst[current].type==='calculation'){
-        showCalculation(inst[current].value);
+        showCalculation(inst[current].calculation);
       }
       if(inst[current].type==='general'){
         // setCurrent(current+1);
         showInstruction(inst[current].value);
       }
- 
-    }
 
   }
 
-  // window.addEventListener('load',showInstruction(inst[current].value));
+  window.addEventListener('load',()=>{
+    if(prevBtn && nextBtn){
+      prevBtn.disabled=true;
+      nextBtn.disabled=true;
+    }
+  })
 
   function onStart(){
-      let btn = document.getElementById('startBtn');
-      btn.style.display='none';
+      let btn = document.querySelector('.startCont');
+      if(btn){
+        btn.style.display='none';
+      }
       showInstruction(inst[current].value)
+      if(nextBtn){
+        nextBtn.disabled=false;
+      }
   }
 
 
@@ -259,10 +249,37 @@ const Board = (props ) => {
     setTextBox(document.getElementById('textBox'));
     setPrevBtn(document.getElementById('prevBtn'));
     setNextBtn(document.getElementById('nextBtn'));
+
+   
     // if(updateInst){
     //   updateInst.current = updateInstructions
     // }
   },[])
+
+
+  useEffect(()=>{
+    if(current>0){
+      if(prevBtn){
+        prevBtn.disabled=false;
+        nextBtn.disabled=false;
+      }
+    }else{
+      if(prevBtn){
+        prevBtn.disabled=true;
+        nextBtn.disabled=false;
+      }
+    }
+
+    if(current===inst.length-1){
+      if(nextBtn){
+        nextBtn.disabled=true;
+      }else{
+        nextBtn.disabled=false;
+      }
+    }
+
+
+  },[current])
 
   
 
@@ -275,15 +292,30 @@ const Board = (props ) => {
       <div className="boardContainer">
       <div className="MainContainer" id="MainContainer">
         {/* <!-- Upper instruction Box --> */}
-        <button className="startBtn" id="startBtn" onClick={onStart} hidden>Start</button>
+        <div className="startCont">
+        <button className="startBtn" id="startBtn" onClick={onStart} >Start</button>
+        </div>
         <div className="instructionBox" id="instructionBox">
           <Popup setOutput={props?.setOutput} setheads={props?.setheads} settails={props?.settails} heads={props?.heads} tails={props?.tails} ></Popup>
           <div className="textBox" id="textBox">
+            {/* {inst[current].type==='calculation'?
+               <MathComponent tex={String.raw`\int_0^1 x^2\ dx`}/>:showInstruction
+            } */}
           </div>
         </div>
         <div className="buttonContainer">
-            <button className="btn prev-btn" id="prevBtn" onClick={onPrev}>Prev</button>
-            <button className="btn next-btn" id="nextBtn" onClick={onNext}>Next</button>
+            <button className="btn prev-btn" id="prevBtn" onClick={function(){
+              if(current>0){
+                setCurrent(current=current-1);
+              }
+              onPrev();
+            }}>Prev</button>
+            <button className="btn next-btn" id="nextBtn" onClick={function(){
+              if(current<inst.length-1){
+                setCurrent(current=current+1);
+              }
+              onNext();
+            }}>Next</button>
         </div>
 
 
@@ -296,6 +328,17 @@ const Board = (props ) => {
       </>
   );
   
+function equationFunction(){
+  return(
+    <>
+     
+    </>
+  )
+}
+
+  
 };
+
+
 
 export default Board;

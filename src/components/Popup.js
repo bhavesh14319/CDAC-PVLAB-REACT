@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/Popup.css";
+import think from "../components/images/thinkcoin.png"
 
 const Popup = (props) => {
   // const childFunc = React.useRef(null)
@@ -11,16 +12,37 @@ const Popup = (props) => {
 
   function handleOutput(e){
     e.preventDefault();
-    const output = document.getElementById("coininput").value;
-    console.log(output);
-    props?.setOutput(output);
-    if(output==='head'){
+    const Head = document.getElementById('HEAD');
+    const Tail = document.getElementById("TAIL");
+
+    if(Head?.checked===true){
+      props?.setOutput("Head");
       props?.setheads(props?.heads+1);
-    }else{
+    }
+
+    if(Tail?.checked===true){
+      props?.setOutput("Tail");
       props?.settails(props?.tails+1);
     }
+
+    if(Head && Tail){
+      Head.checked=false;
+      Tail.checked=false;
+    }
+
     let cont = document.querySelector('.popUpContainer');
     cont.style.display="none";
+
+
+    // const output = document.getElementById("coininput").value;
+    // console.log(output);
+    // props?.setOutput(output);
+    // if(output==='head'){
+    //   props?.setheads(props?.heads+1);
+    // }else{
+    //   props?.settails(props?.tails+1);
+    // }
+
   }
   
   return (
@@ -29,13 +51,20 @@ const Popup = (props) => {
           <div className="popUp">
               <h2>What was the Output you got on coin?</h2>
               <form action="">
+              <div className="formCont">
                 <div className="inputContainer">
-                  <label htmlFor="output">Enter Result</label>
-                  <input id="coininput" type="text" placeholder="Enter Output Here"/>
+                 <span className="radioCont"><span className='radioLable'>HEAD</span><input style={{height:"20px", width:"20px", verticalAlign: "middle"}} type="radio" name="OUTPUT" id="HEAD" value="HEAD"/> </span> 
+                 <span className="radioCont"><span className='radioLable'>TAIL</span><input style={{height:"20px", width:"20px", verticalAlign: "middle"}} type="radio" name="OUTPUT" id="TAIL" value="TAIL"/> </span>
                 </div>
-                  <button onClick={handleOutput} >SUBMIT</button>
+                <div className="imageCont">
+                <span><img src={think} alt="think" /></span>
+                </div>
+              </div>
               </form>
           </div>
+          <div className="submit">
+                  <button onClick={handleOutput} >SUBMIT</button>
+                </div>
           <div className="closeButton" onClick={closePopUp}>
                 <span>&#10006;</span>
               </div>
