@@ -1,13 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Walter+Turncoat);
+
+
+.boardContainer{
+    display: flex;
+    justify-content: center;
+    min-height: fit-content;
+}
+
+
+
 .MainContainer{
-    position: relative;
+    position: absolute;
     background-clip: content-box;
-    top: 0vh;
-    margin: 0 auto;
+    margin: 0px auto;
+    top: 120px;
     height: 40vh;
-    width: 60vw;
+    width: 50vw;
     border: 20px solid #272020;
     border-radius: 20px ;
     background: #228538;
+    box-shadow:  0px 15px 15px 15px rgba(0,0,0,0.5);
+
 }
 
 .instructionBox{
@@ -16,26 +29,155 @@
     margin: 0 auto;
     position: relative;
     top: 20px;
-    max-width: 80%;
+    max-width: 90%;
     text-align: justify;
     z-index: 99999;
 }
-
-.textBox{
+.startCont{
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textBox{
+    padding: 0 20px;
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
+     color: #E8E8E8;
+    font-family: "Walter Turncoat", "cursive";
 }
 
 .character{
     position: absolute;
-    bottom:0;
+    bottom:-40vh;
     left: 20px;
-    width: 40%;
-    /* background: #45BADD; */
+    width: 35%;
     border-radius: 5px;
 }
 
 .character img{
-    width: 80%;
+    width: 100%;
     border-radius: 5px;
+}
+
+.buttonContainer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.btn{
+    padding: 10px;
+    margin: 5px;
+}
+
+.boardFormulaContainer{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.formulaImage{
+    box-shadow:  0px 15px 15px 15px rgba(0,0,0,0.5);
+    border-radius: 20px;
+    /* max-width: 40vw; */
+    max-width:40vw;
+    max-height: 30vh;
+
+}
+
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	20% { opacity: 0; }
+	60% { opacity: 1; }
+	100% { opacity: 1; }
+}
+
+.fadeInClass {
+	animation-name: fadeIn;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+}
+
+/* sidebar imaged */
+
+.formulaContainer{
+    display: inline-block;
+    width: 290px;
+    height: 200px;
+    padding: 20px 0;
+    margin: 0 20px ;
+}
+
+.formulaContainer img{
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    box-shadow:  0px 15px 15px 15px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+.formulaContainer img:hover{
+    transform: scale(1.02);
+}
+
+/* calculation */
+.calculationContainer{
+   width: 100%;
+   font-size: 18px;
+}
+
+.calculationContainer br{
+    
+    margin: 0;
+    padding: 0;
+    display: none;
+} 
+.calcHeading{
+    font-weight: bold;
+} 
+
+.calc{
+    display: flex;
+    align-items: center;
+}
+
+.calcLHS{
+    margin: 0 10px;
+}
+
+.fraction{
+    margin-right:20px;
+}
+
+.row1{
+    border-bottom: 3px solid;
+
+}
+
+.eqnCont{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 18px;
+}
+
+span p{
+    display: inline-block;
+}
+.andSign{
+    margin: 0 10px;
+}
+
+.andSign:last-of-type{
+    display: none;
 }
