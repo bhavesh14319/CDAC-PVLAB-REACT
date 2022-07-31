@@ -16,6 +16,7 @@ const Coin = () => {
   const[tails,settails]=useState(0);
   let coin;
   let flipBtn;
+  let disableFlip;
   let resetBtn;
   
   
@@ -25,7 +26,7 @@ const Coin = () => {
     {
       id:0,
       type:'general',
-      value: "Hello welcome to lab \n let's start ❤",
+      value: "Hello welcome to lab <br/> let's start ❤",
     },
     {
       id: 1,
@@ -35,16 +36,19 @@ const Coin = () => {
     {
       id: 2,
       type: "general",
+      task:true,
       value: "Not sure? Don't worry let's have a toss😥",
     },
     {
       id: 3,
       type:'general',
+      task:true,
       value: `Oh it appeared ${output} but how ?😯 Was it predictable? Let's have another toss`,
     },
     {
       id: 4,
       type:'general',
+      task:true,
       value: `Oh it appeared ${output} but how ? Is it predictable? 🧐 Let's toss one last time 🙂`,
     },
     {
@@ -55,17 +59,17 @@ const Coin = () => {
     {
       id: 6,
       type:'general',
-      value: `Were your guesses correct ❓ \n Let me tell You, all The outcomes are unpredictable !`,
+      value: `Were your guesses correct ❓ <br/> Let me tell You, all The outcomes are unpredictable !`,
     },
     {
       id: 7,
       type:'general',
-      value: `Here comes the concept of probabilty. \n "The Probability of an event is the value that tells how likely the event is going to happen"`,
+      value: `Here comes the concept of probabilty. <br/> "The Probability of an event is the value that tells how likely the event is going to happen"`,
     },
     {
       id: 8,
       type:'general',
-      value: `Now questions is : \n How to calculate probability of an event ?`,
+      value: `Now questions is : <br/> How to calculate probability of an event ?`,
     },
     {
       id: 9,
@@ -94,42 +98,50 @@ const Coin = () => {
       //   noOfFavourable : 1,
       //   noOfTotal : 2
       // },
+      // <div class="calc"> &there4; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> 1 </p> <p class="row2"> 2 </p> </div> &  
+      // <span class='calcLHS'>P(TAIL) = </span>  <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div> 
       calculation:
       `<div class='calculationContainer'>
-      <h3 class="calcHeading">Probability of head and tail in single toss :</h3> \n
-      <p class="favText"> favourable outcome in one toss : Head or Tail => Number of favourable outcomes = 1 </p> \n
-      <p class="totalText">Total possible outcomes are two : Head and Tail => Total Possible outcomes = 2 </p> \n
-      <div class="calc"> &there4; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> 1 </p> <p class="row2"> 2 </p> </div> &  
-      <span class='calcLHS'>P(TAIL) = </span>  <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div> 
-      &there4; <p>  Getting head is as likely as getting tail</p>
+      <h3 class="calcHeading">Probability of head and tail in single toss :</h3> <br/>
+      <p class="favText"> favourable outcome in one toss : Head or Tail => Number of favourable outcomes = 1 </p> <br/>
+      <p class="totalText">Total possible outcomes are two : Head and Tail => Total Possible outcomes = 2 </p> <br/>
+      <span> &there4; <p>  Getting head is as likely as getting tail</p> </span>
       </div>      
-      `
+      `,
+      equations:{
+        1:String.raw`P(HEAD)=\frac{1}{2}`,
+        2:String.raw`P(TAIL)=\frac{1}{2}`
+      }
     },
     {
       id:13,
       type:"general",
-      value:"Remember total probability of an even is: \n Sum of the probabilities of all possible outcomes"
+      value:"Remember total probability of an even is: <br/> Sum of the probabilities of all possible outcomes"
     },
     {
       id:14,
       type:"calculation",
+//       <div class="calc">
+//       &#x2235; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> 1 </p> <p class="row2"> 2 </p> </div> 
+//      &  
+//      <span class='calcLHS'>P(TAIL) = </span> <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div> <br>
+// </div>
+// <div class='calc'> <p class='calcLHS'>P(HEAD)+p(TAIL) =  <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div>  + &nbsp; <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div> = 1 </p></div>
       calculation:
         `<div class='calculationContainer'>
-          <h3 class="calcHeading">Total probability of coin toss :</h3> \n
-          <p class="totalText">Total possible outcomes are two : Head and Tail</p> \n
-          <div class="calc">
-               &#x2235; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> 1 </p> <p class="row2"> 2 </p> </div> 
-              &  
-              <span class='calcLHS'>P(TAIL) = </span> <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div> <br>
-        </div>
-        <div class='calc'> <p class='calcLHS'>P(HEAD)+p(TAIL) =  <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div>  + &nbsp; <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div> = 1 </p></div>
-        `
+          <h3 class="calcHeading">Total probability of coin toss :</h3> <br/>
+          <p class="totalText">Total possible outcomes are two : Head and Tail</p> <br/>
+        `,
+        equations:{
+          1:String.raw`P(HEAD)=\frac{1}{2}`,
+          2:String.raw`P(TAIL)=\frac{1}{2}`,
+          3:String.raw`P(HEAD)+P(TAIL)=\frac{1}{2}+\frac{1}{2}= 1`
+        }
     },
-
     {
       id:15,
       type:'general',
-      value:"Do you know? probabilities are complementary: \n P(HEAD)=1-P(NOT GETTING HEAD) \n P(HEAD)=1-P(GETTING TAIL)"
+      value:"Do you know? probabilities are complementary: <br/> P(HEAD)=1-P(NOT GETTING HEAD) <br/> P(HEAD)=1-P(GETTING TAIL)"
     },
     {
       id: 16,
@@ -140,7 +152,7 @@ const Coin = () => {
     {
       id:17,
       type:"general",
-      value:"Probability is measured on the scale of 0 to 1\n Zero probability implies that there is no likelyhood that event is going to happen \n while a probability 1 indicates that event is certian to occur"
+      value:"Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur"
 
     },
     {
@@ -157,9 +169,6 @@ const Coin = () => {
    console.log(cont)
    cont.style.display="block";
   }
-
-  //
-
 
 
   const flipCoin = () => {
@@ -188,15 +197,17 @@ const Coin = () => {
       }
       setTimeout(showPopUp, 3000);
       // console.log(output);
-      disableButton();
+      // disableButton();
     }
   };
 
   const reset = () => {
+    coin = document.querySelector(".coin");
     if (coin) {
+      console.log('coin')
       coin.style.animation = "none";
-      heads = 0;
-      tails = 0;
+      setheads(0);
+      settails(0);
       // updateStats();
     }
   };
@@ -214,6 +225,8 @@ const Coin = () => {
     }, 3000);
   }
 
+
+
   useEffect(() => {
        document.querySelector("#heads-count").textContent = `Heads: ${heads}`;
  
@@ -224,12 +237,19 @@ const Coin = () => {
   },[tails])
 
 
-  function cointosser(){
-    
-  }
+  useEffect(()=>{
+    flipBtn = document.querySelector("#flip-button");
+    // flipBtn.disabled=true;
+  })
+
+
+
+
+
   return (
     <div>
-      <Board inst={inst} setOutput={setOutput} setheads={setheads} settails={settails} heads={heads} tails={tails}></Board>
+      {/* { flipBtn = document.querySelector("#flip-button")} */}
+      <Board inst={inst} setOutput={setOutput} setheads={setheads} settails={settails} heads={heads} tails={tails} flip={flipBtn}></Board>
       <div className="container">
         <div className="coinContainer">
         <div className="coin" id="coin">

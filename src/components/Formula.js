@@ -1,10 +1,12 @@
+import { useEffect } from 'react'
 import '../css/Board.css'
 
-const Formula = ({formula}) => {
+const Formula = ({formula,animationClass}) => {
+ 
     return (
         <div>
             <div className="boardFormulaContainer"> 
-                <img className="formulaImage fadeInClass" id="formulaImage" src={formula}/>
+                <img className={`formulaImage ${animationClass}`} id="formulaImage" src={formula}/>
             </div>
         
         </div>

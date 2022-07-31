@@ -5,8 +5,8 @@
 
 .popUpContainer{
     position: absolute;
-    right: -35px;
-    width: 40vw;
+    /* right: -20px; */
+    width: 42vw;
     /* display: flex; */
     /* flex-direction: column; */
     background: #e1e0ee;

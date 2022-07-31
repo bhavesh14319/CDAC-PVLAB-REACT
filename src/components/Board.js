@@ -18,7 +18,6 @@ const Board = (props ) => {
   const [prevBtn,setPrevBtn] = useState(null);
   const [nextBtn,setNextBtn] = useState(null);
   const [audioElement,setAudioElement] = useState(null)
-
   let [type, setType] = useState(null);
 
   // const initialState = { idType: 'general' }
@@ -149,8 +148,6 @@ const Board = (props ) => {
 
  let inst = props?.inst;
 
-
-
 // x
 
   // function showFormula(formula){
@@ -277,6 +274,14 @@ const Board = (props ) => {
 
 
   useEffect(()=>{
+
+    
+      if(inst[current].task){
+        document.querySelector("#flip-button").disabled=false;
+      }else{
+        document.querySelector("#flip-button").disabled=true;
+      }
+    
     if(current>0){
       if(prevBtn){
         prevBtn.disabled=false;
@@ -310,13 +315,14 @@ const Board = (props ) => {
   }
 
   function decisionComponent(type) {
+
     if(type==='general') {
       return <GeneralInstruction instruction={inst[current].value} />
     } else if(type==='formula') {
       updateFormulaList()
-      return <Formula formula={inst[current].image}/>
+      return <Formula formula={inst[current].image} animationClass='fadeInClass'/>
     } else if(type==='calculation') {
-      return <Calculation calculation={String.raw`\int_0^1 x^2\ dx`} />
+      return <Calculation calculation={inst[current].calculation}  equations={inst[current].equations} />
     }
   }
 

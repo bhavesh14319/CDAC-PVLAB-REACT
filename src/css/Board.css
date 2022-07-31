@@ -7,6 +7,8 @@
     align-items: flex-start;
 }
 
+
+
 .MainContainer{
     position: absolute;
     background-clip: content-box;
@@ -49,9 +51,9 @@
 
 .character{
     position: absolute;
-    bottom:-45vh;
+    bottom:-40vh;
     left: 20px;
-    width: 40%;
+    width: 35%;
     border-radius: 5px;
 }
 
@@ -124,6 +126,13 @@
    width: 100%;
    font-size: 18px;
 }
+
+.calculationContainer br{
+    
+    margin: 0;
+    padding: 0;
+    display: none;
+} 
 .calcHeading{
     font-weight: bold;
 } 
@@ -144,4 +153,22 @@
 .row1{
     border-bottom: 3px solid;
 
+}
+
+.eqnCont{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 18px;
+}
+
+span p{
+    display: inline-block;
+}
+.andSign{
+    margin: 0 10px;
+}
+
+.andSign:last-of-type{
+    display: none;
 }
