@@ -101,11 +101,11 @@ const Coin = () => {
       // <div class="calc"> &there4; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> 1 </p> <p class="row2"> 2 </p> </div> &  
       // <span class='calcLHS'>P(TAIL) = </span>  <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div> 
       calculation:
-      `<div class='calculationContainer'>
+      `<div class='calculationContainer'> 
       <h3 class="calcHeading">Probability of head and tail in single toss :</h3> <br/>
-      <p class="favText"> favourable outcome in one toss : Head or Tail => Number of favourable outcomes = 1 </p> <br/>
-      <p class="totalText">Total possible outcomes are two : Head and Tail => Total Possible outcomes = 2 </p> <br/>
-      <span> &there4; <p>  Getting head is as likely as getting tail</p> </span>
+      <p class="favText"> favourable outcome in one toss : Head or Tail => Number of favourable outcomes = 1 </p> <br/> 
+      <p class="totalText">Total possible outcomes are two : Head and Tail => Total Possible outcomes = 2 </p> <br/> 
+      <span> &there4; <p>  Getting head is as likely as getting tail</p> </span> 
       </div>      
       `,
       equations:{

@@ -337,7 +337,7 @@ const Board = (props ) => {
       updateFormulaList()
       return <Formula formula={inst[current].image} animationClass='fadeInClass'/>
     } else if(type==='calculation') {
-      return <Calculation calculation={inst[current].calculation}  equations={inst[current].equations} />
+      return <Calculation instruction={inst[current].calculation}  equations={inst[current].equations} />
     }
   }
 
