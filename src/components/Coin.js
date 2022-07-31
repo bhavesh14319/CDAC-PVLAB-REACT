@@ -43,13 +43,13 @@ const Coin = () => {
       id: 3,
       type:'general',
       task:true,
-      value: `Oh it appeared ${output} but how ?😯 Was it predictable? Let's have another toss`,
+      value: `Oh it appeared <strong>${output} </strong> but how ?😯<br/> Was it predictable? Let's have another toss`,
     },
     {
       id: 4,
       type:'general',
       task:true,
-      value: `Oh it appeared ${output} but how ? Is it predictable? 🧐 Let's toss one last time 🙂`,
+      value: `Oh it appeared ${output} but how ? <br/>Is it predictable? 🧐 Let's toss one last time 🙂`,
     },
     {
       id: 5,

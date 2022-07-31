@@ -1,11 +1,11 @@
 import React, { useEffect, useReducer, useState } from "react";
 import character from '../character/img.png'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import probFormula from '../components/images/probability-formula.jpg'
 import Popup from "./Popup";
+import ImagePopUp from "./ImagePopUp"
 import GeneralInstruction from "./GeneralInstruction";
 import Formula from "./Formula";
 import Calculation from "./Calculation";
+import SideNavRight from "./SideNavRight";
 
 import '../css/Board.css'
 
@@ -306,12 +306,27 @@ const Board = (props ) => {
   function updateFormulaList() {
     if(inst[current].retain) {
         let formulaContainer = document.getElementById('formulaContainer');
-        console.log(formulaContainer);
+        // console.log(formulaContainer);
         if(!document.getElementById(inst[current].id)){
-            let img =  `<img src=${inst[current].image} className='fadeInClass' id=${inst[current].id}>`
+            let img =  `<img src=${inst[current].image} class='fadeInClass sideImage' id=${inst[current].id}>`
             formulaContainer.innerHTML += img;
+            // document.getElementById(`${inst[current].id}`).addEventListener('click',function(e){
+            //  console.log( document.getElementById(`${inst[current].id}`).getAttribute("src") , "hii")
+            //  document.querySelector(`.poppedImageContainer`).style.display='flex';
+            //  document.querySelector(`.poppedImageContainer`).innerHTML=`<img src=${document.getElementById(`${inst[current].id}`).getAttribute("src")}>`
+            // })
         }
+      
+        
     }
+   document.querySelectorAll('.sideImage').forEach((img)=>{
+      img.addEventListener('click',function(e){
+        console.log(img.src);
+        document.querySelector(`.poppedImageContainer`).style.display='grid';
+        document.querySelector(`.popImageContainer`).innerHTML=`<img src=${img.src}>`
+
+      })
+   })
   }
 
   function decisionComponent(type) {
@@ -332,7 +347,9 @@ const Board = (props ) => {
       <div className="formulaContainer" id="formulaContainer">  
         {/* <img src={probFormula} alt="" className="fadeInClass" /> */}
       </div> 
+      <ImagePopUp />
       <div className="boardContainer">
+      
       <div className="MainContainer" id="MainContainer">
         {/* <!-- Upper instruction Box --> */}
         <div className="startCont">
@@ -357,24 +374,18 @@ const Board = (props ) => {
             }}>Next</button>
         </div>
 
-
         {/* <!-- Character --> */}
         <div className="character" id="character">
           <img src={character} alt=""  />
         </div>
       </div>
       </div>
+
+      {/* side nav bar */}
+      <SideNavRight></SideNavRight>
       </>
   );
   
-// function equationFunction(){
-//   return(
-//     <>
-     
-//     </>
-//   )
-// }
-
   
 };
 

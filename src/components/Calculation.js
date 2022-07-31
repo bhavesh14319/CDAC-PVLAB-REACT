@@ -18,7 +18,7 @@ const Calculation = ({calculation,equations}) => {
         <div className='calcText' id='calcText'></div>
         <div className='eqnCont'> 
         {equations && Object.values(equations)?.map((eqaution,index)=>{
-          let eqn= <><MathComponent key={index} className="equation" tex={eqaution}/> <span className='andSign'>&#38;</span></>  
+          let eqn= <><MathComponent className="equation" tex={eqaution}/> <span  className='andSign'>&#38;</span></>  
           return eqn
         })}
         </div>
