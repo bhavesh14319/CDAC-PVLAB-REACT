@@ -30,7 +30,7 @@ const Popup = (props) => {
       Tail.checked=false;
     }
 
-    let cont = document.querySelector('.popUpContainer');
+    let cont = document.querySelector('#popUpContainer');
     cont.style.display="none";
 
 

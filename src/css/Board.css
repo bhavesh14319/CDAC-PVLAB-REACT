@@ -25,11 +25,10 @@
 
 .instructionBox{
     /* background-color: aqua; */
-    position: absolute;
-    margin: 0 auto;
     position: relative;
+    margin: 0 auto;
     top: 20px;
-    max-width: 90%;
+    max-width: 80%;
     text-align: justify;
     z-index: 99999;
 }
@@ -42,7 +41,7 @@
 }
 
 .textBox{
-    padding: 0 20px;
+    padding: 0 10px 0 0 ;
     width: 100%;
     height: 100%;
     font-size: 25px;
