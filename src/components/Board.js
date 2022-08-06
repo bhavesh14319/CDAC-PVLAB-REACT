@@ -6,9 +6,10 @@ import GeneralInstruction from "./GeneralInstruction";
 import Formula from "./Formula";
 import Calculation from "./Calculation";
 import Menu from "./Menu";
-import Quizcontainer from './Quizcontainer'
+// import Quizcontainer from './Quizcontainer'
 // import SideNavRight from "./SideNavRight";
 import "../css/Board.css";
+import Questions from "./Questions";
 
 const Board = (props) => {
   let [current, setCurrent] = useState(0);
@@ -360,7 +361,7 @@ const Board = (props) => {
         {/* <img src={probFormula} alt="" className="fadeInClass" /> */}
       </div>
       <ImagePopUp />
-      <Quizcontainer/>
+      <Questions/>
       <div className="boardContainer">
         <div className="MainContainer" id="MainContainer">
           {/* <!-- Upper instruction Box --> */}
