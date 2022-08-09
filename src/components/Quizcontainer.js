@@ -3,13 +3,15 @@ import "../css/Quizcontainer.css";
 import questioncoin from "../components/images/questioncoin.png";
 import happycoin from "../components/images/happycoin.png";
 import pointingcoin from "../components/images/pointingcoin.png";
-import { imageListClasses } from "@mui/material";
-
+import Quizsolution from "./Quizsolution";
+// import { imageListClasses } from "@mui/material";
 
 const Quizcontainer = (props) => {
   let [current, setcurrent] = React.useState(0);
-  let quest = props?.quest;
+  let [timer, settimer] = React.useState(3);
+  // const display = React.useRef(null)
 
+  let quest = props?.quest;
 
   function closePopUp() {
     document.getElementById("quizContainer").style.display = "none";
@@ -47,40 +49,64 @@ const Quizcontainer = (props) => {
   function answervalidation() {
     var option = document.getElementsByName("OUTPUT");
     var quizcoin = document.getElementById("quizcoin");
+    var solutiontext = document.getElementById("solutiontext");
+    var correctalert = document.querySelector(".alert-success");
+
+    // var wrongalert= document.getElementsByClassName("alert-warning");
+    console.log(correctalert);
+    console.log(solutiontext);
 
     console.log(option);
     var selected;
     for (var i = 0; i < option.length; i++) {
       if (option[i].checked) {
         selected = option[i].value;
-        console.log(typeof(selected));
-
+        console.log(typeof selected);
       }
       // if(selected===quest.correct?.value){
       //   console.log("correct");
-  
+
       // }
     }
-    console.log(selected===quest[current]?.correct?.value);
-    if(selected===quest[current]?.correct?.value){
+    console.log(selected === quest[current]?.correct?.value);
+    if (selected === quest[current]?.correct?.value) {
       console.log("correct");
-      quizcoin.src=happycoin;
-      setTimeout(()=>{
-        setcurrent(current=current+1)
-        console.log(current)
+      quizcoin.src = happycoin;
+      if (correctalert) {
+        correctalert.style.display = "block";
+      }
+      let i=2;
+      const myInterval = setInterval(()=>{
+        if(i>=0){
+          settimer(timer=i);
+        }
+        i=i-1;
+      },1000);
+      if(i===0){
+      clearInterval(myInterval);
+      }
+
+      setTimeout(() => {
+        setcurrent((current = current + 1));
+        console.log(current);
+        correctalert.style.display = "none";
 
         for (var i = 0; i < option.length; i++) {
-         option[i].checked = false;
-    
+          option[i].checked = false;
         }
-        quizcoin.src=questioncoin;
-      },3000);
+        quizcoin.src = questioncoin;
+        solutiontext.style.display = "none";
+
+       
+        settimer(timer=3);
+      }, 3000);
       
+    } else {
+      quizcoin.src = pointingcoin;
+      solutiontext.style.display = "block";
+
+      // wrongalert.style.display="block";
     }
-    else{
-      quizcoin.src=pointingcoin;
-    }
-    
 
     // }
     // console.log(selected);
@@ -88,12 +114,9 @@ const Quizcontainer = (props) => {
     // }
   }
   React.useEffect(() => {
-    console.log(current)
-   
-     
-   }, [current]);
-   
-  
+    console.log(current);
+  }, [current]);
+
   return (
     <div>
       <div className="quizContainer popUpContainer" id="quizContainer">
@@ -118,7 +141,9 @@ const Quizcontainer = (props) => {
                     id="OPTION"
                     value={quest[current]?.option[1]}
                   />
-                  <span className="radioLable">{quest[current]?.option[1]}</span>
+                  <span className="radioLable">
+                    {quest[current]?.option[1]}
+                  </span>
                 </span>
               </li>
               <li>
@@ -134,7 +159,9 @@ const Quizcontainer = (props) => {
                     id="OPTION"
                     value={quest[current]?.option[2]}
                   />
-                  <span className="radioLable">{quest[current]?.option[2]}</span>
+                  <span className="radioLable">
+                    {quest[current]?.option[2]}
+                  </span>
                 </span>
               </li>
               <li>
@@ -150,7 +177,9 @@ const Quizcontainer = (props) => {
                     id="OPTION"
                     value={quest[current]?.option[3]}
                   />
-                  <span className="radioLable">{quest[current]?.option[3]}</span>
+                  <span className="radioLable">
+                    {quest[current]?.option[3]}
+                  </span>
                 </span>
               </li>
 
@@ -167,7 +196,9 @@ const Quizcontainer = (props) => {
                     id="OPTION"
                     value={quest[current]?.option[4]}
                   />
-                  <span className="radioLable">{quest[current]?.option[4]}</span>
+                  <span className="radioLable">
+                    {quest[current]?.option[4]}
+                  </span>
                 </span>
               </li>
             </ol>
@@ -175,6 +206,16 @@ const Quizcontainer = (props) => {
               <span>
                 <img id="quizcoin" src={questioncoin} alt="think" />
               </span>
+              {/* <din className="alertcontainer">
+                <span>Alet message:</span>
+              </din> */}
+              <div className="alert alert-success">
+                <div className="icon hidden-xs">
+                  <i className="fa fa-check" aria-hidden="true"></i>
+                </div>
+                <strong>CORRECT!</strong>
+                <br /> Next Question in {timer} sec
+              </div>
             </div>
           </div>
         </div>
@@ -183,6 +224,21 @@ const Quizcontainer = (props) => {
         </div>
         <div className="closeButton" onClick={closePopUp}>
           <span>&#10006;</span>
+        </div>
+      </div>
+      <div id="solutiontext" className="solution_container">
+        <div className="alert alert-warning">
+          <div className="icon hidden-xs">
+            <i className="fa fa-exclamation-circle"></i>
+          </div>
+          <strong>WRONG!</strong>
+          <br /> Here's the solution
+        </div>
+
+        <div className="solution_text">
+          <span>
+            <Quizsolution instruction={quest[current]?.explanation.value} />
+          </span>
         </div>
       </div>
     </div>

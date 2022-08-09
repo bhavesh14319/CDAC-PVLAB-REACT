@@ -14,6 +14,7 @@
     border-radius: 10px;
     -webkit-perspective: 300px;
     perspective: 300px;
+    z-index: 20;
 }
 .stats{
     display: flex;
