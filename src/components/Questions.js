@@ -12,7 +12,8 @@ function Questions() {
           2: "1",
           3: "1/2",
           4: "3/4",
-        },
+        },   
+        
         correct: {
            value:"1/2",
         },
