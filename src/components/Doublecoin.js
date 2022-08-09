@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../css/Coin.css";
+import "../css/Doublecoin.css";
 import { useEffect } from "react";
 import Board from "./Board";
 import probFormula from '../components/images/probability-formula.jpg'
@@ -9,11 +9,15 @@ import probLine from '../components/images/probLine.png'
 import {returnUserInput} from './Popup'
 
 
-const Coin = () => {
+const Doublecoin = () => {
   // var output = "";
 
-  const[heads,setheads]=useState(0);
-  const[tails,settails]=useState(0);
+  const[HH,setHH]=useState(0);
+  const[TT,setTT]=useState(0);
+  const[TH,setTH]=useState(0);
+  const[HT,setHT]=useState(0);
+  let coin1;
+  let coin2;
   let coin;
   let flipBtn;
   let disableFlip;
@@ -172,29 +176,66 @@ const Coin = () => {
 
 
   const flipCoin = () => {
-    coin = document.querySelector(".coin");
+    coin1 = document.getElementById("coin1");
+    coin2 = document.getElementById("coin2");
     flipBtn = document.querySelector("#flip-button");
     resetBtn = document.querySelector("#reset-button");
     console.log('hiii');
-    console.log(coin);
-    if (coin) {
-      let i = Math.floor(Math.random() * 2);
-      coin.style.animation = "none";
-      if (i) {
+    // console.log(coin);
+    if (coin1 && coin2) {
+      let i1 = Math.floor(Math.random() * 2);
+      let i2 =  Math.floor(Math.random() * 2);
+      coin1.style.animation = "none";
+      coin2.style.animation = "none";
+     // 00 01 10 11
+    // head head
+     if(i1===0 && i2===0){
         setTimeout(function () {
-          coin.style.animation = "spin-heads 3s forwards";
+            console.log("tail tail")
+           coin1.style.animation = "spin-heads 3s forwards";
+           coin2.style.animation = "spin-heads 3s forwards";
         }, 100);
-        
-        // setheads(heads+1);
-        
-      } else {
+     }else if(i1===1 && i2===0){
+        // tail head
+        console.log("head tail")
         setTimeout(function () {
-          coin.style.animation = "spin-tails 3s forwards";
+            coin1.style.animation = "spin-tails 3s forwards";
+            coin2.style.animation = "spin-heads 3s forwards";
         }, 100);
+
+     }else if(i1===0 && i2===1){
+        // head tail
+        console.log("tail head")
+        setTimeout(function () {
+            coin2.style.animation = "spin-tails 3s forwards";
+            coin1.style.animation = "spin-heads 3s forwards";
+        }, 100);
+
+     }else{
+        // tail tail
+        console.log("head head ")
+        setTimeout(function () {
+            coin2.style.animation = "spin-tails 3s forwards";
+            coin1.style.animation = "spin-tails 3s forwards";
+        }, 100);
+     }
+
+
+    //   if (i1===0 && i2===0) {
+    //     setTimeout(function () {
+    //       coin.style.animation = "spin-heads 3s forwards";
+    //     }, 100);
+        
+    //     // setheads(heads+1);
+        
+    //   } else {
+    //     setTimeout(function () {
+    //       coin.style.animation = "spin-tails 3s forwards";
+    //     }, 100);
        
         // settails(tails+1);
 
-      }
+    //   }
       setTimeout(showPopUp, 3000);
       // console.log(output);
       // disableButton();
@@ -206,8 +247,8 @@ const Coin = () => {
     if (coin) {
       console.log('coin')
       coin.style.animation = "none";
-      setheads(0);
-      settails(0);
+    //   setheads(0);
+    //   settails(0);
       // updateStats();
     }
   };
@@ -228,13 +269,24 @@ const Coin = () => {
 
 
   useEffect(() => {
-       document.querySelector("#heads-count").textContent = `Heads: ${heads}`;
+       document.querySelector("#headhead-count").textContent = `HH : ${HH}`;
  
-  }, [heads]);
-  
-  useEffect(()=>{
-       document.querySelector("#tails-count").textContent = `Tails: ${tails}`;
-  },[tails])
+  }, [HH]);
+
+  useEffect(() => {
+    document.querySelector("#headtail-count").textContent = `HT : ${HT}`;
+
+}, [HT]);
+
+useEffect(() => {
+    document.querySelector("#tailhead-count").textContent = `TH : ${TH}`;
+
+}, [TH]);
+
+useEffect(() => {
+    document.querySelector("#tailtail-count").textContent = `TT : ${TT}`;
+
+}, [TT]);
 
 
   useEffect(()=>{
@@ -249,10 +301,18 @@ const Coin = () => {
   return (
     <div>
       {/* { flipBtn = document.querySelector("#flip-button")} */}
-      <Board inst={inst} setOutput={setOutput} level={1} setheads={setheads} settails={settails} heads={heads} tails={tails} flip={flipBtn}></Board>
+      <Board inst={inst} level={2} setOutput={setOutput} flip={flipBtn}></Board>
       <div className="container">
         <div className="coinContainer">
-        <div className="coin" id="coin">
+        <div className="coin" id="coin1">
+          <div className="heads">
+            <img src="https://jkscoinworld.com/wp-content/uploads/2018/05/2013-a-1.jpg" />
+          </div>
+          <div className="tails">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKPXdeMWZbX3Vk9Qc3tgGtERTCZNe5z1OyzXN8ZejoIrXgA95Wi4mfTV3BgGr0lGHO5I4&usqp=CAU" />
+          </div>
+        </div>
+        <div className="coin"  id="coin2">
           <div className="heads">
             <img src="https://jkscoinworld.com/wp-content/uploads/2018/05/2013-a-1.jpg" />
           </div>
@@ -261,9 +321,15 @@ const Coin = () => {
           </div>
         </div>
         </div>
-        <div className="stats">
-          <p id="heads-count">Heads: 0</p>
-          <p id="tails-count">Tails: 0</p>
+        <div className="statscont">
+        <div className="col1"> 
+          <p id="headhead-count">HH : 0</p>
+          <p id="tailtail-count">T T : 0</p>
+        </div>
+        <div className="col2">
+          <p id="headtail-count">HT : 0</p>
+          <p id="tailhead-count">TH : 0</p>
+        </div>
         </div>
         <div className="buttons">
           <button id="flip-button" onClick={flipCoin}>
@@ -277,4 +343,4 @@ const Coin = () => {
     </div>
   );
 };
-export default Coin;
+export default Doublecoin;

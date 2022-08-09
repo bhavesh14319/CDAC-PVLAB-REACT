@@ -5,7 +5,7 @@ import ImagePopUp from "./ImagePopUp";
 import GeneralInstruction from "./GeneralInstruction";
 import Formula from "./Formula";
 import Calculation from "./Calculation";
-import Menu from "./Menu";
+// import Menu from "./Menu";
 // import Quizcontainer from './Quizcontainer'
 // import SideNavRight from "./SideNavRight";
 import "../css/Board.css";
@@ -371,15 +371,33 @@ const Board = (props) => {
             </button>
           </div>
           <div className="instructionBox" id="instructionBox">
+            {props?.level===1 &&  
             <Popup
+              level={1}
               setOutput={props?.setOutput}
               setheads={props?.setheads}
               settails={props?.settails}
               heads={props?.heads}
               tails={props?.tails}
             ></Popup>
+            }
+
+            {props?.level===2 && 
+              <Popup
+              level={2}
+              setOutput={props?.setOutput}
+              setheads={props?.setheads}
+              settails={props?.settails}
+              heads={props?.heads}
+              tails={props?.tails}
+            ></Popup>
+            }
+            
             {decisionComponent(type)}
           </div>
+
+
+
           <div className="buttonContainer">
             <button
               className="btn prev-btn"
@@ -416,7 +434,7 @@ const Board = (props) => {
 
       {/* side nav bar */}
 
-        <Menu/>
+        
  
       {/* <SideNavRight /> */}
     </>

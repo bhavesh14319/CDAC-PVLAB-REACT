@@ -2,13 +2,13 @@
 
   #webapp_cover {
     position: absolute;
-    top: 8%;
-    right: 5%;
-    width: 39px;
-    margin: 0 auto;
-    transform: translateY(-50%) scale(2);
-  }
-  
+     top: 8%;
+    right: 5%; 
+    width: 39px; 
+    margin: 0 auto; 
+    transform: translateY(-50%) scale(1.5);
+   } 
+   
   #menu_button {
     width: 39px;
     overflow: hidden;

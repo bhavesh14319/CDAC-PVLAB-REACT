@@ -1,7 +1,11 @@
 import Coin from './components/Coin';
 // import Board from './components/Board';
 import Navbar from './components/Navbar';
-import Popup from './components/Popup';
+// import Popup from './components/Popup';
+import Sidebar from './components/Sidebar';
+import Doublecoin from './components/Doublecoin';
+
+
 import './App.css';
 import {
   BrowserRouter,
@@ -21,10 +25,14 @@ function App() {
       {/* <Board></Board> */}
       <Navbar></Navbar>
       <BrowserRouter>
+        {/* <Routes>
+              <Route path="/" element={<><Coin/></>}></Route>
+        </Routes> */}
         <Routes>
-              <Route path="/" element={<Coin></Coin>}/>
+              <Route path="/" element={<><Doublecoin/></>}></Route>
         </Routes>
       </BrowserRouter>
+      <Sidebar/>
     </>
   );
 }
