@@ -88,8 +88,8 @@
     box-shadow:  0px 15px 15px 15px rgba(0,0,0,0.5);
     border-radius: 20px;
     /* max-width: 40vw; */
-    max-width:40vw;
-    max-height: 30vh;
+    max-width:45vw;
+    max-height: 35vh;
 
 }
 
@@ -112,10 +112,20 @@
 
 .formulaContainer{
     display: inline-block;
-    width: 290px;
-    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 290px;
+    height: 200px; */
     padding: 20px 0;
     margin: 0 20px ;
+    width: 300px;
+    height: 75vh;
+    overflow-y: scroll;
+}
+
+.formulaContainer::-webkit-scrollbar{
+    display: none;
 }
 
 .formulaContainer img{
@@ -169,6 +179,7 @@
     align-items: center;
     flex-wrap: wrap;
     font-size: 18px;
+    justify-content: center;
 }
 
 span p{
@@ -180,4 +191,16 @@ span p{
 
 .andSign:last-of-type{
     display: none;
+}
+
+.sideImage{
+    max-width: 250px;
+    max-height: 250px;
+    
+}
+.MathJax {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+width:100%;
 }

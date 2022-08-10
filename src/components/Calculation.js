@@ -78,8 +78,10 @@ const Calculation = ({instruction,equations}) => {
         { showEquation &&  equations && Object.values(equations)?.map((eqaution,index)=>{
           let eqn= <><MathComponent className="equation" tex={eqaution}/> <span  className='andSign'>&#38;</span></>  
           return eqn
-        })}
-        
+        }
+        )
+       
+        }
         </div>
          
       </div>

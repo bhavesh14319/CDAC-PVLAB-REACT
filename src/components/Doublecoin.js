@@ -3,7 +3,7 @@ import "../css/Doublecoin.css";
 import { useEffect } from "react";
 import Board from "./Board";
 import probFormula from '../components/images/probability-formula.jpg'
-import coinChances from '../components/images/coinChances.jpg'
+import twocoinchances from '../components/images/twocoin.gif'
 import comp from '../components/images/comp.jpeg'
 import probLine from '../components/images/probLine.png'
 import {returnUserInput} from './Popup'
@@ -30,12 +30,12 @@ const Doublecoin = () => {
     {
       id:0,
       type:'general',
-      value: "Hello welcome to lab <br/> let's start ❤",
+      value: "Welcome again ❤ <br/> I hope you have understood probabilities of getting HEAD and TAIL when sigle fair coin tossed ",
     },
     {
       id: 1,
       type:'general',
-      value: "What do you think? a fair coin toss will give head or tail? 🤔",
+      value: "Now consider the case when two fair coins are tossed simultaneously. <br/> What will be the output?🤔",
     },
     {
       id: 2,
@@ -47,53 +47,38 @@ const Doublecoin = () => {
       id: 3,
       type:'general',
       task:true,
-      value: `Oh it appeared <strong>${output} </strong> but how ?😯<br/> Was it predictable? Let's have another toss`,
+      value: `Oh it appeared <strong>${output} </strong> but how ?😯<br/> Was it predictable?<br/> Let's have another toss`,
     },
     {
       id: 4,
       type:'general',
-      task:true,
-      value: `Oh it appeared ${output} but how ? <br/>Is it predictable? 🧐 Let's toss one last time 🙂`,
+     
+      value: `Was your guess correct ❓ <br/> Let me tell You, Here also The outcomes are unpredictable !`,
     },
     {
       id: 5,
       type:'general',
-      value: "Still not sure?😞 don't worry😇",
+      value: `As you know, <br/> "The Probability of an event is the value that tells how likely the event is going to happen"`,
     },
     {
       id: 6,
       type:'general',
-      value: `Were your guesses correct ❓ <br/> Let me tell You, all The outcomes are unpredictable !`,
+      value: `What are the possible outcomes when we toss two fair coins simultaneously ? <br/> Click next to Observe all possible outcomes 👇`,
     },
     {
       id: 7,
-      type:'general',
-      value: `Here comes the concept of probabilty. <br/> "The Probability of an event is the value that tells how likely the event is going to happen"`,
-    },
-    {
-      id: 8,
-      type:'general',
-      value: `Now questions is : <br/> How to calculate probability of an event ?`,
-    },
-    {
-      id: 9,
-      type:'general',
-      value: `What are the possible outcomes when we toss a coin ?`,
-    },
-    {
-      id: 10,
       type: "formula",
-      image: coinChances,
-      retain:false,
+      image: twocoinchances,
+      retain:true,
     },
     {
-      id: 11,
+      id:8,
       type: "formula",
       image: probFormula,
       retain:true,
     },
     {
-      id:12,
+      id:9,
       type:"calculation",
       // value: {
       //   heading : "Probability of head and tail in single toss :",
@@ -106,24 +91,43 @@ const Doublecoin = () => {
       // <span class='calcLHS'>P(TAIL) = </span>  <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div> 
       calculation:
       `<div class='calculationContainer'> 
-      <h3 class="calcHeading">Probability of head and tail in single toss :</h3> <br/>
-      <p class="favText"> favourable outcome in one toss : Head or Tail => Number of favourable outcomes = 1 </p> <br/> 
-      <p class="totalText">Total possible outcomes are two : Head and Tail => Total Possible outcomes = 2 </p> <br/> 
-      <span> &there4; <p>  Getting head is as likely as getting tail</p> </span> 
+      <h3 class="calcHeading">Probability of getting two heads in tossing two fair coins at same time :</h3> <br/>
+      <p class="favText"> favourable outcome in toss : HEAD HEAD or HEAD TAIL or TAIL HEAD or TAIL TAIL => Number of favourable outcomes = 1 </p> <br/> 
+      <p class="totalText">Total possible outcomes are : HEAD HEAD and HEAD TAIL and TAIL HEAD and TAIL TAIL  => Total Possible outcomes = 4 </p> <br/> 
+      <p class="totalText"><strong>Sample Space = S = { (H,H) , (H,T) , (T,H) , (T,T) }</strong></p> <br/> 
       </div>      
       `,
       equations:{
-        1:String.raw`P(HEAD)=\frac{1}{2}`,
-        2:String.raw`P(TAIL)=\frac{1}{2}`
+        1:String.raw`P(HH)=\frac{Number(HH)}{Total(Outcomes)}=\frac{1}{4}`,
       }
     },
     {
-      id:13,
+      id:10,
       type:"general",
-      value:"Remember total probability of an even is: <br/> Sum of the probabilities of all possible outcomes"
+      value:"similarly the probabilities of getting <br/> (TAIL TAIL) , (TAIL HEAD) , (HEAD TAIL) are : 👇 "
     },
     {
-      id:14,
+      id:11,
+      type:"calculation",
+      calculation:`<div class='calculationContainer'> 
+      <h3 class="calcHeading"></h3> 
+      </div>  `
+      ,
+      equations:{
+        1:String.raw`P(TT)=\frac{Number(TT)}{Total(Outcomes)}=\frac{1}{4}`,
+        2:String.raw`P(HT)=\frac{Number(HT)}{Total(Outcomes)}=\frac{1}{4}`,
+        3:String.raw`P(TH)=\frac{Number(TH)}{Total(Outcomes)}=\frac{1}{4}`,
+      }    
+      
+    },
+    {
+      id:12,
+      type:"general",
+      value:`as we know the total probability of all possible outcomes is always 1 <br/>
+      Let's Verify it . 😌`
+    },
+    {
+      id:13,
       type:"calculation",
 //       <div class="calc">
 //       &#x2235; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> 1 </p> <p class="row2"> 2 </p> </div> 
@@ -133,30 +137,46 @@ const Doublecoin = () => {
 // <div class='calc'> <p class='calcLHS'>P(HEAD)+p(TAIL) =  <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div>  + &nbsp; <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div> = 1 </p></div>
       calculation:
         `<div class='calculationContainer'>
-          <h3 class="calcHeading">Total probability of coin toss :</h3> <br/>
-          <p class="totalText">Total possible outcomes are two : Head and Tail</p> <br/>
+          <h3 class="calcHeading">Total probability of two fair coin toss :</h3> <br/>
+          </div>
         `,
         equations:{
-          1:String.raw`P(HEAD)=\frac{1}{2}`,
-          2:String.raw`P(TAIL)=\frac{1}{2}`,
-          3:String.raw`P(HEAD)+P(TAIL)=\frac{1}{2}+\frac{1}{2}= 1`
+          1:String.raw`P(HH)=\frac{1}{4}\ , \ P(TT)=\frac{1}{4}\ , \ P(HT)=\frac{1}{4}\ , \ P(TH)=\frac{1}{4}`,
+          2:String.raw`P(HH)+P(TT)+P(HT)+P(TT)=\frac{1}{4}+\frac{1}{4}+\frac{1}{4}+\frac{1}{4}=1 `
         }
     },
     {
-      id:15,
-      type:'general',
-      value:"Do you know? probabilities are complementary: <br/> P(HEAD)=1-P(NOT GETTING HEAD) <br/> P(HEAD)=1-P(GETTING TAIL)"
-    },
-    {
-      id: 16,
+      id: 14,
       type: "formula",
       image:comp,
       retain:true,
     },
     {
+      id:15,
+      type:'general',
+      value:"as we know that probabilities are complementary. <br/>  &nbsp&nbsp P(HH) = 1 - P(HH) ' <br/> &there4; P(HH) + P(HH) ' = 1 <br/>    "
+    },
+    {
+      id:16,
+      type:"calculation",
+      calculation:`<div class='calculationContainer'> 
+      <p class="favText">We Know That,</p> <br/> 
+      <p class="favText">Number of outcomes for (HH) = 1 </p> <br/> 
+      <p class="favText">Total number of outcomes without HH = 3 </p> <br/> 
+      <p class="favText">i.e  Number  of  outcomes for (HH)' = 3 </p> <br/> 
+      <p class="favText">Total number of outcomes = 4  </p> <br/> 
+      </div>  `
+      ,
+      equations:{
+        1:String.raw`P(HH) = \frac{1}{4} P(HH)'=\frac{3}{4} `,
+        2:String.raw`P(HH) + P(HH)' = \frac{1}{4} + \frac{3}{4} = 1`,
+      }    
+      
+    },
+    {
       id:17,
       type:"general",
-      value:"Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur"
+      value:"Remember... <br/> Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur"
 
     },
     {

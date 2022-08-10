@@ -1,5 +1,6 @@
 import React from 'react'
 import "../css/sidebar.css"
+import {BrowserRouter as Router, Link, Routes} from 'react-router-dom';
 
 const Sidebar = () => {
 
@@ -24,16 +25,18 @@ const Sidebar = () => {
             </ul>
        </div> */}
 
+
      <div id="sidebar">
-	  	
-		  	<ul id='sidebar-ul' className='sidebar-ul' >
-		  		<li >Level 1</li>
-		  		<li >Level 2</li>
-		  		<li > Level 3</li>
-                <li >Level 4</li>
-		  	</ul>                         
-	  </div>
       
+		  	<ul id='sidebar-ul' className='sidebar-ul' >
+		  	<a href="/"><li>Level 1</li></a>
+		  	<a href="/Level2"><li >Level 2</li></a>
+		  	<a href="/Level3"><li >Level 3</li></a>
+        <a href="/Level4"><li >Level 4</li></a>
+		  	</ul> 
+                           
+	  </div>
+  
     </div>
   )
 }

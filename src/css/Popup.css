@@ -98,4 +98,14 @@
 .imageCont img{
     width: 100%;
 }
+.inputContainerlevel2{
+    display: flex;
+    flex-direction: row;
+}
+.right_input{
+    margin-left: 20px;
+}
+.radioLable{
+    width:130px;
+}
   

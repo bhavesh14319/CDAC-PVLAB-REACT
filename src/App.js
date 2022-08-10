@@ -25,11 +25,17 @@ function App() {
       {/* <Board></Board> */}
       <Navbar></Navbar>
       <BrowserRouter>
-        {/* <Routes>
-              <Route path="/" element={<><Coin/></>}></Route>
-        </Routes> */}
         <Routes>
-              <Route path="/" element={<><Doublecoin/></>}></Route>
+              <Route path="/" element={<><Coin/></>}></Route>
+        </Routes>
+        <Routes>
+              <Route path="/Level3" element={<><Coin/></>}></Route>
+        </Routes>
+        <Routes>
+              <Route path="/Level4" element={<><Coin/></>}></Route>
+        </Routes>
+        <Routes>
+              <Route path="/Level2" element={<><Doublecoin/></>}></Route>
         </Routes>
       </BrowserRouter>
       <Sidebar/>

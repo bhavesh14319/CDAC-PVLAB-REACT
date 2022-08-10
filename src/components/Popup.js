@@ -96,9 +96,10 @@ const Popup = (props) => {
               <h2>What was the Output you got on coins?</h2>
               <form action="">
                 <div className="formCont">
-                  <div className="inputContainer">
+                <div className="inputContainerlevel2">
+                  <div className="left_input">
                   <span className="radioCont">
-                      <span className="radioLable">HEAD TAIL</span>
+                      <span className="radioLable">HEAD HEAD</span>
                       <input
                         style={{
                           height: "20px",
@@ -124,9 +125,10 @@ const Popup = (props) => {
                         id="TAIL"
                         value="TAIL"
                       />{" "}
-                    </span>
+                    </span></div>
+                    <div className="right_input">
                     <span className="radioCont">
-                      <span className="radioLable">Tail HEAD</span>
+                      <span className="radioLable">TAIL HEAD</span>
                       <input
                         style={{
                           height: "20px",
@@ -135,12 +137,12 @@ const Popup = (props) => {
                         }}
                         type="radio"
                         name="OUTPUT"
-                        id="HEAD"
+                        id="TAIL"
                         value="HEAD"
                       />{" "}
                     </span>
                     <span className="radioCont">
-                      <span className="radioLable">Tail TAIL</span>
+                      <span className="radioLable">TAIL TAIL</span>
                       <input
                         style={{
                           height: "20px",
@@ -153,6 +155,7 @@ const Popup = (props) => {
                         value="TAIL"
                       />{" "}
                     </span>
+                    </div>
                   </div>
                   <div className="imageCont">
                     <span>
@@ -167,9 +170,9 @@ const Popup = (props) => {
         <div className="submit">
           <button onClick={handleOutput}>SUBMIT</button>
         </div>
-        <div className="closeButton" onClick={closePopUp}>
+        {/* <div className="closeButton" onClick={closePopUp}>
           <span>&#10006;</span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
