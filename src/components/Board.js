@@ -5,6 +5,8 @@ import ImagePopUp from "./ImagePopUp";
 import GeneralInstruction from "./GeneralInstruction";
 import Formula from "./Formula";
 import Calculation from "./Calculation";
+import Quiz from "./Quiz";
+import Heading from "./Heading";
 // import Menu from "./Menu";
 // import Quizcontainer from './Quizcontainer'
 // import SideNavRight from "./SideNavRight";
@@ -276,38 +278,38 @@ const Board = (props) => {
     // }
   }, []);
 
-  useEffect(() => {
-    if (inst[current].task) {
-      document.querySelector("#flip-button").disabled = false;
-    } else {
-      document.querySelector("#flip-button").disabled = true;
-    }
+  // useEffect(() => {
+  //   if (inst[current].task) {
+  //     document.querySelector("#flip-button").disabled = false;
+  //   } else {
+  //     document.querySelector("#flip-button").disabled = true;
+  //   }
 
-    if (current > 0) {
-      if (prevBtn) {
-        prevBtn.disabled = false;
-        nextBtn.disabled = false;
-      }
-    } else {
-      if (prevBtn) {
-        prevBtn.disabled = true;
-        nextBtn.disabled = false;
-      }
-    }
+  //   if (current > 0) {
+  //     if (prevBtn) {
+  //       prevBtn.disabled = false;
+  //       nextBtn.disabled = false;
+  //     }
+  //   } else {
+  //     if (prevBtn) {
+  //       prevBtn.disabled = true;
+  //       nextBtn.disabled = false;
+  //     }
+  //   }
 
-    if (current === inst.length - 1) {
-      if (nextBtn) {
-        nextBtn.disabled = true;
-      } else {
-        nextBtn.disabled = false;
-      }
+  //   if (current === inst.length - 1) {
+  //     if (nextBtn) {
+  //       nextBtn.disabled = true;
+  //     } else {
+  //       nextBtn.disabled = false;
+  //     }
 
-      if(quizBtn){
-        quizBtn.disabled=false;
-      }
+  //     if(quizBtn){
+  //       quizBtn.disabled=false;
+  //     }
 
-    }
-  }, [current]);
+  //   }
+  // }, [current]);
 
   function updateFormulaList() {
     if (inst[current].retain) {
@@ -361,7 +363,7 @@ const Board = (props) => {
         {/* <img src={probFormula} alt="" className="fadeInClass" /> */}
       </div>
       <ImagePopUp />
-      <Questions/>
+      <Questions level={props?.level}/>
       <div className="boardContainer">
         <div className="MainContainer" id="MainContainer">
           {/* <!-- Upper instruction Box --> */}
@@ -386,10 +388,14 @@ const Board = (props) => {
               <Popup
               level={2}
               setOutput={props?.setOutput}
-              setheads={props?.setheads}
-              settails={props?.settails}
-              heads={props?.heads}
-              tails={props?.tails}
+              setHH={props?.setHH}
+              setHT={props?.setHT}
+              setTH={props?.setTH}
+              setTT={props?.setTT}
+              HH={props?.HH}
+              TH={props?.TH}
+              HT={props?.HT}
+              TT={props?.TT}
             ></Popup>
             }
             
@@ -433,7 +439,8 @@ const Board = (props) => {
       </div>
 
       {/* side nav bar */}
-
+      <Heading level={props?.level} />
+      <Quiz />
         
  
       {/* <SideNavRight /> */}

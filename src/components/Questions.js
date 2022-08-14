@@ -1,7 +1,7 @@
 import React from "react";
 import Quizcontainer from "../components/Quizcontainer";
 
-function Questions() {
+function Questions(props) {
   let quest = [
     {
       id: 0,
@@ -69,9 +69,47 @@ function Questions() {
       },
     },
   ];
+
+  let quest2 = [
+    {
+      id: 1,
+      type: "mcq",
+      question:
+        "An event in the probability that will never be happened is called as -",
+      option: {
+        1: "Unsure event",
+        2: "Sure event",
+        3: "Possible event",
+        4: "Impossible event",
+      },
+      correct: {
+        value: "Impossible event",
+      },
+      explanation: {
+        value: `An event that will never be happened is known as the impossible event. <br/> 
+          For example :-<br/> 
+          Tossing double-headed coins and getting tails in an impossible event <br/> 
+          rolling a die and getting number > 10 in an impossible outcome, etc.`,
+      },
+    },
+
+  ]
+
+
+
+
   return (
     <div>
+      {props.level===1 &&
       <Quizcontainer quest={quest} />
+      }
+
+      {props.level===2 &&
+      <Quizcontainer quest={quest2} />
+      }
+
+
+      
     </div>
   );
 }

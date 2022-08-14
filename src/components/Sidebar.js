@@ -29,10 +29,10 @@ const Sidebar = () => {
      <div id="sidebar">
       
 		  	<ul id='sidebar-ul' className='sidebar-ul' >
-		  	<a href="/"><li>Level 1</li></a>
-		  	<a href="/Level2"><li >Level 2</li></a>
-		  	<a href="/Level3"><li >Level 3</li></a>
-        <a href="/Level4"><li >Level 4</li></a>
+		  	<a href="/"><li>Basics</li></a>
+		  	<a href="/twocoin"><li >Two Coin</li></a>
+		  	<a href="/singledice"><li >Single Dice</li></a>
+        <a href="/doubledice"><li >Double Dice</li></a>
 		  	</ul> 
                            
 	  </div>

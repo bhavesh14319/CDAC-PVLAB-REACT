@@ -9,7 +9,7 @@ const Popup = (props) => {
     cont.style.display = "none";
   }
 
-  function handleOutput(e) {
+  function handleOutputLevel1(e) {
     e.preventDefault();
     const Head = document.getElementById("HEAD");
     const Tail = document.getElementById("TAIL");
@@ -40,6 +40,44 @@ const Popup = (props) => {
     // }else{
     //   props?.settails(props?.tails+1);
     // }
+  }
+
+  function handleOutputLevel2(e) {
+    e.preventDefault();
+    const HH = document.getElementById("HEAD-HEAD");
+    const TT = document.getElementById("TAIL-TAIL");
+    const TH = document.getElementById("TAIL-HEAD");
+    const HT = document.getElementById("HEAD-TAIL");
+
+    if (HH?.checked === true) {
+      props?.setOutput("HEAD HEAD");
+      props?.setHH(props?.HH + 1);
+    }
+
+    if (TT?.checked === true) {
+      props?.setOutput("TAIL TAIL");
+      props?.setTT(props?.TT + 1);
+    }
+
+    if (HT?.checked === true) {
+      props?.setOutput("HEAD TAIL");
+      props?.setHT(props?.HT + 1);
+    }
+
+    if (TH?.checked === true) {
+      props?.setOutput("TAIL HEAD");
+      props?.setTH(props?.TH + 1);
+    }
+
+    if (HH && TT && HT && TH) {
+      HH.checked = false;
+      TT.checked = false;
+      TH.checked = false;
+      HT.checked = false;
+    }
+
+    let cont = document.querySelector("#popUpContainer");
+    cont.style.display = "none";
   }
 
   return (
@@ -88,6 +126,9 @@ const Popup = (props) => {
                   </div>
                 </div>
               </form>
+              <div className="submit">
+               <button onClick={handleOutputLevel1}>SUBMIT</button>
+               </div>
             </>
           )}
 
@@ -108,8 +149,8 @@ const Popup = (props) => {
                         }}
                         type="radio"
                         name="OUTPUT"
-                        id="TAIL"
-                        value="TAIL"
+                        id="HEAD-HEAD"
+                        value="HEAD HEAD"
                       />
                     </span>
                     <span className="radioCont">
@@ -122,8 +163,8 @@ const Popup = (props) => {
                         }}
                         type="radio"
                         name="OUTPUT"
-                        id="TAIL"
-                        value="TAIL"
+                        id="HEAD-TAIL"
+                        value="HEAD TAIL"
                       />{" "}
                     </span></div>
                     <div className="right_input">
@@ -137,8 +178,8 @@ const Popup = (props) => {
                         }}
                         type="radio"
                         name="OUTPUT"
-                        id="TAIL"
-                        value="HEAD"
+                        id="TAIL-HEAD"
+                        value="TAIL HEAD"
                       />{" "}
                     </span>
                     <span className="radioCont">
@@ -151,8 +192,8 @@ const Popup = (props) => {
                         }}
                         type="radio"
                         name="OUTPUT"
-                        id="TAIL"
-                        value="TAIL"
+                        id="TAIL-TAIL"
+                        value="TAIL TAIL"
                       />{" "}
                     </span>
                     </div>
@@ -164,12 +205,13 @@ const Popup = (props) => {
                   </div>
                 </div>
               </form>
+              <div className="submit">
+               <button onClick={handleOutputLevel2}>SUBMIT</button>
+               </div>
             </>
           )}
         </div>
-        <div className="submit">
-          <button onClick={handleOutput}>SUBMIT</button>
-        </div>
+     
         {/* <div className="closeButton" onClick={closePopUp}>
           <span>&#10006;</span>
         </div> */}

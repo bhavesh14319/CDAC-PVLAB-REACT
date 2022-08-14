@@ -267,8 +267,10 @@ const Doublecoin = () => {
     if (coin) {
       console.log('coin')
       coin.style.animation = "none";
-    //   setheads(0);
-    //   settails(0);
+      setHH(0);
+      setTH(0);
+      setTT(0);
+      setHT(0);
       // updateStats();
     }
   };
@@ -289,22 +291,22 @@ const Doublecoin = () => {
 
 
   useEffect(() => {
-       document.querySelector("#headhead-count").textContent = `HH : ${HH}`;
+       document.querySelector("#headhead-count").textContent = `HH :  ${HH}`;
  
   }, [HH]);
 
   useEffect(() => {
-    document.querySelector("#headtail-count").textContent = `HT : ${HT}`;
+    document.querySelector("#headtail-count").textContent = `HT :  ${HT}`;
 
 }, [HT]);
 
 useEffect(() => {
-    document.querySelector("#tailhead-count").textContent = `TH : ${TH}`;
+    document.querySelector("#tailhead-count").textContent = `TH :  ${TH}`;
 
 }, [TH]);
 
 useEffect(() => {
-    document.querySelector("#tailtail-count").textContent = `TT : ${TT}`;
+    document.querySelector("#tailtail-count").textContent = `T T :  ${TT}`;
 
 }, [TT]);
 
@@ -321,7 +323,7 @@ useEffect(() => {
   return (
     <div>
       {/* { flipBtn = document.querySelector("#flip-button")} */}
-      <Board inst={inst} level={2} setOutput={setOutput} flip={flipBtn}></Board>
+      <Board inst={inst} level={2} setOutput={setOutput} flip={flipBtn} HH={HH} HT={HT} TH={TH} TT={TT} setHH={setHH} setHT={setHT} setTT={setTT} setTH={setTH}></Board>
       <div className="container">
         <div className="coinContainer">
         <div className="coin" id="coin1">

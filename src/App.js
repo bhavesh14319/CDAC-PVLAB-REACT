@@ -12,6 +12,7 @@ import {
   Routes, 
   Route,
 } from "react-router-dom";
+import Dice from './components/Dice';
 
 function App() {
 
@@ -29,13 +30,13 @@ function App() {
               <Route path="/" element={<><Coin/></>}></Route>
         </Routes>
         <Routes>
-              <Route path="/Level3" element={<><Coin/></>}></Route>
+              <Route path="/singledice" element={<><Dice/></>}></Route>
         </Routes>
         <Routes>
-              <Route path="/Level4" element={<><Coin/></>}></Route>
+              <Route path="/twodice" element={<><Coin/></>}></Route>
         </Routes>
         <Routes>
-              <Route path="/Level2" element={<><Doublecoin/></>}></Route>
+              <Route path="/twocoin" element={<><Doublecoin/></>}></Route>
         </Routes>
       </BrowserRouter>
       <Sidebar/>

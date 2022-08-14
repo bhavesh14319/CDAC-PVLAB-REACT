@@ -82,8 +82,7 @@ const Navbar = () => {
  
       {/* </button> */}
 
-      <Heading />
-      <Quiz />
+
     </div>
   );
 };

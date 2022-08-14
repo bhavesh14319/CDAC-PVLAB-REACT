@@ -41,15 +41,15 @@
 }
 
 .coin{
-    height: 120px;
-    width: 120px;
+    height: 100px;
+    width: 100px;
     position: relative;
     margin: 10px auto;
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
 }
 .coin img{
-    width: 120px;
+    width: 100px;
 }
 .heads,.tails{
     position: absolute;

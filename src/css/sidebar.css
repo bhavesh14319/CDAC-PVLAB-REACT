@@ -71,12 +71,14 @@
 	width: 23vw;
 	height: 0;
     visibility: hidden;
-	background: #262626;
+	background: #f2f2f2;
     display: flex;
     justify-content: center;
 	right:0px;
     top:14%;
 	transition: all 1s linear;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 #sidebar.active {
 	height: 50vh;
@@ -100,6 +102,22 @@
 	list-style: none;
 	padding: 20px;
     font-size: 25px;
+   color: rgb(43, 41, 41);
+   font-family:  'Tiro Gurmukhi', serif;
+   border-bottom: 1px solid lightgray;
+
+}
+
+.sidebar-ul a{
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+}
+
+.sidebar-ul li:hover{
+    font-size: 27px;
+    text-decoration: underline;
+    color: rgba(65, 23, 23, 0.852);
 }
 
 
