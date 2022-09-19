@@ -12,6 +12,7 @@ import Heading from "./Heading";
 // import SideNavRight from "./SideNavRight";
 import "../css/Board.css";
 import Questions from "./Questions";
+import Popup1 from "./Popup1";
 
 const Board = (props) => {
   let [current, setCurrent] = useState(0);
@@ -20,7 +21,7 @@ const Board = (props) => {
 
   const [prevBtn, setPrevBtn] = useState(null);
   const [nextBtn, setNextBtn] = useState(null);
-  const [quizBtn,setQuizBtn]=useState(null);
+  const [quizBtn, setQuizBtn] = useState(null);
   const [audioElement, setAudioElement] = useState(null);
   let [type, setType] = useState(null);
 
@@ -174,37 +175,14 @@ const Board = (props) => {
   //   textBox3.innerHTML += calculation;
   // }
 
-  //  const onNext=()=>{
-
-  //     // console.log('length',inst.length)
-
-  //       // dispatch({type:inst[current].type})
-  //       // setType(type = inst[current].type)
-
-  //       // console.log(current)
-  //       // if(type=='calculation'){
-  //       //   console.log("calculation")
-  //       //   setTextBox3(document.getElementById('textBox3'));
-  //       //   showCalculation(inst[current].calculation);
-  //       // }
-
-  //       // if(type==='formula'){
-  //       //   console.log("formula")
-  //       //   setTextBox2(document.getElementById('textBox2'));
-  //       //   console.log(textBox2)
-
-  //       //   showFormula(inst[current].image);
-  //         updateFormulaList(inst[current]);
-  //       // }
-  //       // if(type==='general'){
-  //       //   // setCurrent(current+1);
-  //       //   setTextBox1(document.getElementById('textBox1'));
-  //       //   console.log("general")
-  //       //   showInstruction(inst[current].value);
-  //       //   // console.log(current);
-  //       // }
-
-  // }
+  const onNext = () => {
+    if(current+1<inst.length){
+    if (current > 0) {
+      setCurrent((current = current + 1));
+    }
+    setType((type = inst[current].type));
+  }
+  };
 
   // const onPrev=()=>{
   //   //  console.log('outside prev',current);
@@ -232,6 +210,14 @@ const Board = (props) => {
       // quizBtn.disabled=true;
     }
   });
+
+  useEffect(() => {
+    if (prevBtn && nextBtn && quizBtn) {
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+      // quizBtn.disabled=true;
+    }
+  }, []);
 
   function onStart() {
     let btn = document.querySelector(".startCont");
@@ -262,54 +248,65 @@ const Board = (props) => {
   //   // }
   // },[type])
 
-
-  function showQuiz(){
-    document.getElementById('quizContainer').style.display='block';
+  function showQuiz() {
+    document.getElementById("quizContainer").style.display = "block";
   }
-
 
   useEffect(() => {
     setPrevBtn(document.getElementById("prevBtn"));
     setNextBtn(document.getElementById("nextBtn"));
-    setQuizBtn(document.getElementById('quiz-btn'))
-    document.getElementById('quiz-btn').addEventListener('click',showQuiz)
+    setQuizBtn(document.getElementById("quiz-btn"));
+    document.getElementById("quiz-btn").addEventListener("click", showQuiz);
     // if(updateInst){
     //   updateInst.current = updateInstructions
     // }
   }, []);
 
+  useEffect(() => {
+
+    if (current > 0) {
+      if (prevBtn) {
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
+      }
+    } else {
+      if (prevBtn) {
+        prevBtn.disabled = true;
+        nextBtn.disabled = false;
+      }
+    }
+
+    if (current === inst.length - 1) {
+      if (nextBtn) {
+        nextBtn.disabled = true;
+      } else {
+        nextBtn.disabled = false;
+      }
+
+      if(quizBtn){
+        quizBtn.disabled=false;
+      }
+
+    }
+  }, [current]);
+
   // useEffect(() => {
-  //   if (inst[current].task) {
-  //     document.querySelector("#flip-button").disabled = false;
-  //   } else {
-  //     document.querySelector("#flip-button").disabled = true;
-  //   }
-
-  //   if (current > 0) {
-  //     if (prevBtn) {
+  //   if (prevBtn && nextBtn) {
+  //     if (current > 0) {
   //       prevBtn.disabled = false;
-  //       nextBtn.disabled = false;
   //     }
-  //   } else {
-  //     if (prevBtn) {
+
+  //     if ((current = 0)) {
   //       prevBtn.disabled = true;
-  //       nextBtn.disabled = false;
   //     }
-  //   }
 
-  //   if (current === inst.length - 1) {
-  //     if (nextBtn) {
+  //     if ((current = inst?.length - 1)) {
   //       nextBtn.disabled = true;
-  //     } else {
-  //       nextBtn.disabled = false;
+  //     }else{
+  //       nextBtn.disabled=false;
   //     }
-
-  //     if(quizBtn){
-  //       quizBtn.disabled=false;
-  //     }
-
   //   }
-  // }, [current]);
+  // }, [type]);
 
   function updateFormulaList() {
     if (inst[current].retain) {
@@ -354,7 +351,21 @@ const Board = (props) => {
     }
   }
 
-  
+  function decisionComponent1(type) {
+    if (type === "Question") {
+      return (
+        // <Popup1
+        //   question={inst[current].values}
+        //   setCurrent={setCurrent}
+        //   setType={setType}
+        //   current={current}
+        //   inst={inst}
+        // />
+
+        <Popup1 question={inst[current].values} onNext={onNext} />
+      );
+    }
+  }
 
   return (
     <>
@@ -363,7 +374,7 @@ const Board = (props) => {
         {/* <img src={probFormula} alt="" className="fadeInClass" /> */}
       </div>
       <ImagePopUp />
-      <Questions level={props?.level}/>
+      <Questions level={props?.level} />
       <div className="boardContainer">
         <div className="MainContainer" id="MainContainer">
           {/* <!-- Upper instruction Box --> */}
@@ -372,8 +383,7 @@ const Board = (props) => {
               Start
             </button>
           </div>
-          <div className="instructionBox" id="instructionBox">
-            {props?.level===1 &&  
+          {props?.level === 1 && (
             <Popup
               level={1}
               setOutput={props?.setOutput}
@@ -382,10 +392,10 @@ const Board = (props) => {
               heads={props?.heads}
               tails={props?.tails}
             ></Popup>
-            }
+          )}
 
-            {props?.level===2 && 
-              <Popup
+          {props?.level === 2 && (
+            <Popup
               level={2}
               setOutput={props?.setOutput}
               setHH={props?.setHH}
@@ -397,12 +407,12 @@ const Board = (props) => {
               HT={props?.HT}
               TT={props?.TT}
             ></Popup>
-            }
-            
+          )}
+          {decisionComponent1(type)}
+
+          <div className="instructionBox" id="instructionBox">
             {decisionComponent(type)}
           </div>
-
-
 
           <div className="buttonContainer">
             <button
@@ -441,8 +451,7 @@ const Board = (props) => {
       {/* side nav bar */}
       <Heading level={props?.level} />
       <Quiz />
-        
- 
+
       {/* <SideNavRight /> */}
     </>
   );

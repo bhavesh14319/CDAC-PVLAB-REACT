@@ -32,7 +32,25 @@
     max-width: 80%;
     text-align: justify;
     z-index: 99999;
+    height: 30vh;
+    overflow: scroll;
+    overflow-x: hidden;
 }
+
+.instructionBox::-webkit-scrollbar{
+    width: 5px;
+    /* border: 1px solid #000; */
+    border-radius: 10px;
+    /* background-color: #272020; */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(233, 229, 229);
+    border-radius: 10px;
+    height: 80%;
+    border: 1px solid #000;
+  }
+
 .startCont{
     width: 100%;
     height: 100%;
