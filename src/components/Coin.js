@@ -27,17 +27,20 @@ const Coin = () => {
       id:0,
       type:'general',
       value: "Hello welcome to lab <br/> let's start ❤",
+      audiosrc: "Hello welcome to lab let's start",
     },
     {
       id: 1,
       type:'general',
       value: "What do you think? a fair coin toss will give head or tail? 🤔",
+      audiosrc:"What do you think? a fair coin toss will give head or tail?"
     },
     {
       id: 2,
       type: "general",
       task:true,
       value: "Not sure? Don't worry let's have a toss😥",
+      audiosrc:"Not sure? Don't worry let's have a toss"
     },
     {
       id: 3,
@@ -116,7 +119,7 @@ const Coin = () => {
     {
       id:13,
       type:"general",
-      value:"Remember total probability of an even is: <br/> Sum of the probabilities of all possible outcomes"
+      value:"Remember total probability of an event is: <br/> Sum of the probabilities of all possible outcomes"
     },
     {
       id:14,

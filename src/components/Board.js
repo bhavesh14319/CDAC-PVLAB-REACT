@@ -372,7 +372,7 @@ const Board = (props) => {
 
   return (
     <>
-      <button onClick={()=>{speak({text:value})}}>speak</button>
+      
       <audio src="" id="audio" hidden></audio>
       <div className="formulaContainer" id="formulaContainer">
         {/* <img src={probFormula} alt="" className="fadeInClass" /> */}
@@ -426,6 +426,7 @@ const Board = (props) => {
           }
 
           <div className="buttonContainer">
+         
             <button
               className="btn prev-btn"
               id="prevBtn"
@@ -439,6 +440,8 @@ const Board = (props) => {
             >
               Prev
             </button>
+            <div>
+            <span className="btn speak-btn" onClick={()=>{speak({text:value})}} style={{alignSelf:"flex-end"}}> 🔊 </span>
             <button
               className="btn next-btn"
               id="nextBtn"
@@ -452,6 +455,7 @@ const Board = (props) => {
             >
               Next
             </button>
+            </div>
           </div>
 
           {/* <!-- Character --> */}
