@@ -354,14 +354,6 @@ const Board = (props) => {
   function decisionComponent1(type) {
     if (type === "Question") {
       return (
-        // <Popup1
-        //   question={inst[current].values}
-        //   setCurrent={setCurrent}
-        //   setType={setType}
-        //   current={current}
-        //   inst={inst}
-        // />
-
         <Popup1 question={inst[current].values} onNext={onNext} />
       );
     }
@@ -410,9 +402,16 @@ const Board = (props) => {
           )}
           {decisionComponent1(type)}
 
+          {type!=="formula" &&
           <div className="instructionBox" id="instructionBox">
             {decisionComponent(type)}
           </div>
+          }
+          {type =="formula" &&
+          <div className="instructionBox" id="instructionBox" style={{overflow:"visible"}}>
+            {decisionComponent(type)}
+          </div>
+          }
 
           <div className="buttonContainer">
             <button
