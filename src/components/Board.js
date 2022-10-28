@@ -13,6 +13,7 @@ import Heading from "./Heading";
 import "../css/Board.css";
 import Questions from "./Questions";
 import Popup1 from "./Popup1";
+import { useSpeechSynthesis } from 'react-speech-kit';
 
 const Board = (props) => {
   let [current, setCurrent] = useState(0);
@@ -24,6 +25,9 @@ const Board = (props) => {
   const [quizBtn, setQuizBtn] = useState(null);
   const [audioElement, setAudioElement] = useState(null);
   let [type, setType] = useState(null);
+
+  const [value, setValue] = useState('');
+  const { speak } = useSpeechSynthesis();
 
   // const initialState = { idType: 'general' }
 
@@ -225,6 +229,7 @@ const Board = (props) => {
       btn.style.display = "none";
     }
     setType((type = inst[current].type));
+    setValue(inst[current].value)
 
     if (nextBtn) {
       nextBtn.disabled = false;
@@ -334,6 +339,7 @@ const Board = (props) => {
   }
 
   function decisionComponent(type) {
+  
     if (type === "general") {
       return <GeneralInstruction instruction={inst[current].value} />;
     } else if (type === "formula") {
@@ -358,9 +364,15 @@ const Board = (props) => {
       );
     }
   }
+  // useEffect(()=>{
+  //   if(value !==null){
+  //     speak({text:value})
+  //   }
+  // },[value])
 
   return (
     <>
+      <button onClick={()=>{speak({text:value})}}>speak</button>
       <audio src="" id="audio" hidden></audio>
       <div className="formulaContainer" id="formulaContainer">
         {/* <img src={probFormula} alt="" className="fadeInClass" /> */}
@@ -422,6 +434,7 @@ const Board = (props) => {
                   setCurrent((current = current - 1));
                 }
                 setType((type = inst[current].type));
+                setValue(inst[current].value)
               }}
             >
               Prev
@@ -434,6 +447,7 @@ const Board = (props) => {
                   setCurrent((current = current + 1));
                 }
                 setType((type = inst[current].type));
+                setValue(inst[current].value)
               }}
             >
               Next
