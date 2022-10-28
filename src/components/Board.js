@@ -13,7 +13,7 @@ import Heading from "./Heading";
 import "../css/Board.css";
 import Questions from "./Questions";
 import Popup1 from "./Popup1";
-import { useSpeechSynthesis } from 'react-speech-kit';
+import { useSpeechSynthesis } from "react-speech-kit";
 
 const Board = (props) => {
   let [current, setCurrent] = useState(0);
@@ -26,7 +26,7 @@ const Board = (props) => {
   const [audioElement, setAudioElement] = useState(null);
   let [type, setType] = useState(null);
 
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const { speak } = useSpeechSynthesis();
 
   // const initialState = { idType: 'general' }
@@ -180,12 +180,12 @@ const Board = (props) => {
   // }
 
   const onNext = () => {
-    if(current+1<inst.length){
-    if (current > 0) {
-      setCurrent((current = current + 1));
+    if (current + 1 < inst.length) {
+      if (current > 0) {
+        setCurrent((current = current + 1));
+      }
+      setType((type = inst[current].type));
     }
-    setType((type = inst[current].type));
-  }
   };
 
   // const onPrev=()=>{
@@ -229,7 +229,7 @@ const Board = (props) => {
       btn.style.display = "none";
     }
     setType((type = inst[current].type));
-    setValue(inst[current].value)
+    setValue(inst[current].audiosrc);
 
     if (nextBtn) {
       nextBtn.disabled = false;
@@ -268,7 +268,6 @@ const Board = (props) => {
   }, []);
 
   useEffect(() => {
-
     if (current > 0) {
       if (prevBtn) {
         prevBtn.disabled = false;
@@ -288,10 +287,9 @@ const Board = (props) => {
         nextBtn.disabled = false;
       }
 
-      if(quizBtn){
-        quizBtn.disabled=false;
+      if (quizBtn) {
+        quizBtn.disabled = false;
       }
-
     }
   }, [current]);
 
@@ -339,7 +337,6 @@ const Board = (props) => {
   }
 
   function decisionComponent(type) {
-  
     if (type === "general") {
       return <GeneralInstruction instruction={inst[current].value} />;
     } else if (type === "formula") {
@@ -359,9 +356,7 @@ const Board = (props) => {
 
   function decisionComponent1(type) {
     if (type === "Question") {
-      return (
-        <Popup1 question={inst[current].values} onNext={onNext} />
-      );
+      return <Popup1 question={inst[current].values} onNext={onNext} />;
     }
   }
   // useEffect(()=>{
@@ -372,7 +367,6 @@ const Board = (props) => {
 
   return (
     <>
-      
       <audio src="" id="audio" hidden></audio>
       <div className="formulaContainer" id="formulaContainer">
         {/* <img src={probFormula} alt="" className="fadeInClass" /> */}
@@ -414,19 +408,22 @@ const Board = (props) => {
           )}
           {decisionComponent1(type)}
 
-          {type!=="formula" &&
-          <div className="instructionBox" id="instructionBox">
-            {decisionComponent(type)}
-          </div>
-          }
-          {type =="formula" &&
-          <div className="instructionBox" id="instructionBox" style={{overflow:"visible"}}>
-            {decisionComponent(type)}
-          </div>
-          }
+          {type !== "formula" && (
+            <div className="instructionBox" id="instructionBox">
+              {decisionComponent(type)}
+            </div>
+          )}
+          {type == "formula" && (
+            <div
+              className="instructionBox"
+              id="instructionBox"
+              style={{ overflow: "visible" }}
+            >
+              {decisionComponent(type)}
+            </div>
+          )}
 
           <div className="buttonContainer">
-         
             <button
               className="btn prev-btn"
               id="prevBtn"
@@ -435,26 +432,46 @@ const Board = (props) => {
                   setCurrent((current = current - 1));
                 }
                 setType((type = inst[current].type));
-                setValue(inst[current].value)
+                setValue(inst[current].audiosrc);
               }}
             >
               Prev
             </button>
             <div>
-            <span className="btn speak-btn" onClick={()=>{speak({text:value})}} style={{alignSelf:"flex-end"}}> 🔊 </span>
-            <button
-              className="btn next-btn"
-              id="nextBtn"
-              onClick={function () {
-                if (current < inst.length - 1) {
-                  setCurrent((current = current + 1));
-                }
-                setType((type = inst[current].type));
-                setValue(inst[current].value)
-              }}
-            >
-              Next
-            </button>
+              <span
+                className="btn speak-btn"
+                onClick={() => {
+                  speak({
+                    text: value,
+                    voices: [
+                      {
+                        // default: true,
+                        lang: "en-US ",
+                        localService: true,
+                        name: "Microsoft David - English (United States)",
+                        voiceURI: "Microsoft David - English (United States)",
+                      },
+                    ],
+                  });
+                }}
+                style={{ alignSelf: "flex-end" }}
+              >
+                {" "}
+                🔊{" "}
+              </span>
+              <button
+                className="btn next-btn"
+                id="nextBtn"
+                onClick={function () {
+                  if (current < inst.length - 1) {
+                    setCurrent((current = current + 1));
+                  }
+                  setType((type = inst[current].type));
+                  setValue(inst[current].audiosrc);
+                }}
+              >
+                Next
+              </button>
             </div>
           </div>
 
