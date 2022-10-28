@@ -4,8 +4,7 @@ import Navbar from './components/Navbar';
 // import Popup from './components/Popup';
 import Sidebar from './components/Sidebar';
 import Doublecoin from './components/Doublecoin';
-
-
+import Theory from './components/Theory'
 import './App.css';
 import {
   BrowserRouter,
@@ -28,6 +27,9 @@ function App() {
       <BrowserRouter>
         <Routes>
               <Route path="/" element={<><Coin/></>}></Route>
+        </Routes>
+        <Routes>
+              <Route path="/Theory" element={<><Theory/></>}></Route>
         </Routes>
         <Routes>
               <Route path="/singledice" element={<><Dice/></>}></Route>
