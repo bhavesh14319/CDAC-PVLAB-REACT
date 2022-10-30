@@ -1,4 +1,4 @@
-// import "../css/Theory.css";
+import "../css/Theory.css";
 import img1 from "./images/1.jpg";
 import img2 from "./images/2.jpg";
 import img3 from "./images/3.jpg";
@@ -9,8 +9,8 @@ import img6 from "./images/6.png";
 function Theory() {
   return (
     <>
-      <h1 className="h1">Navbar will be pasted here</h1>
-      <div className="container">
+      
+      <div className="theory_container">
         <div className="box">
           <div className="obj">
             <h3 className = 'h3'>Objective:</h3>

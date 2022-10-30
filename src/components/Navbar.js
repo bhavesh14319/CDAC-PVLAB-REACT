@@ -56,6 +56,7 @@ const Navbar = () => {
       <nav className="navContainer">
         <ul>
           <li>
+            
             <img src={Theory} alt="" />
             Theory
           </li>

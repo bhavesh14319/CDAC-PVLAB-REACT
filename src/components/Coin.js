@@ -60,7 +60,7 @@ const Coin = () => {
       id: 5,
       type:'general',
       value: "Still not sure?😞 don't worry😇",
-      audiosrc: "Still not sure?😞 don't worry😇",
+      audiosrc: "Still not sure? don't worry",
     },
     {
       id: 6,
@@ -124,12 +124,13 @@ const Coin = () => {
         1:String.raw`P(HEAD)=\frac{1}{2}`,
         2:String.raw`P(TAIL)=\frac{1}{2}`
       },
-      audiosrc:"Probability of head and tail in single toss. favourable outcome in one toss are Head or Tail Therefore total possible outcomes are two that are Head and Tail. Hence, Probability of head is equal to number of favourable outcomes upon total number of outcomes which is equal to one upon two and probability of tail is also one upon two. and hence, Getting head is as likely as getting tail"
+      audiosrc:"Probability of head and tail in single toss. favourable outcome in one toss are Head or Tail Therefore total possible outcomes are two that are Head and Tail. Hence, Probability of head is equal to number of favourable outcomes upon total number of outcomes which is equal to one upon two and probability of tail is also one upon two. and hence, Getting head is as likely as getting tail",
     },
     {
       id:13,
       type:"general",
-      value:"Remember total probability of an event is: <br/> Sum of the probabilities of all possible outcomes"
+      value:"Remember total probability of an event is: <br/> Sum of the probabilities of all possible outcomes",
+      audiosrc:"Remember total probability of an event is: <br/> Sum of the probabilities of all possible outcomes",
     },
     {
       id:14,
@@ -149,30 +150,34 @@ const Coin = () => {
           1:String.raw`P(HEAD)=\frac{1}{2}`,
           2:String.raw`P(TAIL)=\frac{1}{2}`,
           3:String.raw`P(HEAD)+P(TAIL)=\frac{1}{2}+\frac{1}{2}= 1`
-        }
+        },
+        audiosrc: "there are only two possible outcomes, head and tail, both of them having equal probability. Sum of their probabilities is equal to 1",
     },
     {
       id:15,
       type:'general',
-      value:"Do you know? probabilities are complementary: <br/> P(HEAD)=1-P(NOT GETTING HEAD) <br/> P(HEAD)=1-P(GETTING TAIL)"
+      value:"Do you know? probabilities are complementary: <br/> P(HEAD)=1-P(NOT GETTING HEAD) <br/> P(HEAD)=1-P(GETTING TAIL)",
+      audiosrc: "Do you know? probabilities are complementary: <br/> P(HEAD)=1-P(NOT GETTING HEAD) <br/> P(HEAD)=1-P(GETTING TAIL)",
     },
     {
       id: 16,
       type: "formula",
       image:comp,
       retain:true,
+      audiosrc: `probability image`,
     },
     {
       id:17,
       type:"general",
-      value:"Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur"
-
+      value:"Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur",
+      audiosrc: "Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur",
     },
     {
       id: 18,
       type: "formula",
       image:probLine,
       retain:true,
+      audiosrc: `probability image`,
     },
   ];
 

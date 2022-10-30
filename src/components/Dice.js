@@ -10,12 +10,13 @@ const Dice = () => {
       id: 0,
       type: "general",
       value: "Hello, Welcome again ! <br/> Let's Explore Single dice roll❤",
+      audiosrc: "Hello, Welcome again ! <br/> Let's Explore Single dice roll❤",
     },
     {
       id: 1,
       type: "general",
-      value:
-        "What do you think? <br/> A fair dice below on roll will show what number? <br> Have a 🎲 roll and check 🤞",
+      value:"What do you think? <br/> A fair dice below on roll will show what number? <br> Have a 🎲 roll and check 🤞",
+      audiosrc: "What do you think? <br/> A fair dice below on roll will show what number? <br> Have a roll and check ",
     },
     {
       id: 2,
@@ -25,7 +26,8 @@ const Dice = () => {
         Choices: [5, 6, 10, 12],
         correctAns: 6,
         justification:`Dice has 6 faces they are numbered from 1 to 6 So if you roll a dice, only number between 1 to 6 can appear \n hence, there are 6 possible outcomes
-        \n Now select the correct answer.. 💁✌️`
+        \n Now select the correct answer.. 💁✌️`,
+        audiosrc: "How many possible outcomes are there when we roll a dice?",
       },
       
     },
@@ -36,7 +38,8 @@ const Dice = () => {
         Question: "Now Tell me What are the outcomes when you roll a 🎲?",
         Choices: ["{1,2,3,4,5,6}","{7,8,9,10,12,5}","{1,4,5,10,8,9,7}","{1,2,3,4,5,6,7}"],
         correctAns: "{1,2,3,4,5,6}",
-        justification:`Dice has 6 sides numbered from 1 to 6 \n Hence the set of numbers that can appear is {1,2,3,4,5,6}\n Now Select the correct answer.. 💁✌️`
+        justification:`Dice has 6 sides numbered from 1 to 6 \n Hence the set of numbers that can appear is {1,2,3,4,5,6}\n Now Select the correct answer.. 💁✌️`,
+        audiosrc: "Now Tell me What are the outcomes when you roll a ?",
       }
     },
     {
@@ -56,7 +59,9 @@ const Dice = () => {
       equations:{
         1:String.raw`P(Event)=\frac{n(Event)}{n(s)}`,
         2:String.raw`P(A)=P(6)=\frac{n(A)}{n(s)}=\frac{1}{6}`
-      }
+      },
+      audiosrc: `Let's calculate the probability of getting a number 6. The set of possible numbers when we roll a dice is {1,2,3,4,5,6}. This is called a Sample Space which is denoted by S. Now, let A be the event of getting number six. There is only one event for getting and output as six`,  
+      
     },
     {
       id: 5,
@@ -65,7 +70,8 @@ const Dice = () => {
         Question: "What is the probabiltiy of getting number 4 on 🎲?",
         Choices: ["1/2","1","1/6","0"],
         correctAns: "1/6",
-        justification:`HINT:- \n Number of possible outcomes in single roll of 🎲 is 6 \n Set of numbers that can appear in single roll is {1,2,3,4,5,6}\n Now Select the correct answer.. 💁✌️`
+        justification:`HINT:- \n Number of possible outcomes in single roll of 🎲 is 6 \n Set of numbers that can appear in single roll is {1,2,3,4,5,6}\n Now Select the correct answer.. 💁✌️`,
+        audiosrc: "What is the probabiltiy of getting number 4 on ?",
       }
     },
     {
@@ -87,7 +93,8 @@ const Dice = () => {
         1:String.raw`P(A)=P(6)=\frac{n(A)}{n(s)}=\frac{1}{6}`,
         2:String.raw`P(A')=1-P(A)`,
         3:String.raw`P(A')=1-\frac{1}{6}=\frac{5}{6}`
-      }
+      },
+      audiosrc: "What will be the probability of not getting 6 ? The set of possible numbers when we roll a dice is {1,2,3,4,5,6}. Hence, Sample Space is equal to {1,2,3,4,5,6}. Now we know from previous example that probability of getting 6 is 1 by 6 then probability of not getting 6 should be 1 - 1 by 6 that is 5 by 6 "
     },
     {
       id: 7,
@@ -96,7 +103,8 @@ const Dice = () => {
         Question: "What is the probabiltiy of not getting number 4 on 🎲?",
         Choices: ["1/2","5/6","1/6","0"],
         correctAns: "5/6",
-        justification:`HINT:- \nProbability of getting 4 on 🎲 is 1/6\n Now Select the correct answer.. 💁✌️`
+        justification:`HINT:- \nProbability of getting 4 on 🎲 is 1/6\n Now Select the correct answer.. 💁✌️`,
+        audiosrc: "What is the probabiltiy of not getting number 4 on ?",
       }
     },
     //     {

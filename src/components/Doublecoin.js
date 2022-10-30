@@ -31,51 +31,61 @@ const Doublecoin = () => {
       id:0,
       type:'general',
       value: "Welcome again ❤ <br/> I hope you have understood probabilities of getting HEAD and TAIL when sigle fair coin tossed ",
+      audiosrc: "Welcome again!! <br/> I hope you have understood probabilities of getting HEAD and TAIL when sigle fair coin is tossed ",
     },
     {
       id: 1,
       type:'general',
       value: "Now consider the case when two fair coins are tossed simultaneously. <br/> What will be the output?🤔",
+      audiosrc: "Now consider the case when two fair coins are tossed simultaneously. <br/> What will be the output?",
     },
     {
       id: 2,
       type: "general",
       task:true,
       value: "Not sure? Don't worry let's have a toss😥",
+      audiosrc : "Not sure? Don't worry let's have a toss",
     },
     {
       id: 3,
       type:'general',
       task:true,
       value: `Oh it appeared <strong>${output} </strong> but how ?😯<br/> Was it predictable?<br/> Let's have another toss`,
+      audiosrc: `Oh it appeared <strong>${output} </strong> but how ?<br/> Was it predictable?<br/> Let's have another toss`,
     },
     {
       id: 4,
       type:'general',
      
       value: `Was your guess correct ❓ <br/> Let me tell You, Here also The outcomes are unpredictable !`,
+      audiosrc: `Was your guess correct ❓ <br/> Let me tell You, Here also The outcomes are unpredictable !`,
     },
     {
       id: 5,
       type:'general',
       value: `As you know, <br/> "The Probability of an event is the value that tells how likely the event is going to happen"`,
+      audiosrc: `As you know, <br/> "The Probability of an event is the value that tells how likely the event is going to happen"`,
+      
     },
     {
       id: 6,
       type:'general',
       value: `What are the possible outcomes when we toss two fair coins simultaneously ? <br/> Click next to Observe all possible outcomes 👇`,
+      audiosrc: `What are the possible outcomes when we toss two fair coins simultaneously ? <br/> Click next to Observe all possible outcomes `,
     },
     {
       id: 7,
       type: "formula",
       image: twocoinchances,
       retain:true,
+      audiosrc: `Image of two coin changes`
     },
     {
       id:8,
       type: "formula",
       image: probFormula,
       retain:true,
+      audiosrc:`Image of formula of probability`,
     },
     {
       id:9,
@@ -99,12 +109,14 @@ const Doublecoin = () => {
       `,
       equations:{
         1:String.raw`P(HH)=\frac{Number(HH)}{Total(Outcomes)}=\frac{1}{4}`,
-      }
+      },
+      audiosrc:`What do you think will be the Probability of getting two heads in tossing two fair coins at same time. All the favourable outcome in toss are HEAD HEAD or HEAD TAIL or TAIL HEAD or TAIL TAIL but Number of favourable outcomes is equal to 1. Hence, probability of Head head is 1 by 4 `
     },
     {
       id:10,
       type:"general",
-      value:"similarly the probabilities of getting <br/> (TAIL TAIL) , (TAIL HEAD) , (HEAD TAIL) are : 👇 "
+      value:"similarly the probabilities of getting <br/> (TAIL TAIL) , (TAIL HEAD) , (HEAD TAIL) are : 👇 ",
+      audiosrc: "similarly the probabilities of getting <br/> (TAIL TAIL) , (TAIL HEAD) , (HEAD TAIL) are ",
     },
     {
       id:11,
@@ -117,14 +129,17 @@ const Doublecoin = () => {
         1:String.raw`P(TT)=\frac{Number(TT)}{Total(Outcomes)}=\frac{1}{4}`,
         2:String.raw`P(HT)=\frac{Number(HT)}{Total(Outcomes)}=\frac{1}{4}`,
         3:String.raw`P(TH)=\frac{Number(TH)}{Total(Outcomes)}=\frac{1}{4}`,
-      }    
-      
+      },
+      audiosrc:'1 by 4',
     },
     {
       id:12,
       type:"general",
       value:`as we know the total probability of all possible outcomes is always 1 <br/>
-      Let's Verify it . 😌`
+      Let's Verify it . 😌`,
+      audiosrc:`as we know the total probability of all possible outcomes is always 1 <br/>
+      Let's Verify it .`,
+      
     },
     {
       id:13,
@@ -143,18 +158,21 @@ const Doublecoin = () => {
         equations:{
           1:String.raw`P(HH)=\frac{1}{4}\ , \ P(TT)=\frac{1}{4}\ , \ P(HT)=\frac{1}{4}\ , \ P(TH)=\frac{1}{4}`,
           2:String.raw`P(HH)+P(TT)+P(HT)+P(TT)=\frac{1}{4}+\frac{1}{4}+\frac{1}{4}+\frac{1}{4}=1 `
-        }
+        },
+        audiosrc:"Total probability of two fair coin toss will be equal to sum of all 4 probabilities which is equal to 1",
     },
     {
       id: 14,
       type: "formula",
       image:comp,
       retain:true,
+      audiosrc: 'probability formula image',
     },
     {
       id:15,
       type:'general',
-      value:"as we know that probabilities are complementary. <br/>  &nbsp&nbsp P(HH) = 1 - P(HH) ' <br/> &there4; P(HH) + P(HH) ' = 1 <br/>    "
+      value:"as we know that probabilities are complementary. <br/>  &nbsp&nbsp P(HH) = 1 - P(HH) ' <br/> &there4; P(HH) + P(HH) ' = 1 <br/>    ",
+      audiosrc:"as we know that probabilities are complementary. <br/>  Hence, probability of Head head is equal to 1 minus probability of not Head head",
     },
     {
       id:16,
@@ -170,13 +188,15 @@ const Doublecoin = () => {
       equations:{
         1:String.raw`P(HH) = \frac{1}{4} P(HH)'=\frac{3}{4} `,
         2:String.raw`P(HH) + P(HH)' = \frac{1}{4} + \frac{3}{4} = 1`,
-      }    
+      },
+      audiosrc:`We Know That, Number of outcomes for Head Head equal to 1. Hence, Number  of  outcomes for not Head head equal to 3. Therefore total probability equal to 1`,
       
     },
     {
       id:17,
       type:"general",
-      value:"Remember... <br/> Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur"
+      value:"Remember... <br/> Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur",
+      audiosrc:"Remember, <br/> Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur",
 
     },
     {
@@ -184,6 +204,7 @@ const Doublecoin = () => {
       type: "formula",
       image:probLine,
       retain:true,
+      audiosrc:'probability line image',
     },
   ];
 
