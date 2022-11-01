@@ -130,7 +130,7 @@ const Doublecoin = () => {
         2:String.raw`P(HT)=\frac{Number(HT)}{Total(Outcomes)}=\frac{1}{4}`,
         3:String.raw`P(TH)=\frac{Number(TH)}{Total(Outcomes)}=\frac{1}{4}`,
       },
-      audiosrc:'1 by 4',
+      audiosrc:'Probability of getting tail tail , and probability of getting head tail and getting tail head is 1 by 4',
     },
     {
       id:12,

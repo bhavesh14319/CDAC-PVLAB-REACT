@@ -55,15 +55,19 @@ const Navbar = () => {
     <div>
       <nav className="navContainer">
         <ul>
+          <a href="/">
           <li>
-            
             <img src={Theory} alt="" />
             Theory
           </li>
+          </a>
+          
+          <a href="/singlecoin">
           <li>
             <img src={simulation} alt="" />
             Simulation
           </li>
+          </a>
         </ul>
 
         <h2>Probability Lab</h2>
