@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 // import Popup from './components/Popup';
 import Sidebar from './components/Sidebar';
 import Doublecoin from './components/Doublecoin';
+import DoubleDice from './components/DoubleDice';
 
 
 import './App.css';
@@ -33,7 +34,7 @@ function App() {
               <Route path="/singledice" element={<><Dice/></>}></Route>
         </Routes>
         <Routes>
-              <Route path="/twodice" element={<><Coin/></>}></Route>
+              <Route path="/doubledice" element={<><DoubleDice/></>}></Route>
         </Routes>
         <Routes>
               <Route path="/twocoin" element={<><Doublecoin/></>}></Route>
