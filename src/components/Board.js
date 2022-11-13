@@ -5,11 +5,15 @@ import ImagePopUp from "./ImagePopUp";
 import GeneralInstruction from "./GeneralInstruction";
 import Formula from "./Formula";
 import Calculation from "./Calculation";
-import Menu from "./Menu";
+import Quiz from "./Quiz";
+import Heading from "./Heading";
+// import Menu from "./Menu";
 // import Quizcontainer from './Quizcontainer'
 // import SideNavRight from "./SideNavRight";
 import "../css/Board.css";
 import Questions from "./Questions";
+import Popup1 from "./Popup1";
+import { useSpeechSynthesis } from "react-speech-kit";
 
 const Board = (props) => {
   let [current, setCurrent] = useState(0);
@@ -18,134 +22,13 @@ const Board = (props) => {
 
   const [prevBtn, setPrevBtn] = useState(null);
   const [nextBtn, setNextBtn] = useState(null);
-  const [quizBtn,setQuizBtn]=useState(null);
+  const [quizBtn, setQuizBtn] = useState(null);
   const [audioElement, setAudioElement] = useState(null);
   let [type, setType] = useState(null);
 
-  // const initialState = { idType: 'general' }
+  const [value, setValue] = useState("");
+  const { speak } = useSpeechSynthesis();
 
-  // function reducer(state, action) {
-  //   switch (action.type) {
-  //     case 'general':
-  //       return {
-  //         idType: 'general',
-  //       };
-  //     case 'formula':
-  //       return {
-  //         idType: 'formula',
-  //       };
-  //     case 'calculation':
-  //       return {
-  //         idType: 'calculation',
-  //       };
-  //     default:
-  //       return state;
-  //   }
-  // }
-
-  // const [state, dispatch] = useReducer(reducer, initialState);
-
-  // VOICE RSS SDK
-
-  //   const VoiceRSS = {
-
-  //    speech: function (e) {
-  //         return this._validate(e), this._request(e);
-  //     },
-  //     _validate: function (e) {
-  //     //  return
-  //          if (!e) throw "The settings are undefined";
-  //           if (!e.key) throw "The API key is undefined";
-  //           if (!e.src) throw "The text is undefined";
-  //         if (!e.hl) throw "The language is undefined";
-  //         if (e.c && "auto" != e.c.toLowerCase()) {
-  //             var a = !1;
-  //             switch (e.c.toLowerCase()) {
-  //                 case "mp3":
-  //                     a = new Audio().canPlayType("audio/mpeg").replace("no", "");
-  //                     break;
-  //                 case "wav":
-  //                     a = new Audio().canPlayType("audio/wav").replace("no", "");
-  //                     break;
-  //                 case "aac":
-  //                     a = new Audio().canPlayType("audio/aac").replace("no", "");
-  //                     break;
-  //                 case "ogg":
-  //                     a = new Audio().canPlayType("audio/ogg").replace("no", "");
-  //                     break;
-  //                 case "caf":
-  //                     a = new Audio().canPlayType("audio/x-caf").replace("no", "");
-  //             }
-  //             if (!a) throw "The browser does not support the audio codec " + e.c;
-  //         }
-
-  //     },
-  //     _request: function (e) {
-  //         var a = this._buildRequest(e),
-  //             t = this._getXHR();
-  //       return  (t.onreadystatechange = function () {
-  //             if (4 == t.readyState && 200 == t.status) {
-  //                 if (0 == t.responseText.indexOf("ERROR")) throw t.responseText;
-  //                 return (audioElement.src = t?.responseText), audioElement.play();
-  //             }
-  //         }),
-  //             t.open("POST", "https://api.voicerss.org/", !0),
-  //             t.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8"),
-  //             t.send(a);
-  //     },
-  //     _buildRequest: function (e) {
-  //         var a = e.c && "auto" != e.c.toLowerCase() ? e.c : this._detectCodec();
-  //         return "key=" + (e.key || "") + "&src=" + (e.src || "") + "&hl=" + (e.hl || "") + "&r=" + (e.r || "") + "&c=" + (a || "") + "&f=" + (e.f || "") + "&ssml=" + (e.ssml || "") + "&b64=true";
-  //     },
-  //     _detectCodec: function () {
-  //         var e = new Audio();
-  //         return e.canPlayType("audio/mpeg").replace("no", "")
-  //             ? "mp3"
-  //             : e.canPlayType("audio/wav").replace("no", "")
-  //             ? "wav"
-  //             : e.canPlayType("audio/aac").replace("no", "")
-  //             ? "aac"
-  //             : e.canPlayType("audio/ogg").replace("no", "")
-  //             ? "ogg"
-  //             : e.canPlayType("audio/x-caf").replace("no", "")
-  //             ? "caf"
-  //             : "";
-  //     },
-  //     _getXHR: function () {
-  //         try {
-  //             return new XMLHttpRequest();
-  //         } catch (e) {}
-  //         try {
-  //             return new window.ActiveXObject("Msxml3.XMLHTTP");
-  //         } catch (e) {}
-  //         try {
-  //             return new window.ActiveXObject("Msxml2.XMLHTTP.6.0");
-  //         } catch (e) {}
-  //         try {
-  //             return new window.ActiveXObject("Msxml2.XMLHTTP.3.0");
-  //         } catch (e) {}
-  //         try {
-  //             return new window.ActiveXObject("Msxml2.XMLHTTP");
-  //         } catch (e) {}
-  //         try {
-  //             return new window.ActiveXObject("Microsoft.XMLHTTP");
-  //         } catch (e) {}
-  //         throw "The browser does not support HTTP request";
-  //     },
-  // };
-
-  // function speakInstruction(instruction){
-  //   VoiceRSS.speech({
-  //       key: '9f8ce55541e9424fa998b3472e121e46',
-  //       src: `${instruction}`,
-  //       hl: 'en-us',
-  //       v: 'Linda',
-  //       r: 1,
-  //       c: 'mp3',
-  //       f: '44khz_16bit_stereo',
-  //       ssml: false
-  //   });
-  // }
 
   let inst = props?.inst;
 
@@ -172,37 +55,14 @@ const Board = (props) => {
   //   textBox3.innerHTML += calculation;
   // }
 
-  //  const onNext=()=>{
-
-  //     // console.log('length',inst.length)
-
-  //       // dispatch({type:inst[current].type})
-  //       // setType(type = inst[current].type)
-
-  //       // console.log(current)
-  //       // if(type=='calculation'){
-  //       //   console.log("calculation")
-  //       //   setTextBox3(document.getElementById('textBox3'));
-  //       //   showCalculation(inst[current].calculation);
-  //       // }
-
-  //       // if(type==='formula'){
-  //       //   console.log("formula")
-  //       //   setTextBox2(document.getElementById('textBox2'));
-  //       //   console.log(textBox2)
-
-  //       //   showFormula(inst[current].image);
-  //         updateFormulaList(inst[current]);
-  //       // }
-  //       // if(type==='general'){
-  //       //   // setCurrent(current+1);
-  //       //   setTextBox1(document.getElementById('textBox1'));
-  //       //   console.log("general")
-  //       //   showInstruction(inst[current].value);
-  //       //   // console.log(current);
-  //       // }
-
-  // }
+  const onNext = () => {
+    if (current + 1 < inst.length) {
+      if (current > 0) {
+        setCurrent((current = current + 1));
+      }
+      setType((type = inst[current].type));
+    }
+  };
 
   // const onPrev=()=>{
   //   //  console.log('outside prev',current);
@@ -231,12 +91,21 @@ const Board = (props) => {
     }
   });
 
+  useEffect(() => {
+    if (prevBtn && nextBtn && quizBtn) {
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+      // quizBtn.disabled=true;
+    }
+  }, []);
+
   function onStart() {
     let btn = document.querySelector(".startCont");
     if (btn) {
       btn.style.display = "none";
     }
     setType((type = inst[current].type));
+    setValue(inst[current].audiosrc);
 
     if (nextBtn) {
       nextBtn.disabled = false;
@@ -260,29 +129,21 @@ const Board = (props) => {
   //   // }
   // },[type])
 
-
-  function showQuiz(){
-    document.getElementById('quizContainer').style.display='block';
+  function showQuiz() {
+    document.getElementById("quizContainer").style.display = "block";
   }
-
 
   useEffect(() => {
     setPrevBtn(document.getElementById("prevBtn"));
     setNextBtn(document.getElementById("nextBtn"));
-    setQuizBtn(document.getElementById('quiz-btn'))
-    document.getElementById('quiz-btn').addEventListener('click',showQuiz)
+    setQuizBtn(document.getElementById("quiz-btn"));
+    document.getElementById("quiz-btn").addEventListener("click", showQuiz);
     // if(updateInst){
     //   updateInst.current = updateInstructions
     // }
   }, []);
 
   useEffect(() => {
-    if (inst[current].task) {
-      document.querySelector("#flip-button").disabled = false;
-    } else {
-      document.querySelector("#flip-button").disabled = true;
-    }
-
     if (current > 0) {
       if (prevBtn) {
         prevBtn.disabled = false;
@@ -302,12 +163,29 @@ const Board = (props) => {
         nextBtn.disabled = false;
       }
 
-      if(quizBtn){
-        quizBtn.disabled=false;
+      if (quizBtn) {
+        quizBtn.disabled = false;
       }
-
     }
   }, [current]);
+
+  // useEffect(() => {
+  //   if (prevBtn && nextBtn) {
+  //     if (current > 0) {
+  //       prevBtn.disabled = false;
+  //     }
+
+  //     if ((current = 0)) {
+  //       prevBtn.disabled = true;
+  //     }
+
+  //     if ((current = inst?.length - 1)) {
+  //       nextBtn.disabled = true;
+  //     }else{
+  //       nextBtn.disabled=false;
+  //     }
+  //   }
+  // }, [type]);
 
   function updateFormulaList() {
     if (inst[current].retain) {
@@ -352,7 +230,16 @@ const Board = (props) => {
     }
   }
 
-  
+  function decisionComponent1(type) {
+    if (type === "Question") {
+      return <Popup1 question={inst[current].values} onNext={onNext} />;
+    }
+  }
+  // useEffect(()=>{
+  //   if(value !==null){
+  //     speak({text:value})
+  //   }
+  // },[value])
 
   return (
     <>
@@ -361,7 +248,7 @@ const Board = (props) => {
         {/* <img src={probFormula} alt="" className="fadeInClass" /> */}
       </div>
       <ImagePopUp />
-      <Questions/>
+      <Questions level={props?.level} />
       <div className="boardContainer">
         <div className="MainContainer" id="MainContainer">
           {/* <!-- Upper instruction Box --> */}
@@ -370,16 +257,48 @@ const Board = (props) => {
               Start
             </button>
           </div>
-          <div className="instructionBox" id="instructionBox">
+          {props?.level === 1 && (
             <Popup
+              level={1}
               setOutput={props?.setOutput}
               setheads={props?.setheads}
               settails={props?.settails}
               heads={props?.heads}
               tails={props?.tails}
             ></Popup>
-            {decisionComponent(type)}
-          </div>
+          )}
+
+          {props?.level === 2 && (
+            <Popup
+              level={2}
+              setOutput={props?.setOutput}
+              setHH={props?.setHH}
+              setHT={props?.setHT}
+              setTH={props?.setTH}
+              setTT={props?.setTT}
+              HH={props?.HH}
+              TH={props?.TH}
+              HT={props?.HT}
+              TT={props?.TT}
+            ></Popup>
+          )}
+          {decisionComponent1(type)}
+
+          {type !== "formula" && (
+            <div className="instructionBox" id="instructionBox">
+              {decisionComponent(type)}
+            </div>
+          )}
+          {type == "formula" && (
+            <div
+              className="instructionBox"
+              id="instructionBox"
+              style={{ overflow: "visible" }}
+            >
+              {decisionComponent(type)}
+            </div>
+          )}
+
           <div className="buttonContainer">
             <button
               className="btn prev-btn"
@@ -389,22 +308,47 @@ const Board = (props) => {
                   setCurrent((current = current - 1));
                 }
                 setType((type = inst[current].type));
+                setValue(inst[current].audiosrc);
               }}
             >
               Prev
             </button>
-            <button
-              className="btn next-btn"
-              id="nextBtn"
-              onClick={function () {
-                if (current < inst.length - 1) {
-                  setCurrent((current = current + 1));
-                }
-                setType((type = inst[current].type));
-              }}
-            >
-              Next
-            </button>
+            <div>
+              <span
+                className="btn speak-btn"
+                onClick={() => {
+                  speak({
+                    text: value,
+                    voices: [
+                      {
+                        // default: true,
+                        lang: "en-US ",
+                        localService: true,
+                        name: "Microsoft David - English (United States)",
+                        voiceURI: "Microsoft David - English (United States)",
+                      },
+                    ],
+                  });
+                }}
+                style={{ alignSelf: "flex-end" }}
+              >
+                {" "}
+                🔊{" "}
+              </span>
+              <button
+                className="btn next-btn"
+                id="nextBtn"
+                onClick={function () {
+                  if (current < inst.length - 1) {
+                    setCurrent((current = current + 1));
+                  }
+                  setType((type = inst[current].type));
+                  setValue(inst[current].audiosrc);
+                }}
+              >
+                Next
+              </button>
+            </div>
           </div>
 
           {/* <!-- Character --> */}
@@ -415,9 +359,9 @@ const Board = (props) => {
       </div>
 
       {/* side nav bar */}
+      <Heading level={props?.level} />
+      <Quiz />
 
-        <Menu/>
- 
       {/* <SideNavRight /> */}
     </>
   );

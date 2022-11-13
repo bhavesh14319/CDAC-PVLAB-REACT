@@ -1,0 +1,83 @@
+.dbl-dice-container {
+  display: flex;
+  width: auto;
+  justify-content: center;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 3rem;
+  right: 23rem;
+  padding-bottom: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 15px 15px 15px rgba(0, 0, 0, 0.5);
+}
+
+.diceContainer1 {
+  background-color: #ffffff;
+  -webkit-perspective: 300px;
+  perspective: 300px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  /* border: none !important; */
+  background-color: none !important;
+  /* border-radius: 0 !important; */
+  width: 200px !important;
+  height: 170px !important;
+  padding: 0 !important;
+  right: auto !important;
+  bottom: auto !important;
+}
+
+.roll-btn {
+  position: absolute;
+  bottom: 5px;
+  z-index: 21;
+  background-color: #00326b;
+  width: 100px;
+  padding: 15px 0;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+#diceResult1.hide {
+  opacity: 0;
+}
+
+#diceResult1.reveal {
+  animation: fadeUp 0.3s forwards;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.roll-again-btn{
+    width: 120px;
+    outline: none;
+    background-color: #00326b;
+    border: none;
+}
+
+.roll-again-btn:hover{
+    background-color: #00326b !important;
+}

@@ -3,36 +3,48 @@
     padding: 0;
 } */
 
-.popUpContainer{
+.popUpContainer1{
     position: absolute;
-    left: 45px;
-    top: 20px;
-    width: 42vw;
+    left: 15px;
+    top: 15px;
+    width: 45vw;
     /* display: flex; */
     /* flex-direction: column; */
     background: #e1e0ee;
     padding: 10px 20px;
     border-radius: 20px;
     box-shadow:  0px 15px 15px 15px rgba(0,0,0,0.5);
-    font-family: "Walter Turncoat", "cursive";
+    font-family:sans-serif;
     /* visibility:hidden; */
-    display: none;
-    height: 22vh;
-    z-index: 100;
+    max-height: min-content;
+    z-index: 100000;
 }
+
+.question{
+    font-family: "Walter Turncoat", "cursive";
+}
+
+.popUp1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .popUpContainer h2{
     margin-bottom: 10px;
 }
 
 
-.popUp input{
-    width: 150px;
+.popUp1 input{
+    width: 30px !important;
     margin-bottom: 2px;
     cursor: pointer;
 }
 
 .formCont{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -77,27 +89,31 @@
 }
 
 
-.radioLable{
+.radioLable1{
     font-size: 20px;
+    width: fit-content;
+    min-width: 50px;
     /* display: block; */
     /* align-items: center; */
 }
 
-.radioCont{
+.radioCont1{
     display: flex;
     align-items: center;
-    width: 8vw;
+    /* width: 8vw; */
+    width: fit-content;
     justify-content: space-between;
     margin-bottom: 5px;
+    margin-left: 10px;
 }
 
-.imageCont{
+.imageCont1{
     width:150px;
-    position: absolute;
+    /* position: absolute; */
     right: 30px;
     top:10px
 }
-.imageCont img{
+.imageCont1 img{
     width: 100%;
 }
 .inputContainerlevel2{
@@ -111,3 +127,35 @@
     width:130px;
 }
   
+
+.inputContainer1{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* height: 60%; */
+    margin-top: 20px;
+}
+
+
+.formCont{
+    display: flex;
+    flex-direction: row;
+}
+
+.swal-title {
+    margin: 0px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .swal-text {
+    background-color: #FEFAE3;
+    padding: 17px;
+    border: 1px solid #F0E1A1;
+    display: block;
+    margin: 22px;
+    text-align: center;
+    /* text-align: justify; */
+    color: #4b4340;
+  }

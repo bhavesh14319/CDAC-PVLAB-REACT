@@ -31,8 +31,26 @@
     top: 20px;
     max-width: 80%;
     text-align: justify;
-    z-index: 99999;
+    z-index: 90;
+    height: 30vh;
+    overflow: scroll;
+    overflow-x: hidden;
 }
+
+.instructionBox::-webkit-scrollbar{
+    width: 5px;
+    /* border: 1px solid #000; */
+    border-radius: 10px;
+    /* background-color: #272020; */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(233, 229, 229);
+    border-radius: 10px;
+    height: 80%;
+    border: 1px solid #000;
+  }
+
 .startCont{
     width: 100%;
     height: 100%;
@@ -73,6 +91,10 @@
     z-index: 100;
 }
 
+.speak-btn{
+    cursor: pointer;
+}
+
 .btn{
     padding: 10px;
     margin: 5px;
@@ -88,8 +110,8 @@
     box-shadow:  0px 15px 15px 15px rgba(0,0,0,0.5);
     border-radius: 20px;
     /* max-width: 40vw; */
-    max-width:40vw;
-    max-height: 30vh;
+    max-width:45vw;
+    max-height: 35vh;
 
 }
 
@@ -112,10 +134,20 @@
 
 .formulaContainer{
     display: inline-block;
-    width: 290px;
-    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 290px;
+    height: 200px; */
     padding: 20px 0;
     margin: 0 20px ;
+    width: 300px;
+    height: 75vh;
+    overflow-y: scroll;
+}
+
+.formulaContainer::-webkit-scrollbar{
+    display: none;
 }
 
 .formulaContainer img{
@@ -169,6 +201,7 @@
     align-items: center;
     flex-wrap: wrap;
     font-size: 18px;
+    justify-content: center;
 }
 
 span p{
@@ -180,4 +213,16 @@ span p{
 
 .andSign:last-of-type{
     display: none;
+}
+
+.sideImage{
+    max-width: 250px;
+    max-height: 250px;
+    
+}
+.MathJax {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+width:100%;
 }

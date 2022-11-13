@@ -6,7 +6,7 @@ import probFormula from '../components/images/probability-formula.jpg'
 import coinChances from '../components/images/coinChances.jpg'
 import comp from '../components/images/comp.jpeg'
 import probLine from '../components/images/probLine.png'
-import {returnUserInput} from '../components/Popup'
+import {returnUserInput} from './Popup'
 
 
 const Coin = () => {
@@ -27,66 +27,78 @@ const Coin = () => {
       id:0,
       type:'general',
       value: "Hello welcome to lab <br/> let's start ❤",
+      audiosrc: "Hello welcome to lab let's start",
     },
     {
       id: 1,
       type:'general',
       value: "What do you think? a fair coin toss will give head or tail? 🤔",
+      audiosrc:"What do you think? a fair coin toss will give head or tail?"
     },
     {
       id: 2,
       type: "general",
       task:true,
       value: "Not sure? Don't worry let's have a toss😥",
+      audiosrc:"Not sure? Don't worry let's have a toss"
     },
     {
       id: 3,
       type:'general',
       task:true,
       value: `Oh it appeared <strong>${output} </strong> but how ?😯<br/> Was it predictable? Let's have another toss`,
+      audiosrc:`Oh it appeared <strong>${output} </strong> but how ? <br/> Was it predictable? Let's have another toss`
     },
     {
       id: 4,
       type:'general',
       task:true,
       value: `Oh it appeared ${output} but how ? <br/>Is it predictable? 🧐 Let's toss one last time 🙂`,
+      audiosrc:`Oh it appeared ${output} but how ? <br/>Is it predictable? Let's toss one last time`
     },
     {
       id: 5,
       type:'general',
       value: "Still not sure?😞 don't worry😇",
+      audiosrc: "Still not sure? don't worry",
     },
     {
       id: 6,
       type:'general',
       value: `Were your guesses correct ❓ <br/> Let me tell You, all The outcomes are unpredictable !`,
+      audiosrc: `Were your guesses correct? <br/> Let me tell You, all The outcomes are unpredictable !`,
     },
     {
       id: 7,
       type:'general',
       value: `Here comes the concept of probabilty. <br/> "The Probability of an event is the value that tells how likely the event is going to happen"`,
+      audiosrc: `Here comes the concept of probabilty. <br/> "The Probability of an event is the value that tells how likely the event is going to happen"`,
     },
     {
       id: 8,
       type:'general',
       value: `Now questions is : <br/> How to calculate probability of an event ?`,
+      audiosrc: `Now questions is : <br/> How to calculate probability of an event ?`,
     },
     {
       id: 9,
       type:'general',
       value: `What are the possible outcomes when we toss a coin ?`,
+      audiosrc: `What are the possible outcomes when we toss a coin ?`,
     },
     {
       id: 10,
       type: "formula",
       image: coinChances,
       retain:false,
+      audiosrc: `probability image`,
     },
     {
       id: 11,
       type: "formula",
       image: probFormula,
       retain:true,
+      audiosrc: `probability image`,
     },
     {
       id:12,
@@ -111,12 +123,14 @@ const Coin = () => {
       equations:{
         1:String.raw`P(HEAD)=\frac{1}{2}`,
         2:String.raw`P(TAIL)=\frac{1}{2}`
-      }
+      },
+      audiosrc:"Probability of head and tail in single toss. favourable outcome in one toss are Head or Tail Therefore total possible outcomes are two that are Head and Tail. Hence, Probability of head is equal to number of favourable outcomes upon total number of outcomes which is equal to one upon two and probability of tail is also one upon two. and hence, Getting head is as likely as getting tail",
     },
     {
       id:13,
       type:"general",
-      value:"Remember total probability of an even is: <br/> Sum of the probabilities of all possible outcomes"
+      value:"Remember total probability of an event is: <br/> Sum of the probabilities of all possible outcomes",
+      audiosrc:"Remember total probability of an event is: <br/> Sum of the probabilities of all possible outcomes",
     },
     {
       id:14,
@@ -136,30 +150,34 @@ const Coin = () => {
           1:String.raw`P(HEAD)=\frac{1}{2}`,
           2:String.raw`P(TAIL)=\frac{1}{2}`,
           3:String.raw`P(HEAD)+P(TAIL)=\frac{1}{2}+\frac{1}{2}= 1`
-        }
+        },
+        audiosrc: "there are only two possible outcomes, head and tail, both of them having equal probability. Sum of their probabilities is equal to 1",
     },
     {
       id:15,
       type:'general',
-      value:"Do you know? probabilities are complementary: <br/> P(HEAD)=1-P(NOT GETTING HEAD) <br/> P(HEAD)=1-P(GETTING TAIL)"
+      value:"Do you know? probabilities are complementary: <br/> P(HEAD)=1-P(NOT GETTING HEAD) <br/> P(HEAD)=1-P(GETTING TAIL)",
+      audiosrc: "Do you know? probabilities are complementary: <br/> P(HEAD)=1-P(NOT GETTING HEAD) <br/> P(HEAD)=1-P(GETTING TAIL)",
     },
     {
       id: 16,
       type: "formula",
       image:comp,
       retain:true,
+      audiosrc: `probability image`,
     },
     {
       id:17,
       type:"general",
-      value:"Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur"
-
+      value:"Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur",
+      audiosrc: "Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur",
     },
     {
       id: 18,
       type: "formula",
       image:probLine,
       retain:true,
+      audiosrc: `probability image`,
     },
   ];
 
@@ -249,7 +267,7 @@ const Coin = () => {
   return (
     <div>
       {/* { flipBtn = document.querySelector("#flip-button")} */}
-      <Board inst={inst} setOutput={setOutput} setheads={setheads} settails={settails} heads={heads} tails={tails} flip={flipBtn}></Board>
+      <Board inst={inst} setOutput={setOutput} level={1} setheads={setheads} settails={settails} heads={heads} tails={tails} flip={flipBtn}></Board>
       <div className="container">
         <div className="coinContainer">
         <div className="coin" id="coin">
