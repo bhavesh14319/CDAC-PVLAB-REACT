@@ -1,13 +1,27 @@
 import React from "react";
 import swal from "sweetalert";
 import "../css/DoubleDice.css";
-
+import Board from "./Board";
 const DoubleDice = () => {
+
+  let inst = [
+    {
+      id: 0,
+      type: "general",
+      value: "Hello, Welcome again ! <br/> Let's Explore Single dice roll❤",
+    },
+    {
+      id: 1,
+      type: "general",
+      value: "Hello, Welcome again ! <br/> Let's Explore Single dice roll❤",
+    },
+
+  ]
 
     const roll = () => {
         let dice1 = document.querySelector(".dice1");
         let dice2 = document.querySelector(".dice2");
-        var outputDiv = document.getElementById("diceResult");
+        var outputDiv = document.getElementById("diceResult1");
     
         let result1 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
         dice1.dataset.side = result1;
@@ -35,9 +49,13 @@ const DoubleDice = () => {
 
 
   return (
-    <div style={{display:"flex",width:"100vw",justifyContent:"center"}}>
+    <>
+
+    <Board inst={inst}></Board>
+
+    <div className="dbl-dice-container">
       {" "}
-      <div className="diceContainer">
+      <div className="diceContainer1" style={{borderTopLeftRadius:"20px"}}>
         <div className="dice1" id="dice" data-side="1">
           <div className="sides side-1">
             <span className="dot dot-1"></span>
@@ -73,14 +91,10 @@ const DoubleDice = () => {
             <span className="dot dot-6"></span>
           </div>
         </div>
-
-        <button onClick={roll} id="diceResult">
-          Roll 🎲
-        </button>
       </div>
 
 
-      <div className="diceContainer">
+      <div className="diceContainer1" style={{borderTopRightRadius:"20px"}}>
         <div className="dice2" id="dice" data-side="1">
           <div className="sides side-1">
             <span className="dot dot-1"></span>
@@ -117,11 +131,14 @@ const DoubleDice = () => {
           </div>
         </div>
 
-        <button onClick={roll} id="diceResult">
+        
+      </div>
+      <button onClick={roll} id="diceResult1"  className="roll-btn">
           Roll 🎲
         </button>
-      </div>
     </div>
+
+    </>
   );
 };
 
