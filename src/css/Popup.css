@@ -5,7 +5,8 @@
 
 .popUpContainer{
     position: absolute;
-    left: -30px;
+    left: 45px;
+    top: 20px;
     width: 42vw;
     /* display: flex; */
     /* flex-direction: column; */
@@ -17,6 +18,7 @@
     /* visibility:hidden; */
     display: none;
     height: 22vh;
+    z-index: 100;
 }
 .popUpContainer h2{
     margin-bottom: 10px;
