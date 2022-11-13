@@ -27,10 +27,10 @@ function App() {
       <Navbar></Navbar>
       <BrowserRouter>
         <Routes>
-              <Route path="/" element={<><Coin/></>}></Route>
+              <Route path="/singlecoin" element={<><Coin/></>}></Route>
         </Routes>
         <Routes>
-              <Route path="/Theory" element={<><Theory/></>}></Route>
+              <Route path="/" element={<><Theory/></>}></Route>
         </Routes>
         <Routes>
               <Route path="/singledice" element={<><Dice/></>}></Route>

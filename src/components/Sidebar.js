@@ -29,7 +29,7 @@ const Sidebar = () => {
      <div id="sidebar">
       
 		  	<ul id='sidebar-ul' className='sidebar-ul' >
-		  	<a href="/"><li>Basics</li></a>
+		  	<a href="/singlecoin"><li>Basics</li></a>
 		  	<a href="/twocoin"><li >Two Coin</li></a>
 		  	<a href="/singledice"><li >Single Dice</li></a>
         <a href="/doubledice"><li >Double Dice</li></a>

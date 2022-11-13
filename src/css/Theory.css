@@ -16,7 +16,7 @@
     
   } */
   
-   .box{
+   .theory_box{
     width: 900px;
      display:block;
     padding:auto;
@@ -27,7 +27,7 @@
   /* background-color: blue; */
   } 
   
-.obj{
+.theory_obj{
   /* background-color: black; */
   margin: 10px;
   }
@@ -36,15 +36,19 @@
   margin: 10px;
 }
 
-.lrnoutcome{
+.theory_lrnoutcome{
   /* background-color: black; */
   margin: 10px;
 }
 
-.container{
+.theory_container{
+  padding: 18px;;
   display: flex;
+  background-image: linear-gradient(to top, #8f9294 0%, #bdbdbd 99%);
+    font-family: 'Roboto Slab', serif;
+    font-size: 18px;
 }
-.aside-container{
+.theory_aside-container{
   border: 1px solid black;
   width: 500px;
   display: block;
@@ -55,7 +59,7 @@
 
 
   /* Design starts */
-  
+  /*
 .animation{
     position: absolute;
     top: calc(50%-50px);
@@ -71,7 +75,7 @@
     position: relative;
     width: 150px;
     height: 350px;
-    /* list-style: none; */
+     list-style: none; 
     float: left;
   }
 
@@ -149,10 +153,10 @@
       opacity:0;
     }
   }
- 
+ */
   /* Design ends*/
 
-  #fst-img{
+  #theory_fst-img{
     width: 400px;
     margin: 20px auto;
     padding: auto;
@@ -163,7 +167,7 @@
     /* border-style:inset */
   }
   
-  #trd-img{
+  #theory_trd-img{
     width: 400px;
     margin: 20px auto;
     padding: auto;
@@ -172,20 +176,20 @@
     border-radius: 40px;
     box-shadow: 4px 4px 4px 4px #414849 ;
   }
-.trd{
+.theory_trd{
   /* border: 2px solid black; */
   width: 450px;
   display: block;
   margin: auto;
   padding: auto;
 }
-#c1{
+#theory_c1{
   display: flex;
   justify-content: center;
   text-decoration: underline;
 }
 
-#snd-img{
+#theory_snd-img{
   width: 400px;
   border: 4px solid black;
   border-radius: 40px;
@@ -197,7 +201,7 @@
 
 
 
-#frt-img{
+#theory_frt-img{
   width: 400px;
   border: 4px solid black;
   border-radius: 40px;
@@ -207,33 +211,35 @@
     box-shadow: 4px 4px 4px 4px #414849 ;
 }
 
-/* .h1{
+.theory_h1{
   font-size: 24px;
 }
-.h2{
+.theory_h2{
   font-size: 23px;
 }
-.h3{
+.theory_h3{
   font-size: 22px;
+  padding-left: 35px;
 }
-.h4{
+.theory_h4{
   font-size: 21px;
+  text-decoration: underline;
 }
-.h5{
+.theory_h5{
   font-size: 20px;
 }
-.h6{
+.theory_h6{
   font-size: 19px;
-} */
+} 
 
-.li-span{
+.theory_li-span{
   display: block;
   
   margin: 0px auto;
   padding: auto;
 }
 
-#terms{
+#theory_terms{
   width: 95%;
   border: 4px solid black;
   border-radius: 40px;
@@ -241,4 +247,7 @@
   margin: auto;
   padding: auto;
   box-shadow: 4px 4px 4px 4px #414849 ;
+}
+.theory_p{
+  padding-left: 25px;
 }

@@ -1,4 +1,4 @@
-// import "../css/Theory.css";
+import "../css/Theory.css";
 import img1 from "./images/1.jpg";
 import img2 from "./images/2.jpg";
 import img3 from "./images/3.jpg";
@@ -9,19 +9,19 @@ import img6 from "./images/6.png";
 function Theory() {
   return (
     <>
-      <h1 className="h1">Navbar will be pasted here</h1>
-      <div className="container">
-        <div className="box">
-          <div className="obj">
-            <h3 className = 'h3'>Objective:</h3>
-            <p>
+      
+      <div className="theory_container">
+        <div className="theory_box">
+          <div className="theory_obj">
+            <h3 className = 'theory_h3'>Objective:</h3>
+            <p className="theory_p">
               The objective of this vlab is to understand and implement basic
               concepts of probability.
             </p>
           </div>
           <hr />
           <div className="theory">
-            <h3 className = 'h3'>Theory:</h3>
+            <h3 className = 'theory_h3'>Theory:</h3>
 
 
             <p>
@@ -39,7 +39,7 @@ function Theory() {
 
             <div>
               <ul type='bullet'>
-              <h4 className='h4'>Event and outcome</h4>
+              <h4 className='theory_h4'>Event and outcome</h4>
 
 
                 <li>An Outcome is a result of a random experiment. For example, when we roll a dice getting six is an outcome.</li>
@@ -51,7 +51,7 @@ function Theory() {
             
 
               <ul type='bullet'>
-              <h4 className='h4'>Probability Tree</h4>
+              <h4 className='theory_h4'>Probability Tree</h4>
               <li> The tree diagram helps to organize and visualize the different
                 possible outcomes.</li>
               <li>Branches and ends of the tree are two main
@@ -66,7 +66,7 @@ function Theory() {
 
               <div>
                 <ul type = 'bullet'>
-                <h4 className='h4'>Probability of an Event</h4>
+                <h4 className='theory_h4'>Probability of an Event</h4>
                 <li>Assume an event E can occur in r ways out of a sum of n probable or possible equally likely ways.Then the  of
                 happening of the event or its success is expressed as: <br /> <span className = 'li-span'> P(E) = r/n</span></li>
                 <li>The probability that the event will not occur or known as its
@@ -83,7 +83,7 @@ function Theory() {
             
               <div>
               <ul type='1'>
-              <h4 className='h4'>Applications of Probability</h4>
+              <h4 className='theory_h4'>Applications of Probability</h4>
               
                 Probability has a wide variety of applications in real life.
                 Some of the common applications which we see in our everyday
@@ -100,13 +100,13 @@ function Theory() {
           </div>
          
         
-          <div className="lrnoutcome"></div>
+          <div className="theory_lrnoutcome"></div>
 
           
 
           <div>
             <ul type='bullet'>
-            <h4 className='h4'>Types of Probability</h4>
+            <h4 className='theory_h4'>Types of Probability</h4>
               <p>
               There are three major types of probabilities:
               <li>Theoretical Probability</li>
@@ -115,11 +115,11 @@ function Theory() {
               </p>
 
               <p>
-                <h5 className='h5'>Theoretical Probability</h5>It is based on the possible chances of something to happen. The theoretical probability is mainly based on the reasoning behind probability. For example, if a coin is tossed, the theoretical probability of getting a head will be ½. <br />
+                <h5 className='theory_h4'>Theoretical Probability</h5>It is based on the possible chances of something to happen. The theoretical probability is mainly based on the reasoning behind probability. For example, if a coin is tossed, the theoretical probability of getting a head will be ½. <br />
 
-                <h5 className='h5'>Experimental Probability</h5>It is based on the basis of the observations of an experiment. The experimental probability can be calculated based on the number of possible outcomes by the total number of trials. For example, if a coin is tossed 10 times and heads is recorded 6 times then, the experimental probability for heads is 6/10 or, 3/5. <br />
+                <h5 className='theory_h4'>Experimental Probability</h5>It is based on the basis of the observations of an experiment. The experimental probability can be calculated based on the number of possible outcomes by the total number of trials. For example, if a coin is tossed 10 times and heads is recorded 6 times then, the experimental probability for heads is 6/10 or, 3/5. <br />
 
-                <h5 className='h5'>Axiomatic Probability</h5>In axiomatic probability, a set of rules or axioms are set which applies to all types. These axioms are set by Kolmogorov and are known as Kolmogorov's three axioms. With the axiomatic approach to probability, the chances of occurrence or non-occurrence of the events can be quantified. The axiomatic probability lesson covers this concept in detail with Kolmogorov's three rules (axioms) along with various examples.<br />
+                <h5 className='theory_h4'>Axiomatic Probability</h5>In axiomatic probability, a set of rules or axioms are set which applies to all types. These axioms are set by Kolmogorov and are known as Kolmogorov's three axioms. With the axiomatic approach to probability, the chances of occurrence or non-occurrence of the events can be quantified. The axiomatic probability lesson covers this concept in detail with Kolmogorov's three rules (axioms) along with various examples.<br />
 
               </p>
 
@@ -129,25 +129,25 @@ function Theory() {
           <hr />
 
           <div className="imp-terms">
-            <h3 className = 'h3'>Important Terms related to Probability:</h3>
-            <img id = 'terms' src={img1} alt="" />
+            <h3 className = 'theory_h3'>Important Terms related to Probability:</h3>
+            <img id = 'theory_terms' src={img1} alt="" />
           </div>
         </div>
-        <aside className="aside-container">
+        <aside className="theory_aside-container">
          
 
-          <img id="fst-img" src={img5} alt="" />
+          <img id="theory_fst-img" src={img5} alt="" />
           <hr />
-          <img id="snd-img" src={img6} alt="" />
+          <img id="theory_snd-img" src={img6} alt="" />
           <hr />
 
-          <div className="trd">
-            <img id="trd-img" src={img2} alt="" />
-            <caption id="c1">Probability for a single coin </caption>
+          <div className="theory_trd">
+            <img id="theory_trd-img" src={img2} alt="" />
+            <caption id="theory_c1">Probability for a single coin </caption>
           </div>
           <hr />
 
-          <img id='frt-img'src={img3} alt="" /><hr />
+          <img id='theory_frt-img'src={img3} alt="" /><hr />
 
           
         </aside>
