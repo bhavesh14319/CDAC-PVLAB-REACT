@@ -69,3 +69,15 @@
     opacity: 1;
   }
 }
+
+
+.roll-again-btn{
+    width: 120px;
+    outline: none;
+    background-color: #00326b;
+    border: none;
+}
+
+.roll-again-btn:hover{
+    background-color: #00326b !important;
+}

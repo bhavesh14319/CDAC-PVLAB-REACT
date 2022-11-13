@@ -282,7 +282,7 @@ const Board = (props) => {
               TT={props?.TT}
             ></Popup>
           )}
-          {/* {decisionComponent1(type)} */}
+          {decisionComponent1(type)}
 
           {type !== "formula" && (
             <div className="instructionBox" id="instructionBox">
