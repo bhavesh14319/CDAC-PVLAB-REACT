@@ -344,6 +344,10 @@ const Board = (props) => {
                   }
                   setType((type = inst[current].type));
                   setValue(inst[current].audiosrc);
+                  if(current==inst.length-1){
+                    let testBtn = document.getElementById('quiz-btn');
+                    testBtn.disabled = false;
+                  }
                 }}
               >
                 Next

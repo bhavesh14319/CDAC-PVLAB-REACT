@@ -136,8 +136,8 @@ const Doublecoin = () => {
       id:12,
       type:"general",
       value:`as we know the total probability of all possible outcomes is always 1 <br/>
-      Let's Verify it . 😌`,
-      audiosrc:`as we know the total probability of all possible outcomes is always 1 <br/>
+      Let's Verify it`,
+      audiosrc:`as we know the total probability of all possible outcomes is always 1. <br/>
       Let's Verify it .`,
       
     },
@@ -196,7 +196,7 @@ const Doublecoin = () => {
       id:17,
       type:"general",
       value:"Remember... <br/> Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur",
-      audiosrc:"Remember, <br/> Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur",
+      audiosrc:"Remember, <br/> Probability is measured on the scale of 0 to 1.<br/> Zero probability implies that there is no likelyhood that event is going to happen. <br/> while a probability 1 indicates that event is certian to occur",
 
     },
     {

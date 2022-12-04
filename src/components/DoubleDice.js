@@ -67,7 +67,7 @@ const DoubleDice = () => {
       id: 5,
       type: "Question",
       values:{
-        Question: "How many possible combinations you can get to rolling two dice at a time?",
+        Question: "How many possible combinations you can get on rolling two dice at a time?",
         Choices: ["6","12","18","36"],
         correctAns: "36",
         justification:`Each Dice has 6 sides numbered from 1 to 6 \n Hence the set of combinations that can appear are {(1,1),(1,2),(1,3),(1,4),(1,6),... till (6,6)}\n where, (i,j) represents we got number i on dice1 and j on dice2 \n Now Select the correct answer.. 💁✌️`,
@@ -210,7 +210,7 @@ const DoubleDice = () => {
   return (
     <>
 
-    <Board inst={inst}></Board>
+    <Board inst={inst} level={4}></Board>
 
     <div className="dbl-dice-container">
       {" "}

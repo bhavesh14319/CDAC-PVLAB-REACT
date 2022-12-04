@@ -10,7 +10,7 @@ const Dice = () => {
       id: 0,
       type: "general",
       value: "Hello, Welcome again ! <br/> Let's Explore Single dice roll❤",
-      audiosrc: "Hello, Welcome again ! <br/> Let's Explore Single dice roll❤",
+      audiosrc: "Hello, Welcome again ! <br/> Let's Explore Single dice roll",
     },
     {
       id: 1,
@@ -39,7 +39,7 @@ const Dice = () => {
         Choices: ["{1,2,3,4,5,6}","{7,8,9,10,12,5}","{1,4,5,10,8,9,7}","{1,2,3,4,5,6,7}"],
         correctAns: "{1,2,3,4,5,6}",
         justification:`Dice has 6 sides numbered from 1 to 6 \n Hence the set of numbers that can appear is {1,2,3,4,5,6}\n Now Select the correct answer.. 💁✌️`,
-        audiosrc: "Now Tell me What are the outcomes when you roll a ?",
+        audiosrc: "Now Tell me What are the outcomes when you roll a dice ?",
       }
     },
     {
@@ -71,7 +71,7 @@ const Dice = () => {
         Choices: ["1/2","1","1/6","0"],
         correctAns: "1/6",
         justification:`HINT:- \n Number of possible outcomes in single roll of 🎲 is 6 \n Set of numbers that can appear in single roll is {1,2,3,4,5,6}\n Now Select the correct answer.. 💁✌️`,
-        audiosrc: "What is the probabiltiy of getting number 4 on ?",
+        audiosrc: "What is the probabiltiy of getting number 4 on dice?",
       }
     },
     {
@@ -104,7 +104,7 @@ const Dice = () => {
         Choices: ["1/2","5/6","1/6","0"],
         correctAns: "5/6",
         justification:`HINT:- \nProbability of getting 4 on 🎲 is 1/6\n Now Select the correct answer.. 💁✌️`,
-        audiosrc: "What is the probabiltiy of not getting number 4 on ?",
+        audiosrc: "What is the probabiltiy of not getting number 4 on dice?",
       }
     },
     //     {
@@ -242,7 +242,7 @@ const Dice = () => {
     //     },
   ];
 
-  const roll = () => {
+  const rollDice = () => {
     let dice = document.getElementById("dice");
     var outputDiv = document.getElementById("diceResult");
 
@@ -258,16 +258,37 @@ const Dice = () => {
     setTimeout(function () {
       outputDiv.classList.add("reveal");
       
-    swal(`Yay! 🤘 You Got ${result} `, `Can you predict the next number on next 🎲 roll?`, "")
+    // swal(`Yay! 🤘 You Got ${result} `, `Can you predict the next number on next 🎲 roll?`, "")
+     showPopUp(result);
     }, 1500);
-
-
 
   };
 
+  const showPopUp = (result)=>{
+    swal(
+      {
+        title: `Yay! 🤘 You Got ${result} on 🎲`,
+        text: `Can you predict the next number 🤔?`,
+        buttons: {
+          cancel: true,
+          roll: {
+            text: "Roll Again",
+            value: "roll",
+            className : 'roll-again-btn'
+          },
+        },
+        
+      }).then((roll)=>{
+        if(roll){
+            rollDice();
+        }
+      })
+      
+  }
+
   return (
     <>
-      <Board inst={inst}></Board>
+      <Board inst={inst} level={3}></Board>
       <div className="diceContainer">
         <div id="dice" data-side="1">
           <div className="sides side-1">
@@ -305,7 +326,7 @@ const Dice = () => {
           </div>
         </div>
 
-        <button onClick={roll} id="diceResult">
+        <button onClick={rollDice} id="diceResult">
           Roll 🎲
         </button>
       </div>

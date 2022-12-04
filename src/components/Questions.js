@@ -224,11 +224,60 @@ function Questions(props) {
     },
   ];
 
+
+
+  let quest3 = [
+    {
+      id: 1,
+      type: "mcq",
+      question:
+        "The probability of getting numbe 10 when six sided dice is rolled is ?",
+      option: {
+        1: "1/6",
+        2: "1/4",
+        3: "0",
+        4: "5/2",
+      },
+      correct: {
+        value: "0",
+      },
+      explanation: {
+        value: `Is there any side which is numbered zero on dice ? think and answer.`,
+      },
+    }
+  ]
+
+  
+  let quest4 = [
+    {
+      id: 1,
+      type: "mcq",
+      question:
+        "Two six-sided, fair dice are rolled. What are the probabilities of getting one even and one odd number?",
+      option: {
+        1: "1/6",
+        2: "1/4",
+        3: "1/2",
+        4: "5/2",
+      },
+      correct: {
+        value: "1/2",
+      },
+      explanation: {
+        value: `Refer the possible combinations of numbers when two dice are tossed`,
+      },
+    }
+  ]
+
   return (
     <div>
       {props.level === 1 && <Quizcontainer quest={quest} />}
 
       {props.level === 2 && <Quizcontainer quest={quest2} />}
+
+      {props.level === 3 && <Quizcontainer quest={quest3} />}
+
+      {props.level === 4 && <Quizcontainer quest={quest4} />}
     </div>
   );
 }
