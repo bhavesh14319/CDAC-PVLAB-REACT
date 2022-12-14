@@ -178,10 +178,6 @@ const DoubleDice = () => {
       id:12,
       type:"end",
     },
-    {
-      id:13,
-      type:"end",
-    }
 
   ]
 
