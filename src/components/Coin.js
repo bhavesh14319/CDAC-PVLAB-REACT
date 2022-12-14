@@ -22,7 +22,7 @@ const Coin = () => {
   
   const[output,setOutput]=useState("");
 
-  let inst = [
+   let inst = [
     {
       id:0,
       type:'general',
@@ -179,6 +179,10 @@ const Coin = () => {
       retain:true,
       audiosrc: `probability image`,
     },
+    {
+      id:19,
+      type:"end",
+    }
   ];
 
   function showPopUp(){

@@ -5,24 +5,33 @@
 
 .popUpContainer{
     position: absolute;
-    left: 45px;
-    top: 20px;
-    width: 42vw;
+    /* left: 45px; */
+    /* top: 20px; */
+    width: 47.5vw;
     /* display: flex; */
     /* flex-direction: column; */
     background: #e1e0ee;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 6px;
     box-shadow:  0px 15px 15px 15px rgba(0,0,0,0.5);
     font-family: "Walter Turncoat", "cursive";
     /* visibility:hidden; */
     display: none;
-    height: 22vh;
+    height: 37.5vh;
     z-index: 100;
 }
 .popUpContainer h2{
     margin-bottom: 10px;
+
 }
+
+.popUp{
+    min-height: 37.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 
 .popUp input{
@@ -46,7 +55,20 @@
 .submit{
     display: flex;
     justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
+    z-index: 1000002;
+    position: absolute;
+    bottom: 40px;
+    left:0;
+    right:0;
 }
+
+.submit{
+   /* margin-top: auto; */
+    /* align-self: flex-end; */
+}
+
 .submit button{
     width: 100px;
     border-radius: 10px;
@@ -69,11 +91,11 @@
 	animation-timing-function: linear;
 }
 #HEAD{
-    margin-left: 1vw;
+    margin-left: 0.8vw;
 
 }
 #TAIL{
-    margin-left: 1.6vw;
+    margin-left: 0.8vw;
 }
 
 
@@ -93,7 +115,7 @@
 
 .imageCont{
     width:150px;
-    position: absolute;
+    /* position: absolute; */
     right: 30px;
     top:10px
 }

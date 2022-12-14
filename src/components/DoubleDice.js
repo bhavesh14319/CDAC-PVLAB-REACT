@@ -174,9 +174,14 @@ const DoubleDice = () => {
         audiosrc: "Now Tell me What are the outcomes when you roll a ?",
       }
     },
-
-
-    
+    {
+      id:12,
+      type:"end",
+    },
+    {
+      id:13,
+      type:"end",
+    }
 
   ]
 

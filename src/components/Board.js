@@ -13,7 +13,12 @@ import Heading from "./Heading";
 import "../css/Board.css";
 import Questions from "./Questions";
 import Popup1 from "./Popup1";
-import { useSpeechSynthesis } from "react-speech-kit";
+import { useSpeechSynthesis} from "react-speech-kit";
+import End from "./End";
+import { IconButton } from "@mui/material";
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+// import { cancel } from "react-speech-kit"
+
 
 const Board = (props) => {
   let [current, setCurrent] = useState(0);
@@ -24,12 +29,11 @@ const Board = (props) => {
   const [nextBtn, setNextBtn] = useState(null);
   const [quizBtn, setQuizBtn] = useState(null);
   const [audioElement, setAudioElement] = useState(null);
-  let [type, setType] = useState(null);
+  // const [type, setType] = useState(null);
+  let [type,setType]=useState(null);
 
   const [value, setValue] = useState("");
   const { speak } = useSpeechSynthesis();
-
-
   let inst = props?.inst;
 
   // x
@@ -105,6 +109,7 @@ const Board = (props) => {
       btn.style.display = "none";
     }
     setType((type = inst[current].type));
+    // setType(inst[current].type);
     setValue(inst[current].audiosrc);
 
     if (nextBtn) {
@@ -144,6 +149,8 @@ const Board = (props) => {
   }, []);
 
   useEffect(() => {
+
+
     if (current > 0) {
       if (prevBtn) {
         prevBtn.disabled = false;
@@ -169,23 +176,24 @@ const Board = (props) => {
     }
   }, [current]);
 
-  // useEffect(() => {
-  //   if (prevBtn && nextBtn) {
-  //     if (current > 0) {
-  //       prevBtn.disabled = false;
-  //     }
+  useEffect(() => {
+    // if (prevBtn && nextBtn) {
+    //   if (current > 0) {
+    //     prevBtn.disabled = false;
+    //   }
 
-  //     if ((current = 0)) {
-  //       prevBtn.disabled = true;
-  //     }
+    //   if ((current = 0)) {
+    //     prevBtn.disabled = true;
+    //   }
 
-  //     if ((current = inst?.length - 1)) {
-  //       nextBtn.disabled = true;
-  //     }else{
-  //       nextBtn.disabled=false;
-  //     }
-  //   }
-  // }, [type]);
+    //   if ((current = inst?.length - 1)) {
+    //     nextBtn.disabled = true;
+    //   }else{
+    //     nextBtn.disabled=false;
+    //   }
+    // }
+
+  }, [type]);
 
   function updateFormulaList() {
     if (inst[current].retain) {
@@ -227,6 +235,10 @@ const Board = (props) => {
           equations={inst[current].equations}
         />
       );
+    }else if(type === "end"){
+      return (
+        <End/>
+      )
     }
   }
 
@@ -248,14 +260,17 @@ const Board = (props) => {
         {/* <img src={probFormula} alt="" className="fadeInClass" /> */}
       </div>
       <ImagePopUp />
-      <Questions level={props?.level} />
+      <Questions level={props?.level} onStart={onStart} />
       <div className="boardContainer">
         <div className="MainContainer" id="MainContainer">
           {/* <!-- Upper instruction Box --> */}
           <div className="startCont">
-            <button className="startBtn" id="startBtn" onClick={onStart}>
-              Start
-            </button>
+            <IconButton>
+            <PlayCircleIcon style={{fontSize:"70px",width:"70px",color:"#674706",background:"white",borderRadius:"50%"}} className="startBtn" id="startBtn" onClick={onStart}>
+              {/* <Start> */}
+             
+            </PlayCircleIcon>
+            </IconButton>
           </div>
           {props?.level === 1 && (
             <Popup
@@ -265,6 +280,7 @@ const Board = (props) => {
               settails={props?.settails}
               heads={props?.heads}
               tails={props?.tails}
+              onNext={onNext}
             ></Popup>
           )}
 
@@ -280,6 +296,7 @@ const Board = (props) => {
               TH={props?.TH}
               HT={props?.HT}
               TT={props?.TT}
+              onNext={onNext}
             ></Popup>
           )}
           {decisionComponent1(type)}
@@ -308,6 +325,7 @@ const Board = (props) => {
                   setCurrent((current = current - 1));
                 }
                 setType((type = inst[current].type));
+                // setType(inst[current].type);
                 setValue(inst[current].audiosrc);
               }}
             >
@@ -317,6 +335,7 @@ const Board = (props) => {
               <span
                 className="btn speak-btn"
                 onClick={() => {
+                  // listen();
                   speak({
                     text: value,
                     voices: [
@@ -330,7 +349,7 @@ const Board = (props) => {
                     ],
                   });
                 }}
-                style={{ alignSelf: "flex-end" }}
+                style={{ alignSelf: "flex-end",background:"none",border:"none" }}
               >
                 {" "}
                 🔊{" "}
@@ -343,6 +362,7 @@ const Board = (props) => {
                     setCurrent((current = current + 1));
                   }
                   setType((type = inst[current].type));
+                  // setType(inst[current].type);
                   setValue(inst[current].audiosrc);
                   if(current==inst.length-1){
                     let testBtn = document.getElementById('quiz-btn');
@@ -364,7 +384,7 @@ const Board = (props) => {
 
       {/* side nav bar */}
       <Heading level={props?.level} />
-      <Quiz />
+      <Quiz level={props.level}/>
 
       {/* <SideNavRight /> */}
     </>

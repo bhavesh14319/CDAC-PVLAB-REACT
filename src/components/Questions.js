@@ -47,7 +47,7 @@ function Questions(props) {
           rolling a die and getting number > 10 in an impossible outcome, etc.`,
       },
     },
-    {
+   {
       id: 2,
       type: "mcq",
       question:
@@ -172,6 +172,7 @@ function Questions(props) {
         value: `0 < P(E) < 1`,
       },
     },
+
   ];
 
   let quest2 = [
@@ -231,7 +232,7 @@ function Questions(props) {
       id: 1,
       type: "mcq",
       question:
-        "The probability of getting numbe 10 when six sided dice is rolled is ?",
+        "The probability of getting number 10 when six sided dice is rolled is ?",
       option: {
         1: "1/6",
         2: "1/4",
@@ -271,13 +272,13 @@ function Questions(props) {
 
   return (
     <div>
-      {props.level === 1 && <Quizcontainer quest={quest} />}
+      {props.level === 1 && <Quizcontainer quest={quest} level={props.level} onStart={props.onStart}/>}
 
-      {props.level === 2 && <Quizcontainer quest={quest2} />}
+      {props.level === 2 && <Quizcontainer quest={quest2} level={props.level} onStart={props.onStart}/>}
 
-      {props.level === 3 && <Quizcontainer quest={quest3} />}
+      {props.level === 3 && <Quizcontainer quest={quest3}  level={props.level} onStart={props.onStart}/>}
 
-      {props.level === 4 && <Quizcontainer quest={quest4} />}
+      {props.level === 4 && <Quizcontainer quest={quest4} level={props.level} onStart={props.onStart}/>}
     </div>
   );
 }

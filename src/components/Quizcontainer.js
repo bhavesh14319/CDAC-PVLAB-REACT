@@ -4,12 +4,16 @@ import questioncoin from "../components/images/questioncoin.png";
 import happycoin from "../components/images/happycoin.png";
 import pointingcoin from "../components/images/pointingcoin.png";
 import Quizsolution from "./Quizsolution";
+import swal from "sweetalert";
+import { useNavigate } from 'react-router-dom';
 // import { imageListClasses } from "@mui/material";
 
 const Quizcontainer = (props) => {
   let [current, setcurrent] = React.useState(0);
   let [timer, settimer] = React.useState(3);
   // const display = React.useRef(null)
+
+  const navigate = useNavigate();
 
   let quest = props?.quest;
 
@@ -113,8 +117,49 @@ const Quizcontainer = (props) => {
     // if (quest[current]?.correct[3]) {
     // }
   }
+
   React.useEffect(() => {
     console.log(current);
+
+    if(current == quest.length){
+      document.querySelector('.quizContainer').style.display="none";
+      swal({
+        icon:'success',
+        title:"You have completed quiz ",
+        text: "Click on Next to go to next level. \n if you want to revise the same level click on Repeat",
+        buttons: {
+          Repeat:{
+            text : "Repeat",
+            value:"Repeat",
+            width: "fit-content",
+            className:"repeat-level-btn"
+          },
+          Next: {
+            text: "Next",
+            value: "Next Level",
+            className : 'Next-level-btn'
+          },
+        },
+        
+      }).then((NextLevel)=>{
+        console.log();
+        if(NextLevel== 'Next Level'){
+          if(props.level===1){
+            navigate('/twocoin')
+          }else 
+          if(props.level===2){
+            navigate('/singledice')
+          }else if(props.level===3){
+            navigate('/doubledice')
+          }
+            
+        }else{
+            navigate(window.location);
+            setcurrent(0);
+            props.onStart();
+        }
+      })
+    }
   }, [current]);
 
   return (

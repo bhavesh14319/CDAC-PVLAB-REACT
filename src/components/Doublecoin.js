@@ -206,6 +206,10 @@ const Doublecoin = () => {
       retain:true,
       audiosrc:'probability line image',
     },
+    {
+      id:19,
+      type:"end",
+    }
   ];
 
   function showPopUp(){

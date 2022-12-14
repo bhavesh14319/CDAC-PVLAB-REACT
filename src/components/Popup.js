@@ -31,6 +31,7 @@ const Popup = (props) => {
 
     let cont = document.querySelector("#popUpContainer");
     cont.style.display = "none";
+    props.onNext();
 
     // const output = document.getElementById("coininput").value;
     // console.log(output);
@@ -78,6 +79,7 @@ const Popup = (props) => {
 
     let cont = document.querySelector("#popUpContainer");
     cont.style.display = "none";
+    props.onNext();
   }
 
   return (

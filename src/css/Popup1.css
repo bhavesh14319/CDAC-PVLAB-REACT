@@ -5,18 +5,20 @@
 
 .popUpContainer1{
     position: absolute;
-    left: 15px;
-    top: 15px;
-    width: 45vw;
+    /* left: 15px; */
+    /* top: 15px; */
+    width: 47.5vw;
     /* display: flex; */
     /* flex-direction: column; */
     background: #e1e0ee;
     padding: 10px 20px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     box-shadow:  0px 15px 15px 15px rgba(0,0,0,0.5);
     font-family:sans-serif;
     /* visibility:hidden; */
     max-height: min-content;
+    max-height: 40vh;
+    min-height: 37.5vh;
     z-index: 100000;
 }
 
@@ -28,7 +30,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    min-height: 37.5vh;
 }
 
 .popUpContainer h2{
@@ -58,6 +61,7 @@
 .submit{
     display: flex;
     justify-content: center;
+    z-index: 1000002;
 }
 .submit button{
     width: 100px;
@@ -81,11 +85,11 @@
 	animation-timing-function: linear;
 }
 #HEAD{
-    margin-left: 1vw;
+    margin-left: 0.8vw;
 
 }
 #TAIL{
-    margin-left: 1.6vw;
+    margin-left: 0.8vw;
 }
 
 
