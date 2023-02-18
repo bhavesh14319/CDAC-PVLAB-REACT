@@ -7,7 +7,7 @@ import twocoinchances from '../components/images/twocoin.gif'
 import comp from '../components/images/comp.jpeg'
 import probLine from '../components/images/probLine.png'
 import {returnUserInput} from './Popup'
-
+import Flip from "../components/sounds/coin1.mp3"
 
 const Doublecoin = () => {
   // var output = "";
@@ -221,11 +221,13 @@ const Doublecoin = () => {
 
 
   const flipCoin = () => {
+    let audio = document.getElementById('coinAudio')
     coin1 = document.getElementById("coin1");
     coin2 = document.getElementById("coin2");
     flipBtn = document.querySelector("#flip-button");
     resetBtn = document.querySelector("#reset-button");
     console.log('hiii');
+    audio.play();
     // console.log(coin);
     if (coin1 && coin2) {
       let i1 = Math.floor(Math.random() * 2);
@@ -347,6 +349,7 @@ useEffect(() => {
 
   return (
     <div>
+      <audio id="coinAudio" src={Flip} style={{display:"none"}}/>
       {/* { flipBtn = document.querySelector("#flip-button")} */}
       <Board inst={inst} level={2} setOutput={setOutput} flip={flipBtn} HH={HH} HT={HT} TH={TH} TT={TT} setHH={setHH} setHT={setHT} setTT={setTT} setTH={setTH}></Board>
       <div className="container">

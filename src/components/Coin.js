@@ -7,6 +7,7 @@ import coinChances from '../components/images/coinChances.jpg'
 import comp from '../components/images/comp.jpeg'
 import probLine from '../components/images/probLine.png'
 import {returnUserInput} from './Popup'
+import Flip from "../components/sounds/coin1.mp3"
 
 
 const Coin = () => {
@@ -90,7 +91,7 @@ const Coin = () => {
       id: 10,
       type: "formula",
       image: coinChances,
-      retain:false,
+      retain:true,
       audiosrc: `probability image`,
     },
     {
@@ -194,11 +195,14 @@ const Coin = () => {
 
 
   const flipCoin = () => {
+    let audio = document.getElementById('coinAudio')
+    console.log(audio , "{saaddddd");
     coin = document.querySelector(".coin");
     flipBtn = document.querySelector("#flip-button");
     resetBtn = document.querySelector("#reset-button");
     console.log('hiii');
     console.log(coin);
+    audio.play();
     if (coin) {
       let i = Math.floor(Math.random() * 2);
       coin.style.animation = "none";
@@ -206,6 +210,7 @@ const Coin = () => {
         setTimeout(function () {
           coin.style.animation = "spin-heads 3s forwards";
         }, 100);
+        
         
         // setheads(heads+1);
         
@@ -215,7 +220,6 @@ const Coin = () => {
         }, 100);
        
         // settails(tails+1);
-
       }
       setTimeout(showPopUp, 3000);
       // console.log(output);
@@ -270,9 +274,11 @@ const Coin = () => {
 
   return (
     <div>
+        <audio id="coinAudio" src={Flip} style={{display:"none"}}/>
       {/* { flipBtn = document.querySelector("#flip-button")} */}
       <Board inst={inst} setOutput={setOutput} level={1} setheads={setheads} settails={settails} heads={heads} tails={tails} flip={flipBtn}></Board>
       <div className="container">
+      
         <div className="coinContainer">
         <div className="coin" id="coin">
           <div className="heads">

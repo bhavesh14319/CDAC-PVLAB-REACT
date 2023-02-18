@@ -121,23 +121,23 @@ function Questions(props) {
         value: `P(E) + P(E) ' = 1 <br/> use this`,
       },
     },
-    {
-      id: 6,
-      type: "mcq",
-      question: "If P(E) = 0.44, then P(not E) will be: ?",
-      option: {
-        1: "0.34",
-        2: "0.12",
-        3: "0.56",
-        4: "0.4",
-      },
-      correct: {
-        value: "0.56",
-      },
-      explanation: {
-        value: `P(E) + P(E) ' = 1 <br/> use this`,
-      },
-    },
+    // {
+    //   id: 6,
+    //   type: "mcq",
+    //   question: "If P(E) = 0.44, then P(not E) will be: ?",
+    //   option: {
+    //     1: "0.34",
+    //     2: "0.12",
+    //     3: "0.56",
+    //     4: "0.4",
+    //   },
+    //   correct: {
+    //     value: "0.56",
+    //   },
+    //   explanation: {
+    //     value: `P(E) + P(E) ' = 1 <br/> use this`,
+    //   },
+    // },
     {
       id: 7,
       type: "mcq",

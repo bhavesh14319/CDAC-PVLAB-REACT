@@ -2,7 +2,7 @@ import React from "react";
 import "../css/Dice.css";
 import Board from "./Board";
 import swal from "sweetalert";
-
+import diceroll from "../components/sounds/dice.mp3"
 
 const Dice = () => {
   let inst = [
@@ -114,9 +114,10 @@ const Dice = () => {
   ];
 
   const rollDice = () => {
+    let audio = document.getElementById('diceAudio')
     let dice = document.getElementById("dice");
     var outputDiv = document.getElementById("diceResult");
-
+    audio.play();
     let result = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
     dice.dataset.side = result;
     dice.classList.toggle("reRoll");
@@ -159,6 +160,7 @@ const Dice = () => {
 
   return (
     <>
+      <audio id="diceAudio" src={diceroll} style={{display:"none"}}/>
       <Board inst={inst} level={3}></Board>
       <div className="diceContainer">
         <div id="dice" data-side="1">

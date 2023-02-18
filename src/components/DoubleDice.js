@@ -4,12 +4,17 @@ import "../css/DoubleDice.css";
 import Board from "./Board";
 import combinations from '../components/images/combinations.jpg'
 import probFormula from '../components/images/probability-formula.jpg'
+import diceroll from "../components/sounds/dice.mp3"
+
 const DoubleDice = () => {
 
   const rollDice = () => {
     let dice1 = document.querySelector(".dice1");
     let dice2 = document.querySelector(".dice2");
     var outputDiv = document.getElementById("diceResult1");
+    let audio = document.getElementById('diceAudio')
+    audio.play();
+
 
     let result1 = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
     dice1.dataset.side = result1;
@@ -210,7 +215,7 @@ const DoubleDice = () => {
 
   return (
     <>
-
+      <audio id="diceAudio" src={diceroll} style={{display:"none"}}/>
     <Board inst={inst} level={4}></Board>
 
     <div className="dbl-dice-container">

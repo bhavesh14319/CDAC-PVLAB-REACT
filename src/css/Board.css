@@ -100,13 +100,21 @@
     margin: 5px;
     border: 1px solid #272020;
     background: #f2f2f2;
+    transition: 2s linear ease-in-out;
 }
-.prev-btn:hover:not([disabled]) ,.next-btn:hover:not([disabled]) {
+/* .prev-btn:hover:not([disabled]) ,.next-btn:hover:not([disabled]) {
+   
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+} */
+
+.prev-btn:hover:not([disabled]),.next-btn:hover:not([disabled]){
+    /* when the button is pressed it translates 0rem in horizontal direction and 0.3rem in vertical direction  */
+    transform: translate(0, -0.3rem);
+    /* when button is pressed shaddow changes accordingly */
+    box-shadow: 0 0.2rem rgba(0,0,0,0.65);
     background-color: #674706;
     color: #f2f2f2;
-    /* border: 1px solid #f2f2f2; */
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-}
+  }
 
 .boardFormulaContainer{
     display: flex;
@@ -247,3 +255,5 @@ width:100%;
 .swal-button:hover{
     background-color: #228538 !important;
 }
+
+
