@@ -13,6 +13,7 @@
     /* background-repeat: no-repeat; */
     /* background-size: contain; */
     /* background-position: center; */
+    height: 400px;
 }
 
 
@@ -34,4 +35,17 @@
     color: white;
     outline: none;
     border: none;
+}
+
+.result_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.bg-success{
+    background-color: green;
+}
+.bg-danger{
+    background-color: red;
 }

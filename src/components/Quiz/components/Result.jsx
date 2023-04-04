@@ -1,10 +1,11 @@
 import React from 'react';
+import "../Styles/Start.css";
 
 const Result = ({ showResult, quizs, marks, startOver }) => {
     return (
         // <section className="bg-dark text-white">
             <div className="start_container"  style={{ display: `${showResult ? 'block' : 'none'}` }}>
-                <div className="row vh-100 align-items-center justify-content-center">
+                <div className={`result_container ${marks > (quizs.length * 5 / 2) ? 'bg-success' : 'bg-danger'}`}>
                     <div className="col-lg-6">
                         <div className={`text-light text-center p-5 rounded ${marks > (quizs.length * 5 / 2) ? 'bg-success' : 'bg-danger'}`}>
                             <h1 className='mb-2 fw-bold'>{marks > (quizs.length * 5 / 2) ? 'Awesome!' : 'Oops!'}</h1>
