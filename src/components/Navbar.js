@@ -71,10 +71,12 @@ const Navbar = () => {
         </ul>
 
         <h2>Probability Lab</h2>
+        
+      <Menu/>
       </nav>
 
     {/* <button> */}
-    <div className="menuContainer" >     
+    {/* <div className="menuContainer" >     
         <div id="webapp_cover" >
         <div id="menu_button">
           <input type="checkbox" id="menu_checkbox" onClick={toggleSidebar}/>
@@ -83,10 +85,9 @@ const Navbar = () => {
           </label>
         </div>
       </div>
-      </div>
+      </div> */}
  
       {/* </button> */}
-
 
     </div>
   );

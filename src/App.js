@@ -25,9 +25,9 @@ function App() {
       {/* <Navbar></Navbar>
       <Coin></Coin> */}
       {/* <Board></Board> */}
-      <Navbar></Navbar>
+      
       <BrowserRouter>
-        
+      <Navbar></Navbar>
         <Routes>
               <Route path="/" element={<><Theory/></>}></Route>
         </Routes>
