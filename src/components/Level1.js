@@ -141,11 +141,5 @@ function Questions(props){
               value: "As we know that probability is the prediction of a particular outcome of a random event. It is a set of all the possible outcomes for a random experiment. We can calculate the question with the formula of probability i.e. Probability =No.of favourable outcomes Total number of outcomes. Let us assume a coin to be fair and 2− sides. When we flip the coin five times, it has 2^5=32 outcomes. So we have the total number of outcomes =32"
             } 
           }
-         
-        
-        
-
-
-
     ]
 }

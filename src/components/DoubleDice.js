@@ -44,32 +44,26 @@ const DoubleDice = () => {
     {
       id: 0,
       type: "general",
-      value: "Hello, Welcome again ! <br/> Let's Explore Single dice roll❤",
-      audiosrc: "Hello, Welcome again ! <br/> Let's Explore Double dice roll❤",
+      task:true,
+      value: "Hello, Welcome again ! <br/> Let's Explore Single dice roll❤ <br/> Roll Both the dice below and observe 🤨",
+      audiosrc: "Hello, Welcome again ! <br/> Let's Explore Double dice roll. Roll Both the dice below and observe",
     },
     {
       id: 1,
-      type: "general",
-      task:true,
-      value: "Roll Both the dice below and observe 🤨",
-      audiosrc: "Roll Both the dice below and observe",
-    },
-    {
-      id: 3,
       type: "general",
       task:true,
       value: "What are the possible combination?<br/> were you able to guess next combinations correctly? ",
       audiosrc: "What are the possible combination? were you able to guess next combinations correctly?",
     },
     {
-      id: 4,
+      id: 2,
       type: "general",
       task:true,
       value: "Note,each dice has 6 sides having numbers 1,2,3,4,5 & 6 <br/>thus, the possible combinations that we can are (1,1),(1,2),(1,3),(1,4) and so on... <br/>  <strong>think over it</strong>  ",
       audiosrc: "Note,each dice has 6 sides having numbers 1,2,3,4,5 & 6 <br/>thus, the possible combinations that we can are (1,1),(1,2),(1,3),(1,4) and so on... <br/>  <strong>think over it</strong>  ",
     },
     {
-      id: 5,
+      id: 3,
       type: "Question",
       values:{
         Question: "How many possible combinations you can get on rolling two dice at a time?",
@@ -80,28 +74,28 @@ const DoubleDice = () => {
       }
     },
     {
-      id: 6,
+      id: 4,
       type: "general",
       task:true,
       value: "Observe the possible combinations in next slide ",
       audiosrc: "Understand the possible combinations in next slide",
     },
     {
-      id:7,
+      id:5,
       type: "formula",
       image: combinations,
       retain:true,
       audiosrc:`Image of formula of probability`,
     },
     {
-      id:8,
+      id:6,
       type: "formula",
       image: probFormula,
       retain:true,
       audiosrc:`Image of formula of probability`,
     },
     {
-      id: 8,
+      id: 7,
       type: "Question",
       values:{
         Question: "What is the probability of getting same number on both dice?",
@@ -112,7 +106,7 @@ const DoubleDice = () => {
       }
     },
     {
-      id: 9,
+      id: 8,
       type: "Question",
       values:{
         Question: "Now can you find probability of not getting same numbers on both dice?",
@@ -157,7 +151,7 @@ const DoubleDice = () => {
     },
 
     {
-      id: 10,
+      id: 11,
       type: "Question",
       values:{
         Question: `How many possible outcomes can we get on rolling two dice where of sum of numbers we get is less than 10?`,
@@ -169,7 +163,7 @@ const DoubleDice = () => {
     },
 
     {
-      id: 11,
+      id: 12,
       type: "Question",
       values:{
         Question: `What is the probability of getting sum of two numbers greater than 10 on rolling two dice?`,
@@ -180,7 +174,7 @@ const DoubleDice = () => {
       }
     },
     {
-      id:12,
+      id:13,
       type:"end",
     },
 

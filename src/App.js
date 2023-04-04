@@ -13,6 +13,7 @@ import {
   Route,
 } from "react-router-dom";
 import Dice from './components/Dice';
+import FinalQuiz from './components/Quiz/FinalQuiz';
 
 function App() {
 
@@ -26,11 +27,15 @@ function App() {
       {/* <Board></Board> */}
       <Navbar></Navbar>
       <BrowserRouter>
+        
+        <Routes>
+              <Route path="/" element={<><Theory/></>}></Route>
+        </Routes>
         <Routes>
               <Route path="/singlecoin" element={<><Coin/></>}></Route>
         </Routes>
         <Routes>
-              <Route path="/" element={<><Theory/></>}></Route>
+              <Route path="/twocoin" element={<><Doublecoin/></>}></Route>
         </Routes>
         <Routes>
               <Route path="/singledice" element={<><Dice/></>}></Route>
@@ -39,8 +44,9 @@ function App() {
               <Route path="/doubledice" element={<><DoubleDice/></>}></Route>
         </Routes>
         <Routes>
-              <Route path="/twocoin" element={<><Doublecoin/></>}></Route>
+              <Route path="/Quiz" element={<><FinalQuiz/></>}></Route>
         </Routes>
+       
       </BrowserRouter>
       <Sidebar/>
     </>

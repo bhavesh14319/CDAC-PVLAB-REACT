@@ -8,6 +8,7 @@ import comp from '../components/images/comp.jpeg'
 import probLine from '../components/images/probLine.png'
 import {returnUserInput} from './Popup'
 import Flip from "../components/sounds/coin1.mp3"
+import swal from "sweetalert";
 
 const Doublecoin = () => {
   // var output = "";
@@ -36,69 +37,38 @@ const Doublecoin = () => {
     {
       id: 1,
       type:'general',
-      value: "Now consider the case when two fair coins are tossed simultaneously. <br/> What will be the output?🤔",
-      audiosrc: "Now consider the case when two fair coins are tossed simultaneously. <br/> What will be the output?",
+      value: "Now consider the case when two fair coins are tossed simultaneously. <br/> What will be the output?🤔 <br/> Not sure? Don't worry let's have a toss😥 ",
+      audiosrc: "Now consider the case when two fair coins are tossed simultaneously. <br/> What will be the output?  Not sure? Don't worry let's have a toss😥 ",
     },
     {
       id: 2,
-      type: "general",
-      task:true,
-      value: "Not sure? Don't worry let's have a toss😥",
-      audiosrc : "Not sure? Don't worry let's have a toss",
+      type:'general',
+      value: `Were your guesses correct ❓  <br/> Let me tell You, Here also The outcomes are unpredictable !`,
+      audiosrc: `Were your guesses correct ❓  <br/> Let me tell You, Here also The outcomes are unpredictable !`,
     },
     {
       id: 3,
-      type:'general',
-      task:true,
-      value: `Oh it appeared <strong>${output} </strong> but how ?😯<br/> Was it predictable?<br/> Let's have another toss`,
-      audiosrc: `Oh it appeared <strong>${output} </strong> but how ?<br/> Was it predictable?<br/> Let's have another toss`,
-    },
-    {
-      id: 4,
-      type:'general',
-     
-      value: `Was your guess correct ❓ <br/> Let me tell You, Here also The outcomes are unpredictable !`,
-      audiosrc: `Was your guess correct ❓ <br/> Let me tell You, Here also The outcomes are unpredictable !`,
-    },
-    {
-      id: 5,
       type:'general',
       value: `As you know, <br/> "The Probability of an event is the value that tells how likely the event is going to happen"`,
       audiosrc: `As you know, <br/> "The Probability of an event is the value that tells how likely the event is going to happen"`,
       
     },
     {
-      id: 6,
+      id: 4,
       type:'general',
       value: `What are the possible outcomes when we toss two fair coins simultaneously ? <br/> Click next to Observe all possible outcomes 👇`,
       audiosrc: `What are the possible outcomes when we toss two fair coins simultaneously ? <br/> Click next to Observe all possible outcomes `,
     },
     {
-      id: 7,
+      id: 5,
       type: "formula",
       image: twocoinchances,
       retain:true,
       audiosrc: `Image of two coin changes`
     },
     {
-      id:8,
-      type: "formula",
-      image: probFormula,
-      retain:true,
-      audiosrc:`Image of formula of probability`,
-    },
-    {
-      id:9,
+      id:6,
       type:"calculation",
-      // value: {
-      //   heading : "Probability of head and tail in single toss :",
-      //   favourable : "favourable outcome in one toss : Head or Tail",
-      //   Total : "Total possible outcomes are two : Head and Tail",
-      //   noOfFavourable : 1,
-      //   noOfTotal : 2
-      // },
-      // <div class="calc"> &there4; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> 1 </p> <p class="row2"> 2 </p> </div> &  
-      // <span class='calcLHS'>P(TAIL) = </span>  <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div> 
       calculation:
       `<div class='calculationContainer'> 
       <h3 class="calcHeading">Probability of getting two heads in tossing two fair coins at same time :</h3> <br/>
@@ -113,16 +83,10 @@ const Doublecoin = () => {
       audiosrc:`What do you think will be the Probability of getting two heads in tossing two fair coins at same time. All the favourable outcome in toss are HEAD HEAD or HEAD TAIL or TAIL HEAD or TAIL TAIL but Number of favourable outcomes is equal to 1. Hence, probability of Head head is 1 by 4 `
     },
     {
-      id:10,
-      type:"general",
-      value:"similarly the probabilities of getting <br/> (TAIL TAIL) , (TAIL HEAD) , (HEAD TAIL) are : 👇 ",
-      audiosrc: "similarly the probabilities of getting <br/> (TAIL TAIL) , (TAIL HEAD) , (HEAD TAIL) are ",
-    },
-    {
-      id:11,
+      id:7,
       type:"calculation",
       calculation:`<div class='calculationContainer'> 
-      <h3 class="calcHeading"></h3> 
+      <h3 class="calcHeading">similarly,</h3> 
       </div>  `
       ,
       equations:{
@@ -130,29 +94,15 @@ const Doublecoin = () => {
         2:String.raw`P(HT)=\frac{Number(HT)}{Total(Outcomes)}=\frac{1}{4}`,
         3:String.raw`P(TH)=\frac{Number(TH)}{Total(Outcomes)}=\frac{1}{4}`,
       },
-      audiosrc:'Probability of getting tail tail , and probability of getting head tail and getting tail head is 1 by 4',
+      audiosrc:'Similarly, Probability of getting tail tail , and probability of getting head tail and getting tail head is 1 by 4',
     },
     {
-      id:12,
-      type:"general",
-      value:`as we know the total probability of all possible outcomes is always 1 <br/>
-      Let's Verify it`,
-      audiosrc:`as we know the total probability of all possible outcomes is always 1. <br/>
-      Let's Verify it .`,
-      
-    },
-    {
-      id:13,
+      id:8,
       type:"calculation",
-//       <div class="calc">
-//       &#x2235; <span class='calcLHS'>P(HEAD) = </span> <div class="fraction"> <p class="row1"> 1 </p> <p class="row2"> 2 </p> </div> 
-//      &  
-//      <span class='calcLHS'>P(TAIL) = </span> <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div> <br>
-// </div>
-// <div class='calc'> <p class='calcLHS'>P(HEAD)+p(TAIL) =  <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div>  + &nbsp; <div class="fraction"> <p class="row1">1</p> <p class="row2">2</p> </div> = 1 </p></div>
       calculation:
         `<div class='calculationContainer'>
-          <h3 class="calcHeading">Total probability of two fair coin toss :</h3> <br/>
+          <h3 class="calcHeading">Recollect, the total probability of all possible outcomes is always 1</h3> <br/>
+          <p class="favText">Total probability of two fair coin toss : </p>
           </div>
         `,
         equations:{
@@ -162,20 +112,13 @@ const Doublecoin = () => {
         audiosrc:"Total probability of two fair coin toss will be equal to sum of all 4 probabilities which is equal to 1",
     },
     {
-      id: 14,
-      type: "formula",
-      image:comp,
-      retain:true,
-      audiosrc: 'probability formula image',
-    },
-    {
-      id:15,
+      id:9,
       type:'general',
       value:"as we know that probabilities are complementary. <br/>  &nbsp&nbsp P(HH) = 1 - P(HH) ' <br/> &there4; P(HH) + P(HH) ' = 1 <br/>    ",
       audiosrc:"as we know that probabilities are complementary. <br/>  Hence, probability of Head head is equal to 1 minus probability of not Head head",
     },
     {
-      id:16,
+      id:10,
       type:"calculation",
       calculation:`<div class='calculationContainer'> 
       <p class="favText">We Know That,</p> <br/> 
@@ -193,31 +136,122 @@ const Doublecoin = () => {
       
     },
     {
-      id:17,
+      id:11,
       type:"general",
       value:"Remember... <br/> Probability is measured on the scale of 0 to 1<br/> Zero probability implies that there is no likelyhood that event is going to happen <br/> while a probability 1 indicates that event is certian to occur",
       audiosrc:"Remember, <br/> Probability is measured on the scale of 0 to 1.<br/> Zero probability implies that there is no likelyhood that event is going to happen. <br/> while a probability 1 indicates that event is certian to occur",
 
     },
     {
-      id: 18,
+      id: 12,
       type: "formula",
       image:probLine,
       retain:true,
       audiosrc:'probability line image',
     },
     {
-      id:19,
+      id:13,
       type:"end",
     }
   ];
 
-  function showPopUp(){
-    console.log("ii");
-   let cont= document.getElementById('popUpContainer');
-   console.log(cont)
-   cont.style.display="block";
+
+  const tossCoin = () => {
+    let audio = document.getElementById('coinAudio');
+    let result;
+    coin1 = document.getElementById("coin1");
+    coin2 = document.getElementById("coin2");
+    flipBtn = document.querySelector("#flip-button");
+    resetBtn = document.querySelector("#reset-button");
+    console.log('hiii');
+    audio.play();
+    // console.log(coin);
+    if (coin1 && coin2) {
+      let i1 = Math.floor(Math.random() * 2);
+      let i2 =  Math.floor(Math.random() * 2);
+      coin1.style.animation = "none";
+      coin2.style.animation = "none";
+     // 00 01 10 11
+    // head head
+     if(i1===0 && i2===0){
+        setTimeout(function () {
+            console.log("tail tail")
+            result="TAIL TAIL";
+            
+           coin1.style.animation = "spin-heads 3s forwards";
+           coin2.style.animation = "spin-heads 3s forwards";
+           setTT((curr)=>curr+1);
+        }, 100);
+     }else if(i1===1 && i2===0){
+        // tail head
+        result="HEAD TAIL";
+        
+        console.log("head tail")
+        setTimeout(function () {
+            coin1.style.animation = "spin-tails 3s forwards";
+            coin2.style.animation = "spin-heads 3s forwards";
+            setHT((curr)=>curr+1);
+        }, 100);
+
+     }else if(i1===0 && i2===1){
+        // head tail
+        console.log("tail head")
+        result="TAIL HEAD";
+        setTimeout(function () {
+            coin2.style.animation = "spin-tails 3s forwards";
+            coin1.style.animation = "spin-heads 3s forwards";
+            setTH((curr)=>curr+1);
+        }, 100);
+       
+
+     }else{
+        // tail tail
+        console.log("head head ")
+        result="HEAD HEAD";
+        setTimeout(function () {
+            coin2.style.animation = "spin-tails 3s forwards";
+            coin1.style.animation = "spin-tails 3s forwards";
+            setHH((curr)=>curr+1);
+        }, 100);
+        
+     }
+    }
+    setTimeout(function () {
+     showPopUp(result);
+    }, 1500);
+
+  };
+
+  const showPopUp = (result)=>{
+    swal(
+      {
+        title: `Yay! 🤘 You Got ${result} `,
+        text: `Can you predict the next combination 🤔?`,
+        buttons: {
+          cancel: true,
+          roll: {
+            text: "Toss Again",
+            value: "Toss",
+            className : 'toss-again-btn'
+          },
+        },
+        
+      }).then((Toss)=>{
+        if(Toss){
+            tossCoin();
+        }
+      })
+      
   }
+
+
+
+  // function showPopUp(){
+  //   console.log("ii");
+  //  let cont= document.getElementById('popUpContainer');
+  //  console.log(cont)
+  //  cont.style.display="block";
+  // }
 
 
   const flipCoin = () => {
@@ -373,16 +407,16 @@ useEffect(() => {
         </div>
         <div className="statscont">
         <div className="col1"> 
-          <p id="headhead-count">HH : 0</p>
-          <p id="tailtail-count">T T : 0</p>
+          <p id="headhead-count">HH : {HH}</p>
+          <p id="tailtail-count">T T : {TT}</p>
         </div>
         <div className="col2">
-          <p id="headtail-count">HT : 0</p>
-          <p id="tailhead-count">TH : 0</p>
+          <p id="headtail-count">HT : {HT}</p>
+          <p id="tailhead-count">TH : {TH}</p>
         </div>
         </div>
         <div className="buttons">
-          <button id="flip-button" onClick={flipCoin}>
+          <button id="flip-button" onClick={tossCoin}>
             Flip Coin
           </button>
           <button id="reset-button" onClick={reset}>
