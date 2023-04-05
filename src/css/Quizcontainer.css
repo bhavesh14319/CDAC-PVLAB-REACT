@@ -1,7 +1,7 @@
 .quizContainer {
   width: 47.5vw;
   height: 38vh;
-  z-index: 999990;
+  z-index: 1000;
   position: absolute;
   top: 18.5%;
   left: 25%;

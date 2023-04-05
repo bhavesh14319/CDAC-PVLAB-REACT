@@ -1,6 +1,6 @@
-function Questions(props){
 
-    let quest = [
+
+    let quest1 = [
         
         {
             id: 0,
@@ -16,14 +16,14 @@ function Questions(props){
               value: "1/2",
             },
             explanation: {
-              value: `We know that the coin has two sides head (H) and tail (T) <br/> 
-                So the possible outcomes are Xm. (where x is the number of outcomes when a coin is tossed and m is the number of coins) <br/>      
-                ∴ The possible outcomes are H and T.  <br/> 
-                Total possible outcomes =2 <br/> 
-                ∴ Chances of getting a tail = 1(since there is a single coin) <br/> 
-                By using the formula, <br/> 
-                Probability p () = number of favorable outcomes/ total number of outcomes <br/> 
-                ∴ Probability of getting a tail p (T) = chances/total number of outcomes = ½ <br/>`,
+              value: `We know that the coin has two sides head (H) and tail (T) \n 
+                So the possible outcomes are Xm. (where x is the number of outcomes when a coin is tossed and m is the number of coins) \n      
+                ∴ The possible outcomes are H and T.
+                Total possible outcomes =2 \n 
+                ∴ Chances of getting a tail = 1(since there is a single coin) \n 
+                By using the formula, \n 
+                Probability p () = number of favorable outcomes/ total number of outcomes \n 
+                ∴ Probability of getting a tail p (T) = chances/total number of outcomes = ½ \n`,
             },
           },
 
@@ -41,9 +41,9 @@ function Questions(props){
               value: "1/2",
             },
             explanation: {
-              value: `An event that will never be happened is known as the impossible event. <br/> 
-                For example:- <br/> 
-                Tossing double-headed coins and getting tails in an impossible event <br/> 
+              value: `An event that will never be happened is known as the impossible event. \n 
+                For example:- \n 
+                Tossing double-headed coins and getting tails in an impossible event \n 
                 rolling a die and getting number > 10 in an impossible outcome, etc.`,
             },
           },
@@ -62,7 +62,7 @@ function Questions(props){
               value: "1-P(A)",
             },
             explanation: {
-              value: `The complement of P(A) is 1 -P(A) <br/> 
+              value: `The complement of P(A) is 1 -P(A) \n 
               refer formula list on left side for reference `,
             },
           },
@@ -104,27 +104,27 @@ function Questions(props){
             },
           },
 
-          {
-            id: 5,
-                type: "mcq",
-                question: "The probability of selecting a rotten apple randomly from a heap of 900 apples is 0.18. What is the number of rotten apples in the heap?",
-                option: {
-                  1: "738",
-                  2: "162",
-                  3: "262",
-                  4: "838"
-                },
-                correct: {
-                  value: "162"
-                },
-                explanation: {
-                  "value": "Given,Total number of apples in the heap = n(S) = 900 Let E be the event of selecting a rotten apple from the heap.Number of outcomes favourable to E = n(E) P(E) = n(E)/n(S)0.18 = n(E)/900 ⇒ n(E) = 900 × 0.18 ⇒ n(E) = 162 Therefore, the number of rotten apples in the heap = 162"
+          // {
+          //   id: 5,
+          //       type: "mcq",
+          //       question: "The probability of selecting a rotten apple randomly from a heap of 900 apples is 0.18. What is the number of rotten apples in the heap?",
+          //       option: {
+          //         1: "738",
+          //         2: "162",
+          //         3: "262",
+          //         4: "838"
+          //       },
+          //       correct: {
+          //         value: "162"
+          //       },
+          //       explanation: {
+          //         "value": "Given,Total number of apples in the heap = n(S) = 900 Let E be the event of selecting a rotten apple from the heap.Number of outcomes favourable to E = n(E) P(E) = n(E)/n(S)0.18 = n(E)/900 ⇒ n(E) = 900 × 0.18 ⇒ n(E) = 162 Therefore, the number of rotten apples in the heap = 162"
                   
-                }
-           },
+          //       }
+          //  },
 
            {
-            id: 6,
+            id: 5,
             type:"mcq" ,
             question: "A single coin is tossed 5 times. What is the probability of getting at least one head?",
             option: {
@@ -142,4 +142,6 @@ function Questions(props){
             } 
           }
     ]
-}
+
+
+    export default quest1;

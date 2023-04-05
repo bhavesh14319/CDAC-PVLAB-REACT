@@ -68,24 +68,6 @@ const Board = (props) => {
     }
   };
 
-  // const onPrev=()=>{
-  //   //  console.log('outside prev',current);
-  //   //   // setCurrent(current-1);
-  //   //   console.log('outside prev',current);
-  //   //   // current=current-1;
-  //   //   // textBox1.textContent="";
-  //   //   if(inst[current].type==='formula'){
-  //   //     showFormula(inst[current].image);
-  //   //   }
-  //   //   if(inst[current].type==='calculation'){
-  //   //     showCalculation(inst[current].calculation);
-  //   //   }
-  //   //   if(inst[current].type==='general'){
-  //   //     // setCurrent(current+1);
-  //   //     showInstruction(inst[current].value);
-  //   //   }
-
-  // }
 
   window.addEventListener("load", () => {
     if (prevBtn && nextBtn && quizBtn) {
@@ -272,7 +254,7 @@ const Board = (props) => {
             </PlayCircleIcon>
             </IconButton>
           </div>
-          {props?.level === 1 && (
+          {/* {props?.level === 1 && (
             <Popup
               level={1}
               setOutput={props?.setOutput}
@@ -298,7 +280,7 @@ const Board = (props) => {
               TT={props?.TT}
               onNext={onNext}
             ></Popup>
-          )}
+          )} */}
           {decisionComponent1(type)}
 
           {type !== "formula" && (

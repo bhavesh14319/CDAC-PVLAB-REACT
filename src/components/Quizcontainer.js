@@ -6,6 +6,11 @@ import pointingcoin from "../components/images/pointingcoin.png";
 import Quizsolution from "./Quizsolution";
 import swal from "sweetalert";
 import { useNavigate } from 'react-router-dom';
+import quest1 from "./Level1";
+import quest2 from "./Level2";
+import quest3 from "./Level3";
+import quest4 from "./Level4";
+
 // import { imageListClasses } from "@mui/material";
 
 const Quizcontainer = (props) => {
@@ -15,7 +20,31 @@ const Quizcontainer = (props) => {
 
   const navigate = useNavigate();
 
-  let quest = props?.quest;
+  console.log(props);
+
+  let quest;
+
+  switch (props.level) {
+    case 1:
+      quest = quest1;
+      break;
+
+    case 2:
+      quest = quest2;
+      break;
+
+    case 3:
+      quest = quest3;
+      break;
+      
+    case 4:
+      quest = quest4;
+      break;
+
+    default:
+      break;
+  }
+
 
   function closePopUp() {
     document.getElementById("quizContainer").style.display = "none";
@@ -50,6 +79,15 @@ const Quizcontainer = (props) => {
   //     },
   //   }
   // ];
+
+
+  function handleOutputLevel(e) {
+    console.log("wrong");
+    swal("Oops! \n You made it wrong 🙂", `${props.question.justification}`, "error")
+
+  }
+
+
   function answervalidation() {
     var option = document.getElementsByName("OUTPUT");
     var quizcoin = document.getElementById("quizcoin");
@@ -79,15 +117,15 @@ const Quizcontainer = (props) => {
       if (correctalert) {
         correctalert.style.display = "block";
       }
-      let i=2;
-      const myInterval = setInterval(()=>{
-        if(i>=0){
-          settimer(timer=i);
+      let i = 2;
+      const myInterval = setInterval(() => {
+        if (i >= 0) {
+          settimer(timer = i);
         }
-        i=i-1;
-      },1000);
-      if(i===0){
-      clearInterval(myInterval);
+        i = i - 1;
+      }, 1000);
+      if (i === 0) {
+        clearInterval(myInterval);
       }
 
       setTimeout(() => {
@@ -101,13 +139,15 @@ const Quizcontainer = (props) => {
         quizcoin.src = questioncoin;
         solutiontext.style.display = "none";
 
-       
-        settimer(timer=3);
+
+        settimer(timer = 3);
       }, 3000);
-      
+
     } else {
       quizcoin.src = pointingcoin;
-      solutiontext.style.display = "block";
+      swal("Oops! \n You made it wrong 🙂", `${quest[current]?.explanation.value}`, "error")
+      // solutiontext.style.display = "block";
+
 
       // wrongalert.style.display="block";
     }
@@ -121,42 +161,42 @@ const Quizcontainer = (props) => {
   React.useEffect(() => {
     console.log(current);
 
-    if(current == quest.length){
-      document.querySelector('.quizContainer').style.display="none";
+    if (current == quest.length) {
+      document.querySelector('.quizContainer').style.display = "none";
       swal({
-        icon:'success',
-        title:"You have completed quiz ",
+        icon: 'success',
+        title: "You have completed quiz ",
         text: "Click on Next to go to next level. \n if you want to revise the same level click on Repeat",
         buttons: {
-          Repeat:{
-            text : "Repeat",
-            value:"Repeat",
+          Repeat: {
+            text: "Repeat",
+            value: "Repeat",
             width: "fit-content",
-            className:"repeat-level-btn"
+            className: "repeat-level-btn"
           },
           Next: {
             text: "Next",
             value: "Next Level",
-            className : 'Next-level-btn'
+            className: 'Next-level-btn'
           },
         },
-        
-      }).then((NextLevel)=>{
+
+      }).then((NextLevel) => {
         console.log();
-        if(NextLevel== 'Next Level'){
-          if(props.level===1){
+        if (NextLevel == 'Next Level') {
+          if (props.level === 1) {
             navigate('/twocoin')
-          }else 
-          if(props.level===2){
-            navigate('/singledice')
-          }else if(props.level===3){
-            navigate('/doubledice')
-          }
-            
-        }else{
-            navigate(window.location);
-            setcurrent(0);
-            props.onStart();
+          } else
+            if (props.level === 2) {
+              navigate('/singledice')
+            } else if (props.level === 3) {
+              navigate('/doubledice')
+            }
+
+        } else {
+          navigate(window.location);
+          setcurrent(0);
+          props.onStart();
         }
       })
     }

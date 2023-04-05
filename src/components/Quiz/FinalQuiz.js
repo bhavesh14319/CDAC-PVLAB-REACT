@@ -2,36 +2,89 @@ import React, { useEffect, useState } from 'react';
 import Start from './components/Start';
 import Quiz from './components/Quiz';
 import Result from './components/Result';
+import swal from "sweetalert";
+import { useNavigate } from 'react-router-dom';
+import Right from "../sounds/correct.mp3"
+import Wrong from "../sounds/buzzer.mp3"
 
 function FinalQuiz() {
-  // All Quizs, Current Question, Index of Current Question, Answer, Selected Answer, Total Marks
-  const [quizs, setQuizs] = useState([]);
-  const [question, setQuesion] = useState({});
-  const [questionIndex, setQuestionIndex] = useState(0);
+
+
+
   const [correctAnswer, setCorrectAnswer] = useState('');
   const [selectedAnswer, setSelectedAnswer] = useState('');
-  const [marks, setMarks] = useState(0);
+  const [score, setScore] = useState(0);
+  const navigate = useNavigate();
 
   // Display Controlling States
   const [showStart, setShowStart] = useState(true);
   const [showQuiz, setShowQuiz] = useState(false);
   const [showResult, setShowResult] = useState(false);
 
+
+
+  // adaptiveness
+  const EASY_THRESHOLD = 3;
+  const MEDIUM_THRESHOLD = 3;
+
+
+  const [questions, setQuestions] = useState({});
+  let [easyQuestions, setEasyQuestions] = useState([]);
+  let [medQuestions, setMedQuestions] = useState([]);
+  let [hardQuestions, setHardQuestions] = useState([]);
+
+  const [currentLevel, setCurrentLevel] = useState('easy');
+  let [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+  // let [currentQuestions, setCurrentQuestions] = useState([]);
+  const[currentQuestions, setCurrentQuestions] = useState([]);
+
+  const [totalQuestions, setTotalQuestions] = useState(0);
+
+
+
+
+
+
+
   // Load JSON Data
   useEffect(() => {
     fetch("quiz.json")
       .then(res => res.json())
-      .then(data => setQuizs(data))
+      .then(data => {
+        // setQuizs(data)
+        setQuestions(data);
+        // console.log(quizs);
 
-        console.log(quizs);
+        if (data) {
+          console.log(data);
+          const randomEasyQuestions = data?.easy?.sort(() => 0.5 - Math.random()).slice(0, 4);
+
+          setEasyQuestions(easyQuestions = randomEasyQuestions);
+
+          const randomMedQuestions = data?.medium?.sort(() => 0.5 - Math.random()).slice(0, 4);
+          setMedQuestions(medQuestions = randomMedQuestions);
+
+          const randomHardQuestions = data?.hard?.sort(() => 0.5 - Math.random()).slice(0, 3);
+          setHardQuestions(hardQuestions = randomHardQuestions);
+
+          // setCurrentQuestions(currentQuestions = easyQuestions);
+          setCurrentQuestions(easyQuestions);
+
+
+          console.log(easyQuestions);
+          console.log(medQuestions);
+          console.log(hardQuestions);
+
+        }
+
+      })
+
   }, []);
 
-  // Set a Single Question
-  useEffect(() => {
-    if (quizs.length > questionIndex) {
-      setQuesion(quizs[questionIndex]);
-    }
-  }, [quizs, questionIndex])
+
+
+
 
   // Start Quiz
   const startQuiz = () => {
@@ -41,28 +94,159 @@ function FinalQuiz() {
 
   // Check Answer
   const checkAnswer = (event, selected) => {
-    if (!selectedAnswer) {
-      setCorrectAnswer(question.answer);
-      setSelectedAnswer(selected);
+    let audio = document.getElementById('quiz-audio');
 
-      if (selected === question.answer) {
-        event.target.classList.add('bg-success');
-        setMarks(marks + 5);
-      } else {
-        event.target.classList.add('bg-danger');
+    if (currentLevel === "easy") {
+      if (!selectedAnswer) {
+        setCorrectAnswer(currentQuestions && currentQuestions[currentQuestionIndex].answer);
+        setSelectedAnswer(selected);
+
+        if (selected === currentQuestions[currentQuestionIndex].answer) {
+          audio.src=Right;
+          audio.play();
+          event.target.classList.add('bg-success');
+          // setCorrectAnswers((correctAnswers=correctAnswers+1));
+          setCorrectAnswers((curr)=>curr+1);
+          setScore((curr)=>curr+5);
+        } else {
+          audio.src=Wrong;
+          audio.play();
+          event.target.classList.add('bg-danger');
+ 
+        }
       }
     }
+
+
+    if (currentLevel === "medium") {
+      if (!selectedAnswer) {
+        setCorrectAnswer(currentQuestions && currentQuestions[currentQuestionIndex].answer);
+        setSelectedAnswer(selected);
+
+        if (selected === currentQuestions[currentQuestionIndex].answer) {
+          event.target.classList.add('bg-success');
+          // setCorrectAnswers((correctAnswers=correctAnswers+1));
+          setCorrectAnswers((curr)=>curr+1);
+          setScore((curr)=>curr+10);
+        } else {
+          event.target.classList.add('bg-danger');
+        }
+      }
+    }
+
+
+    if (currentLevel === "hard") {
+      if (!selectedAnswer) {
+        setCorrectAnswer(currentQuestions && currentQuestions[currentQuestionIndex].answer);
+        setSelectedAnswer(selected);
+
+        if (selected === currentQuestions[currentQuestionIndex].answer) {
+          event.target.classList.add('bg-success');
+          // setCorrectAnswers((correctAnswers=correctAnswers+1));
+          setCorrectAnswers((curr)=>curr+1);
+          setScore((curr)=>curr+15);
+        } else {
+          event.target.classList.add('bg-danger');
+        }
+      }
+    }
+
+
+    setTotalQuestions((cur) => cur + 1);
+
   }
 
   // Next Quesion
   const nextQuestion = () => {
+
+    console.log(correctAnswers);
+    if (currentLevel === 'easy' && correctAnswers >= EASY_THRESHOLD) {
+      setCurrentLevel("medium");
+      // setCurrentQuestions(currentQuestions = medQuestions);
+      setCurrentQuestions(medQuestions);
+
+      setCurrentQuestionIndex(currentQuestionIndex = -1);
+      setCorrectAnswers(0);
+      swal(
+        {
+          title:" Congratulations!! 🎉🥳 " ,
+          text: `You have advanced to the medium level. 👏`,
+          buttons: {
+            cancel: true,
+            Keep: {
+              text: "Keep Going",
+              value: "Keep-Going",
+              className: 'Keep-Going-Btn'
+            },
+          },
+  
+        })
+      // alert('Congratulations! You have advanced to the medium level.');
+    } else if (currentLevel === 'medium' && correctAnswers >= MEDIUM_THRESHOLD) {
+      setCurrentLevel("hard");
+      // setCurrentQuestions(currentQuestions = hardQuestions);
+      setCurrentQuestions(hardQuestions);
+
+      setCorrectAnswers(0);
+      setCurrentQuestionIndex(currentQuestionIndex = -1);
+      swal(
+        {
+          title:" Congratulations!! 🎉🥳 " ,
+          text: `You have advanced to the hard level. 👏`,
+          buttons: {
+            cancel: true,
+            Keep: {
+              text: "Keep Going",
+              value: "Keep-Going",
+              className: 'Keep-Going-Btn'
+            },
+          },
+  
+        })
+      // alert('Congratulations! You have advanced to the hard level.');
+    }
+    // Check if all questions in the current level have been asked
+    console.log(currentQuestions.length);
+    if (currentQuestionIndex >= currentQuestions.length-1) {
+      swal(
+        {
+          title:"Note" ,
+          icon:"info",
+          text: `You have completed all the questions of ${currentLevel} level. \n you have solved ${correctAnswers} questions correctly from ${totalQuestions} ${currentLevel} questions \n we recommend you to rewise the concepts once again`,
+          buttons: {
+            Keep: {
+              text: "Rewise",
+              value: "Rewise",
+              className: 'Rewise-Btn'
+            },
+          },
+  
+        }).then((Rewise) => {
+          if (Rewise) {
+            navigate("/");
+            return;
+          }
+        })
+
+
+      
+
+
+    }
+   
+
+    
+    setCurrentQuestionIndex(currentQuestionIndex += 1);
+
+
     setCorrectAnswer('');
+
     setSelectedAnswer('');
     const wrongBtn = document.querySelector('button.bg-danger');
     wrongBtn?.classList.remove('bg-danger');
     const rightBtn = document.querySelector('button.bg-success');
     rightBtn?.classList.remove('bg-success');
-    setQuestionIndex(questionIndex + 1);
+    // setQuestionIndex(questionIndex + 1);
   }
 
   // Show Result
@@ -79,16 +263,24 @@ function FinalQuiz() {
     setShowQuiz(true);
     setCorrectAnswer('');
     setSelectedAnswer('');
-    setQuestionIndex(0);
-    setMarks(0);
+    setCurrentQuestionIndex(0);
+    setScore(0);
     const wrongBtn = document.querySelector('button.bg-danger');
     wrongBtn?.classList.remove('bg-danger');
     const rightBtn = document.querySelector('button.bg-success');
     rightBtn?.classList.remove('bg-success');
   }
 
+
+  useEffect(() => {
+
+  }, [])
+
+
+
   return (
-    <div style={{height:"80vh",display:"flex",justifyContent:"center",alignItems:"center"}}>
+    <div style={{ height: "80vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+       <audio src="" id="quiz-audio" hidden></audio>
       {/* Welcome Page */}
       <Start
         startQuiz={startQuiz}
@@ -98,21 +290,21 @@ function FinalQuiz() {
       {/* Quiz Page */}
       <Quiz
         showQuiz={showQuiz}
-        question={question}
-        quizs={quizs}
+        question={currentQuestions && currentQuestions[currentQuestionIndex]}
         checkAnswer={checkAnswer}
         correctAnswer={correctAnswer}
         selectedAnswer={selectedAnswer}
-        questionIndex={questionIndex}
         nextQuestion={nextQuestion}
         showTheResult={showTheResult}
+        totalQuestions={totalQuestions}
+        level={currentLevel}
+        score={score}
       />
 
       {/* Result Page */}
       <Result
         showResult={showResult}
-        quizs={quizs}
-        marks={marks}
+        score={score}
         startOver={startOver} />
     </div>
   );

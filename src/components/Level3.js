@@ -1,6 +1,6 @@
-function Questions(props) {
 
-  let quest = [
+
+  let quest3 = [
 
     {
       id: 0,
@@ -115,4 +115,5 @@ function Questions(props) {
       }
     }
   ]
-}
+
+  export default quest3;

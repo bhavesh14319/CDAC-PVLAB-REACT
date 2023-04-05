@@ -3,12 +3,13 @@
     /* display: flex; */
     /* justify-content: center; */
     align-items: center;
-    background-color: #F2F2F2;
+    background-color: #228538;
     margin: 0 auto;
     /* height: 80%; */
     border-radius: 20px;
     z-index: 1;
     padding: 25px;
+    border: 20px solid #272020;
     /* background-image: url('/public/quiz_img.jpg'); */
     /* background-repeat: no-repeat; */
     /* background-size: contain; */

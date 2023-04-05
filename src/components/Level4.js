@@ -1,6 +1,6 @@
-function Questions(props) {
 
-  let quest = [
+
+  let quest4 = [
 
     {
 
@@ -115,4 +115,5 @@ function Questions(props) {
     }
 
   ]
-}
+
+  export default quest4;
