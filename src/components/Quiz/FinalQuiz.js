@@ -126,9 +126,13 @@ function FinalQuiz() {
         if (selected === currentQuestions[currentQuestionIndex].answer) {
           event.target.classList.add('bg-success');
           // setCorrectAnswers((correctAnswers=correctAnswers+1));
+          audio.src=Right;
+          audio.play();
           setCorrectAnswers((curr)=>curr+1);
           setScore((curr)=>curr+10);
         } else {
+          audio.src=Wrong;
+          audio.play();
           event.target.classList.add('bg-danger');
         }
       }
@@ -143,9 +147,13 @@ function FinalQuiz() {
         if (selected === currentQuestions[currentQuestionIndex].answer) {
           event.target.classList.add('bg-success');
           // setCorrectAnswers((correctAnswers=correctAnswers+1));
+          audio.src=Right;
+          audio.play();
           setCorrectAnswers((curr)=>curr+1);
           setScore((curr)=>curr+15);
         } else {
+          audio.src=Wrong;
+          audio.play();
           event.target.classList.add('bg-danger');
         }
       }
