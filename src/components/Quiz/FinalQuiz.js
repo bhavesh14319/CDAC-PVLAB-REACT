@@ -62,7 +62,7 @@ function FinalQuiz() {
 
           setEasyQuestions(easyQuestions = randomEasyQuestions);
 
-          const randomMedQuestions = data?.medium?.sort(() => 0.5 - Math.random()).slice(0, 4);
+          const randomMedQuestions = data?.medium?.sort(() => 0.5 - Math.random()).slice(0, 5);
           setMedQuestions(medQuestions = randomMedQuestions);
 
           const randomHardQuestions = data?.hard?.sort(() => 0.5 - Math.random()).slice(0, 3);
@@ -272,11 +272,14 @@ function FinalQuiz() {
     setCorrectAnswer('');
     setSelectedAnswer('');
     setCurrentQuestionIndex(0);
+    setCurrentLevel('easy');
     setScore(0);
     const wrongBtn = document.querySelector('button.bg-danger');
     wrongBtn?.classList.remove('bg-danger');
     const rightBtn = document.querySelector('button.bg-success');
     rightBtn?.classList.remove('bg-success');
+
+    window.reload();
   }
 
 
@@ -287,7 +290,7 @@ function FinalQuiz() {
 
 
   return (
-    <div style={{ height: "80vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+    <div style={{ height: "100%", display: "flex", justifyContent: "center", alignItems: "center"}} className='quiz_main'>
        <audio src="" id="quiz-audio" hidden></audio>
       {/* Welcome Page */}
       <Start

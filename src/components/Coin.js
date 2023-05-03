@@ -9,6 +9,9 @@ import probLine from '../components/images/probLine.png'
 import { returnUserInput } from './Popup'
 import Flip from "../components/sounds/coin1.mp3"
 import swal from "sweetalert";
+import tail from "./coinimages/5_tails.png"
+import head from "./coinimages/5_heads.png"
+
 
 const Coin = () => {
   // var output = "";
@@ -287,7 +290,7 @@ const Coin = () => {
 
 
   return (
-    <div>
+    <>
       <audio id="coinAudio" src={Flip} style={{ display: "none" }} />
       {/* { flipBtn = document.querySelector("#flip-button")} */}
       <Board inst={inst} setOutput={setOutput} level={1} setheads={setheads} settails={settails} heads={heads} tails={tails} flip={flipBtn}></Board>
@@ -296,10 +299,10 @@ const Coin = () => {
         <div className="coinContainer">
           <div className="coin" id="coin">
             <div className="heads">
-              <img src="https://jkscoinworld.com/wp-content/uploads/2018/05/2013-a-1.jpg" />
+              <img src={tail}/>
             </div>
             <div className="tails">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKPXdeMWZbX3Vk9Qc3tgGtERTCZNe5z1OyzXN8ZejoIrXgA95Wi4mfTV3BgGr0lGHO5I4&usqp=CAU" />
+              <img src={head} />
             </div>
           </div>
         </div>
@@ -316,7 +319,7 @@ const Coin = () => {
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default Coin;

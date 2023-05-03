@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: rgb(204, 204, 204) url(../public/bg.jpg) no-repeat center center;
+  /* background: rgb(204, 204, 204) url(../public/bg.jpg) no-repeat center center; */
   background-size: cover;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#848484', GradientType=1);
   height: 100vh;

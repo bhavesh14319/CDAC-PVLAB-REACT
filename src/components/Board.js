@@ -236,7 +236,7 @@ const Board = (props) => {
   // },[value])
 
   return (
-    <>
+    <div className="board_main">
       <audio src="" id="audio" hidden></audio>
       <div className="formulaContainer" id="formulaContainer">
         {/* <img src={probFormula} alt="" className="fadeInClass" /> */}
@@ -369,7 +369,7 @@ const Board = (props) => {
       <Quiz level={props.level}/>
 
       {/* <SideNavRight /> */}
-    </>
+    </div>
   );
 };
 

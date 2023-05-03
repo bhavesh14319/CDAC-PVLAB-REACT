@@ -51,36 +51,6 @@
             "answer": "0.1667"
         },
         {
-            "question": "What is the probability of getting a number less than 4 on a single dice roll?",
-            "options": [
-                "0.5",
-                "0.25",
-                "0.75",
-                "0.6667"
-            ],
-            "answer": "0.5"
-        },
-        {
-            "question": "What is the probability of getting two 6s on two consecutive dice rolls?",
-            "options": [
-                "0.0278",
-                "0.1667",
-                "0.3333",
-                "0.25"
-            ],
-            "answer": "0.0278"
-        },
-        {
-            "question": "What is the probability of getting a sum of 7 on two dice rolls?",
-            "options": [
-                "0.1667",
-                "0.25",
-                "0.5",
-                "0.1111"
-            ],
-            "answer": "0.1667"
-        },
-        {
             "question": "What is the probability of getting tails on the second coin toss given that the first coin toss resulted in heads?",
             "options": [
                 "0.5",
@@ -92,26 +62,6 @@
         },
         {
             "question": "What is the probability of getting two tails on two consecutive coin tosses?",
-            "options": [
-                "0.25",
-                "0.5",
-                "0.75",
-                "0.125"
-            ],
-            "answer": "0.25"
-        },
-        {
-            "question": "What is the probability of getting a sum of 9 on two dice rolls?",
-            "options": [
-                "0.1111",
-                "0.25",
-                "0.5",
-                "0.1667"
-            ],
-            "answer": "0.1111"
-        },
-        {
-            "question": "What is the probability of getting two even numbers on two consecutive dice rolls?",
             "options": [
                 "0.25",
                 "0.5",
@@ -151,26 +101,6 @@
             "answer": "0.75"
         },
         {
-            "question": "What is the probability of getting two even numbers on two consecutive dice rolls?",
-            "options": [
-                "0.25",
-                "0.5",
-                "0.75",
-                "1"
-            ],
-            "answer": "0.25"
-        },
-        {
-            "question": "What is the probability of getting two odd numbers on two consecutive dice rolls?",
-            "options": [
-                "0.25",
-                "0.5",
-                "0.75",
-                "1"
-            ],
-            "answer": "0.25"
-        },
-        {
             "question": "What is the probability of getting a sum of 7 on two dice rolls?",
             "options": [
                 "0.167",
@@ -191,36 +121,6 @@
             "answer": "0.083"
         },
         {
-            "question": "What is the probability of getting at least one even number on two consecutive dice rolls?",
-            "options": [
-                "0.75",
-                "0.5",
-                "0.25",
-                "1"
-            ],
-            "answer": "0.75"
-        },
-        {
-            "question": "What is the probability of getting at least one odd number on two consecutive dice rolls?",
-            "options": [
-                "0.75",
-                "0.5",
-                "0.25",
-                "1"
-            ],
-            "answer": "0.75"
-        },
-        {
-            "question": "What is the probability of getting two numbers greater than 4 on two consecutive dice rolls?",
-            "options": [
-                "0.083",
-                "0.25",
-                "0.5",
-                "1"
-            ],
-            "answer": "0.083"
-        },
-        {
             "question": "What is the probability of getting a sum of 4 on two dice rolls?",
             "options": [
                 "0.083",
@@ -231,16 +131,6 @@
             "answer": "0.083"
         },
         {
-            "question": "What is the probability of getting two numbers less than 3 on two consecutive dice rolls?",
-            "options": [
-                "0.027",
-                "0.25",
-                "0.5",
-                "1"
-            ],
-            "answer": "0.027"
-        },
-        {
             "question": "What is the probability of getting a sum of 5 on two dice rolls?",
             "options": [
                 "0.111",
@@ -249,9 +139,7 @@
                 "1"
             ],
             "answer": "0.111"
-        }
-    ],
-    "medium": [
+        },
         {
             "question": "What is the probability of getting a head when flipping a fair coin?",
             "options": [
@@ -291,7 +179,10 @@
                 "0.33"
             ],
             "answer": "0.5"
-        },
+        }
+    ],
+    "medium": [
+       
         {
             "question": "If a fair coin is flipped twice, what is the probability of getting two heads?",
             "options": [
@@ -331,36 +222,6 @@
                 "0.28"
             ],
             "answer": "0.11"
-        },
-        {
-            "question": "If a biased coin that lands heads 60% of the time is flipped twice, what is the probability of getting two heads?",
-            "options": [
-                "0.16",
-                "0.36",
-                "0.48",
-                "0.64"
-            ],
-            "answer": "0.36"
-        },
-        {
-            "question": "If a biased coin that lands heads 60% of the time is flipped twice, what is the probability of getting one head and one tail?",
-            "options": [
-                "0.16",
-                "0.36",
-                "0.48",
-                "0.64"
-            ],
-            "answer": "0.48"
-        },
-        {
-            "question": "If a fair die is rolled three times, what is the probability of getting a sum of 9?",
-            "options": [
-                "0.12",
-                "0.13",
-                "0.14",
-                "0.15"
-            ],
-            "answer": "0.12"
         },
         {
             "question": "What is the probability of getting exactly one head when tossing two coins?",
@@ -461,6 +322,116 @@
                 "2/3"
             ],
             "answer": "1/4"
+        },
+        {
+            "question": "What is the probability of getting a number less than 4 on a single dice roll?",
+            "options": [
+                "0.5",
+                "0.25",
+                "0.75",
+                "0.6667"
+            ],
+            "answer": "0.5"
+        },
+        {
+            "question": "What is the probability of getting two 6s on two consecutive dice rolls?",
+            "options": [
+                "0.0278",
+                "0.1667",
+                "0.3333",
+                "0.25"
+            ],
+            "answer": "0.0278"
+        },
+        {
+            "question": "What is the probability of getting a sum of 7 on two dice rolls?",
+            "options": [
+                "0.1667",
+                "0.25",
+                "0.5",
+                "0.1111"
+            ],
+            "answer": "0.1667"
+        },
+        {
+            "question": "What is the probability of getting at least one even number on two consecutive dice rolls?",
+            "options": [
+                "0.75",
+                "0.5",
+                "0.25",
+                "1"
+            ],
+            "answer": "0.75"
+        },
+        {
+            "question": "What is the probability of getting at least one odd number on two consecutive dice rolls?",
+            "options": [
+                "0.75",
+                "0.5",
+                "0.25",
+                "1"
+            ],
+            "answer": "0.75"
+        },
+        {
+            "question": "What is the probability of getting two numbers greater than 4 on two consecutive dice rolls?",
+            "options": [
+                "0.083",
+                "0.25",
+                "0.5",
+                "1"
+            ],
+            "answer": "0.083"
+        },
+        {
+            "question": "What is the probability of getting two numbers less than 3 on two consecutive dice rolls?",
+            "options": [
+                "0.027",
+                "0.25",
+                "0.5",
+                "1"
+            ],
+            "answer": "0.027"
+        },
+        {
+            "question": "What is the probability of getting two even numbers on two consecutive dice rolls?",
+            "options": [
+                "0.25",
+                "0.5",
+                "0.75",
+                "1"
+            ],
+            "answer": "0.25"
+        },
+        {
+            "question": "What is the probability of getting two odd numbers on two consecutive dice rolls?",
+            "options": [
+                "0.25",
+                "0.5",
+                "0.75",
+                "1"
+            ],
+            "answer": "0.25"
+        },
+        {
+            "question": "What is the probability of getting a sum of 9 on two dice rolls?",
+            "options": [
+                "0.1111",
+                "0.25",
+                "0.5",
+                "0.1667"
+            ],
+            "answer": "0.1111"
+        },
+        {
+            "question": "What is the probability of getting two even numbers on two consecutive dice rolls?",
+            "options": [
+                "0.25",
+                "0.5",
+                "0.75",
+                "0.125"
+            ],
+            "answer": "0.25"
         }
     ],
     "hard": [
@@ -473,16 +444,6 @@
                 "7/8"
             ],
             "answer": "3/8"
-        },
-        {
-            "question": "If two fair dice are rolled, what is the probability that the sum of the numbers is 7?",
-            "options": [
-                "1/6",
-                "1/12",
-                "1/36",
-                "1/18"
-            ],
-            "answer": "1/6"
         },
         {
             "question": "What is the probability of rolling at least one 6 with two fair dice?",
@@ -501,16 +462,6 @@
                 "1/2",
                 "2/3",
                 "3/4"
-            ],
-            "answer": "1/2"
-        },
-        {
-            "question": "What is the probability of rolling an odd number on a fair 6-sided die?",
-            "options": [
-                "1/3",
-                "1/2",
-                "2/3",
-                "1/6"
             ],
             "answer": "1/2"
         },
@@ -535,16 +486,6 @@
             "answer": "1/12"
         },
         {
-            "question": "If two fair coins are flipped, what is the probability of getting exactly one head?",
-            "options": [
-                "1/4",
-                "1/2",
-                "3/4",
-                "1/3"
-            ],
-            "answer": "1/2"
-        },
-        {
             "question": "If two fair dice are rolled, what is the probability of getting a sum greater than 9?",
             "options": [
                 "1/36",
@@ -553,16 +494,6 @@
                 "1/6"
             ],
             "answer": "1/12"
-        },
-        {
-            "question": "If two fair coins are flipped, what is the probability of getting two tails?",
-            "options": [
-                "1/4",
-                "1/2",
-                "3/4",
-                "1/3"
-            ],
-            "answer": "1/4"
         },
         {
             "question": "If two fair dice are rolled, what is the probability of getting a sum of 6 or 8?",
@@ -615,16 +546,6 @@
             "answer": "1/4"
         },
         {
-            "question": "If two fair coins are flipped, what is the probability of getting two heads?",
-            "options": [
-                "1/4",
-                "1/2",
-                "3/4",
-                "1/3"
-            ],
-            "answer": "1/4"
-        },
-        {
             "question": "If two fair dice are rolled, what is the probability of getting a sum of 3 or 11?",
             "options": [
                 "1/36",
@@ -633,6 +554,36 @@
                 "1/9"
             ],
             "answer": "1/18"
+        },
+        {
+            "question": "If a biased coin that lands heads 60% of the time is flipped twice, what is the probability of getting two heads?",
+            "options": [
+                "0.16",
+                "0.36",
+                "0.48",
+                "0.64"
+            ],
+            "answer": "0.36"
+        },
+        {
+            "question": "If a biased coin that lands heads 60% of the time is flipped twice, what is the probability of getting one head and one tail?",
+            "options": [
+                "0.16",
+                "0.36",
+                "0.48",
+                "0.64"
+            ],
+            "answer": "0.48"
+        },
+        {
+            "question": "If a fair die is rolled three times, what is the probability of getting a sum of 9?",
+            "options": [
+                "0.12",
+                "0.13",
+                "0.14",
+                "0.15"
+            ],
+            "answer": "0.12"
         }
     ]
 }

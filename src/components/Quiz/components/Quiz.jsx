@@ -19,14 +19,14 @@ const Quiz = ({
 
   return (
     <div
-      className="start_container"
+      className="start_container start_container_quiz"
       style={{ display: `${showQuiz ? "block" : "none"}` }}
     >
       <div className="question_contaainer">
         <div style={{display:"flex" ,justifyContent:"space-between",paddingLeft:"10px"}}>
           <h5 style={{ color: "#60d600", textAlign: "left", padding: "10px" ,display:"inline"}}>
-              <span>Difficulty:&nbsp;</span>
-              <span style={{ fontSize: "medium" }}>
+              <span style={{color:"#FFF"}}>Difficulty:&nbsp;</span>
+              <span  style={{ color: `${level=="easy" ?"#00F200" : level=="medium" ? "#FACC2E" : "#FF0000"}`,fontSize: "medium" }}>
                 {level}
               </span>
             </h5>
@@ -54,14 +54,14 @@ const Quiz = ({
                   className="options_container"
                   onClick={(event) => checkAnswer(event, item)}
                 >
-                 <span className="option_number">{index + 1}</span><div style={{display:"inline-block"}}>{item}</div> 
+                 <span className="option_number">{index + 1})</span><div style={{display:"inline-block"}}>{item}</div> 
                 </button>
               </div>
             </>
           ))}
         </div>
 
-        {totalQuestions + 1 !== 11 ? (
+        {totalQuestions + 1 !== 12 ? (
           <div className="submit_button_container">
             <button
               className="submit_button"
@@ -74,9 +74,10 @@ const Quiz = ({
           </div>
         ) : (
           <button
-            className="btn py-2 w-100 mt-3 bg-primary text-light fw-bold"
+            className="btn py-2 w-100 mt-3 ml-3  bg-primary text-light fw-bold"
             onClick={showTheResult}
             disabled={!selectedAnswer}
+            style={{width:"fit-content",marginLeft:"20px"}}
           >
             Show Result
           </button>

@@ -1,6 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Walter+Turncoat);
 
 
+.board_main{
+    height: 100%;
+    width: 100%;
+    background-image: url('../../public/bg.jpg');
+    background-position: center;    
+    background-size: cover;
+}
+
 .boardContainer{
     display: flex;
     justify-content: center;
