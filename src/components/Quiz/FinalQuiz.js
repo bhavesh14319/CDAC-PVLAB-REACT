@@ -223,7 +223,7 @@ function FinalQuiz() {
           text: `You have completed all the questions of ${currentLevel} level. \n you have solved ${correctAnswers} questions correctly from ${totalQuestions} ${currentLevel} questions \n we recommend you to rewise the concepts once again`,
           buttons: {
             Keep: {
-              text: "Rewise",
+              text: "Revise",
               value: "Rewise",
               className: 'Rewise-Btn'
             },
